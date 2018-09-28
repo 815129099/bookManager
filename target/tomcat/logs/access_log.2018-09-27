@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:14:53:56 +0800] "GET /SSM/maSystem HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:54 +0800] "GET /SSM/maSystem HTTP/1.1" 200 4527 http-bio-8080-exec-1 187
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:55 +0800] "GET /SSM/meList HTTP/1.1" 200 23678 http-bio-8080-exec-6 52
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:56 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2041 http-bio-8080-exec-8 913
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:56 +0800] "GET /SSM/style/images/right.png HTTP/1.1" 404 1003 http-bio-8080-exec-9 1
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:56 +0800] "GET /SSM/style/images/left.png HTTP/1.1" 404 1001 http-bio-8080-exec-2 3
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:03:59 +0800] "GET /SSM/style/css/bootstrap.min.css.map HTTP/1.1" 404 1021 http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:04:02 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2041 http-bio-8080-exec-10 20
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:04:03 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2041 http-bio-8080-exec-10 3
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:04:04 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2041 http-bio-8080-exec-10 16
+0:0:0:0:0:0:0:1 - - [27/Sep/2018:15:04:05 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2041 http-bio-8080-exec-10 7

@@ -1,0 +1,12 @@
+E:\code\Repository\bookManager\src\main\java\com\smart\bean\Book.java
+E:\code\Repository\bookManager\src\main\java\com\smart\dao\bookDao.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\SimpleList.java
+E:\code\Repository\bookManager\src\main\java\com\smart\service\bookService.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\SerializeUtil.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\JedisClient.java
+E:\code\Repository\bookManager\src\main\java\com\smart\bean\Record.java
+E:\code\Repository\bookManager\src\main\java\com\smart\controller\bookController.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\JedisClientSingle.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\RedisCache.java
+E:\code\Repository\bookManager\src\main\java\com\smart\redis\Test.java
+E:\code\Repository\bookManager\src\main\java\com\smart\service\bookServiceImp.java

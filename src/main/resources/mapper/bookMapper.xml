@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定接口-->
+<mapper namespace="com.smart.dao.bookDao">
+
+
+<select id="getList" resultType="Book">
+    select *
+    from book
+</select>
+
+    <!-- 书籍列表 -->
+    <select id="listBook" parameterType="Book" resultType="Book">
+        SELECT *
+        FROM book u
+        <where>
+            <if test="bookName!=null and bookName!=''">
+                u.bookName LIKE #{bookName}
+            </if>
+            <if test="bookId!=null and bookId!=''">
+                AND u.bookId=#{bookId}
+            </if>
+            <if test="bookLocation!=null and bookLocation!=''">
+               AND u.bookLocation LIKE #{bookLocation}
+            </if>
+        </where>
+    </select>
+
+    <!--添加书籍-->
+    <insert id="addBook" parameterType="Book" >
+        INSERT INTO book(bookId,bookName,bookNumber,bookLocation,bookState)
+        VALUES(#{bookId},#{bookName},#{bookNumber},#{bookLocation},"在库")
+    </insert>
+
+    <!--通过ID获取书籍-->
+    <select id="getBookById" parameterType="String" resultType="Book" useCache="false">
+        select *
+        from book
+        where bookId = #{bookId}
+    </select>
+
+    <!--通过书名获取书籍-->
+    <select id="getBookByName" parameterType="String" resultType="Book">
+        select *
+        from book
+        where bookName = #{bookName}
+    </select>
+
+    <!--登记-->
+    <update id="checkBook" parameterType="String">
+        update book
+        set lendNumber = lendNumber-1
+        where bookId = #{bookId}
+    </update>
+
+    <!--记录借阅人信息-->
+    <insert id="record" parameterType="Record">
+        insert record(bookId,geName,geNumber,phone,lendTime,state)
+        values(#{bookId},#{geName},#{geNumber},#{phone},#{lendTime},"未归还")
+    </insert>
+
+    <!-- 借阅列表 -->
+    <select id="listRecord" parameterType="Record" resultType="Record">
+        SELECT *
+        FROM record u
+        <where>
+            <if test="geNumber!=null and geNumber!=''">
+                u.geNumber LIKE #{geNumber}
+            </if>
+            <if test="bookId!=null and bookId!=''">
+                AND u.bookId=#{bookId}
+            </if>
+            <if test="state!=null and state!=''">
+                AND u.state = #{state}
+            </if>
+            and u.state != "已删除"
+        </where>
+    </select>
+
+    <!--还书登记-->
+    <update id="addNumber" parameterType="String">
+        update book
+        set lendNumber = lendNumber+1
+        where bookId = #{bookId}
+    </update>
+
+    <update id="backTime" parameterType="Record">
+        update record
+        set state = "已归还",backTime = #{backTime},description = #{description}
+        where bookId = #{bookId} and geNumber = #{geNumber}
+    </update>
+</mapper>
