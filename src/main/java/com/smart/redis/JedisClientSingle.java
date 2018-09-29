@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.io.File;
 import java.util.List;
 
 public class JedisClientSingle implements JedisClient {
@@ -118,5 +119,39 @@ public class JedisClientSingle implements JedisClient {
         }
         byte[] data = jedis.get(key.getBytes());
         return (Object)SerializeUtil.unSerializeObject(data);
+    }
+
+    @Override
+    public void clear() {
+        Jedis jedis = jedisPool.getResource();
+        jedis.flushDB();
+    }
+
+    @Override
+    public Object removeObject(String key) {
+        return jedisPool.getResource().expire(SerializeUtil.serializeObject(key), 0);
+    }
+
+    @Override
+    public int getSize() {
+        return Integer.valueOf(jedisPool.getResource().dbSize().toString());
+    }
+
+    //保存文件方法
+    public void setFile(String key,String path){
+        Jedis jedis = jedisPool.getResource();
+        File fr = new File(path);
+        try{
+            jedis.set(key.getBytes(), SerializeUtil.serializeObject(fr));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //读取文件对象方法
+    public File getFile(String key){
+        Jedis jedis = jedisPool.getResource();
+        File file = (File)SerializeUtil.unSerializeObject(jedis.get(key.getBytes()));
+        return file;
     }
 }

@@ -8,3 +8,4 @@ com\smart\service\bookService.class
 com\smart\dao\bookDao.class
 com\smart\redis\SerializeUtil.class
 com\smart\service\bookServiceImp.class
+com\smart\bean\muFile.class

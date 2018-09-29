@@ -7,7 +7,7 @@ import java.util.List;
 public class SerializeUtil {
     /**
      *
-     * 序列化
+     * 序列化对象
      */
     public static byte[] serializeObject(Object obj) {
         if(obj == null){
@@ -130,6 +130,7 @@ public class SerializeUtil {
             }
         }
     }
+
 
 
 }

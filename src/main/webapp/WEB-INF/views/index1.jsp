@@ -4,44 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<script type="text/javascript">
-
-
-$(document).ready(function() {
-
- $.post('bookList',{},function(response){
-    var data = response.list;
-    $('#example').DataTable( {
-        data: data,
-         columns: [
-                { data: 'id' },
-                { data: 'bookId' },
-                { data: 'bookName' },
-                { data: 'bookNumber' }
-
-            ]
-    } );
-    });
-
-
-} );
-</script>
+<title>文件上传</title>
 </head>
 <body>
-<table id="example">
-<thead>
-<tr>
-<th>Name</th>
- <th>Position</th>
-  <th>Office</th>
-   <th>Age</th>
-      </tr>
-      </thead>
-       </table>
-
+    <h2>文件上传</h2>
+    <form action="upload" enctype="multipart/form-data" method="post">
+        <table>
+            <tr>
+                <td>文件描述:</td>
+                <td><input type="text" name="description"></td>
+            </tr>
+            <tr>
+                <td>请选择文件:</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="上传"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
