@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace指定接口-->
-<mapper namespace="com.smart.dao.bookDao">
+<mapper namespace="com.smart.dao.BookDao">
+
 
 <select id="getList" resultType="Book">
     select *
@@ -27,13 +28,13 @@
     </select>
 
     <!--添加书籍-->
-    <insert id="addBook" parameterType="Book">
+    <insert id="addBook" parameterType="Book" >
         INSERT INTO book(bookId,bookName,bookNumber,bookLocation,bookState)
         VALUES(#{bookId},#{bookName},#{bookNumber},#{bookLocation},"在库")
     </insert>
 
     <!--通过ID获取书籍-->
-    <select id="getBookById" parameterType="String" resultType="Book">
+    <select id="getBookById" parameterType="String" resultType="Book" useCache="false">
         select *
         from book
         where bookId = #{bookId}
@@ -73,6 +74,7 @@
             <if test="state!=null and state!=''">
                 AND u.state = #{state}
             </if>
+            and u.state != "已删除"
         </where>
     </select>
 

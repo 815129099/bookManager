@@ -7,6 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
+           <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -32,13 +33,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
         <ul class="layui-nav right" lay-filter="">
+
           <li class="layui-nav-item">
-            <a href="javascript:;">admin</a>
+          <shiro:authenticated>
+            <a href="javascript:;"><shiro:principal/></a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-              <dd><a href="outLogin">切换帐号</a></dd>
-              <dd><a href="outLogin">退出</a></dd>
+              <dd><a href="logout">切换帐号</a></dd>
+              <dd><a href="logout">退出</a></dd>
             </dl>
+            </shiro:authenticated>
+             <shiro:guest><a href="javascript:;">游客</a></shiro:guest>
           </li>
+
+
           <li class="layui-nav-item to-index"><a href="login">登录</a></li>
         </ul>
         
@@ -62,30 +69,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <cite>书籍列表</cite>
                         </a>
                     </li >
- <li>
+                    <shiro:authenticated>
+                    <li>
                         <a _href="allegeList">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>借阅记录</cite>
                         </a>
-                    </li >
+                    </li>
+                    </shiro:authenticated>
                 </ul>
             </li>
-
+        <shiro:hasAnyRoles name="admin">
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe726;</i>
-                    <cite>管理</cite>
+                    <cite>员工管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="allegeList">
+                        <a _href="userList">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>列表</cite>
+                            <cite>员工列表</cite>
                         </a>
                     </li >
                 </ul>
             </li>
+            </shiro:hasAnyRoles>
         </ul>
       </div>
     </div>

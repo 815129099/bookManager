@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
   <body>
-    <div class="x-body">
-<div class="container" style="padding-top:30px;height:100%;weight:80%;">
+    <div class="x-body" >
+    <div class="container" style="padding-top:30px;width:1500px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -61,11 +61,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 				<!--/数据表格-->
+				<shiro:user>
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="addBook"><i class="fa fa-user"></i><span>添加</span></a></li>
 					<li><a href="javascript:void(0)" id="lockUser" onclick='lockUser()'><i class="fa fa-toggle-on"></i><span>锁定</span></a></li>
                     <li><a href="javascript:void(0)" id="clearUser" onclick='clearUser()'><i class="fa fa-toggle-off"></i><span>解锁</span></a></li>
-				</ul>
+				</ul></shiro:user>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
 							<tr>
@@ -316,6 +317,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
     <script type="text/javascript">
+
     //表单验证
     $.validator.setDefaults({
         debug: true
@@ -360,7 +362,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             		//验证书籍名称是否已存在
                     $("#addform #bookName").blur(function(){
-
                             $.post("isNameExist.do",{"bookName":$("#addform #bookName").val()},function(response){
                             $("#addform #bookName").parent().find("label.error").remove();
                                   if(response.tip=="error"){
@@ -438,9 +439,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						    "bookName":bookName,
     						    "bookLocation":bookLocation
     					       }, false, true, true, true,true,
-    					       "<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a>"+
+    					       "<shiro:user>"+"<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a>"+
     					       "<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
-    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>",
+    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:user>",
     					       "id"
     			 );
     	    	 //设置查询条件
@@ -451,68 +452,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	);
     	}
 
-    	//删除用户
-    	function delUser(obj){
-    		if(confirm("是否删除该用户")){
-    			var id =  $(obj).parent("td").attr("id");
-    			alert(id);
-    			$.post("delUser.do",{"id":id},function(response){
-                				if(response.tip=="success"){
-                					alert("用户删除成功");
-                					listBook();
-                				}
-                				else if(response.tip=="error"){
-                					alert("用户删除失败!"+response.msg);
-                				}
-                			});
-    		}
-    	}
 
-    	//查看用户
-        	function preview(obj){
-        			var id =  $(obj).parent("td").attr("id");
-        			window.open("pre?id="+id);
-        	}
-
-    function lockUser(){
-    	var row,id;
-    	var num = 0;
-    	 $("input[type='checkbox']").each(function(){
-    		 if($(this).is(":checked"))
-              {
-              num++;
-    			 row = $(this).parent("td").parent("tr");
-    			 id = row.find("td #update").parents("td").attr("id");
-              }
-    		        	 $.post("lockUser.do",
-    					{"id":id});
-    		        	  listBook();
-    	 });
-    	 if(num==0){
-    	 alert("请选择用户");
-    	 }
-    	 $("#chkAll").attr("checked",false);
-    };
-
-    function clearUser(){
-    	var row,id;
-    	var num = 0;
-    	 $("input[type='checkbox']").each(function(){
-    		 if($(this).is(":checked"))
-              {
-              num++;
-    			 row = $(this).parent("td").parent("tr");
-    			 id = row.find("td #update").parents("td").attr("id");
-              }
-    		        	 $.post("clearUser.do",
-    					{"id":id});
-    		        	  listBook();
-    	 });
-    	 if(num==0){
-    	 alert("请选择用户");
-    	 }
-    	 $("#chkAll").attr("checked",false);
-    };
 
     //登记
     	function check(obj){
@@ -537,8 +477,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             }else{
             $("#resetModal").modal('show');
             }
-
-
     		//设置表单验证
     		 $("#resetform").validate({
     			  onfocusout:false,
@@ -583,6 +521,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		});
 
     	}
+
+    	    	//删除用户
+            	function delUser(obj){
+            		if(confirm("是否删除该书籍")){
+            			var id =  $(obj).parent("td").attr("id");
+            			$.post("delBook.do",{"id":id},function(response){
+                        				if(response.tip=="success"){
+                        					alert("删除成功");
+                        					listBook();
+                        				}
+                        				else if(response.tip=="error"){
+                        					alert("删除失败!");
+                        				}
+                        			});
+            		}
+            	}
+
+            	//查看用户
+                	function preview(obj){
+                			var id =  $(obj).parent("td").attr("id");
+                			window.open("pre?id="+id);
+                	}
+
+            function lockUser(){
+            	var row,id;
+            	var num = 0;
+            	 $("input[type='checkbox']").each(function(){
+            		 if($(this).is(":checked"))
+                      {
+                      num++;
+            			 row = $(this).parent("td").parent("tr");
+            			 id = row.find("td #update").parents("td").attr("id");
+                      }
+            		        	 $.post("lockUser.do",
+            					{"id":id});
+            		        	  listBook();
+            	 });
+            	 if(num==0){
+            	 alert("请选择用户");
+            	 }
+            	 $("#chkAll").attr("checked",false);
+            };
+
+            function clearUser(){
+            	var row,id;
+            	var num = 0;
+            	 $("input[type='checkbox']").each(function(){
+            		 if($(this).is(":checked"))
+                      {
+                      num++;
+            			 row = $(this).parent("td").parent("tr");
+            			 id = row.find("td #update").parents("td").attr("id");
+                      }
+            		        	 $.post("clearUser.do",
+            					{"id":id});
+            		        	  listBook();
+            	 });
+            	 if(num==0){
+            	 alert("请选择用户");
+            	 }
+            	 $("#chkAll").attr("checked",false);
+            };
     </script>
   </body>
 

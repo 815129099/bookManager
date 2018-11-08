@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定接口-->
+<mapper namespace="com.smart.dao.UserDao">
+
+    <!--通过geNumber获取角色-->
+    <select id="findRoles" parameterType="String" resultType="String">
+        select role
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <!--通过geNumber获取权限-->
+    <select id="findPermissions" parameterType="String" resultType="String">
+        select authority
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <select id="findByGeNumber" parameterType="String" resultType="User">
+        select *
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+</mapper>

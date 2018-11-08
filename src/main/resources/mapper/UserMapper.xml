@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定接口-->
+<mapper namespace="com.smart.dao.UserDao">
+
+    <!--通过geNumber获取角色-->
+    <select id="findRoles" parameterType="String" resultType="String">
+        select role
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <!--通过geNumber获取权限-->
+    <select id="findPermissions" parameterType="String" resultType="String">
+        select authority
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <select id="findByGeNumber" parameterType="String" resultType="User">
+        select *
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <!-- 员工列表 -->
+    <select id="listUser" parameterType="User" resultType="User">
+        SELECT *
+        FROM user u
+        <where>
+            <if test="geNumber!=null and geNumber!=''">
+                u.geNumber LIKE #{geNumber}
+            </if>
+            <if test="geName!=null and geName!=''">
+                AND u.geName LIKE #{geName}
+            </if>
+            <if test="userState!=null and userState!=''">
+                AND u.userState=#{userState}
+            </if>
+        </where>
+    </select>
+
+    <!--添加用户-->
+    <insert id="addUser" parameterType="User" >
+        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState)
+        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效")
+    </insert>
+
+    <!--通过ID获取用户-->
+    <select id="getUserById" parameterType="String" resultType="User">
+        select *
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+</mapper>

@@ -2,15 +2,113 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7691d149-6145-40e9-9daa-1b70a308047c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-28" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-28" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/dao/bookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/bookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redis-context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redis-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Record.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/bookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/bookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/bookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/bookDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/bookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/bookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/bookServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/bookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/lib/mail-1.4.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/lib/mysql-connector-java-5.1.46.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/spring-mvc-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/allegeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/allegeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/apply.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/comIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/company.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/createSu.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/delivery.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/errorCom.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/index1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/index1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/log.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/log.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/maSystem.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/maSystem.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/meList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/meList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/preview.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/previewCom.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/reset.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/sendEmail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/showError.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/stuResume.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/student.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/suCom.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/updatePwd.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/updateSu.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/jquery.ui.all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/style/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/style_log.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/userpanel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bookManager-1.0-SNAPSHOT-war-exec.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/controller/bookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/controller/bookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/dao/bookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/dao/bookDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/bookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/bookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/bookServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/bookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/redis-context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/redis-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-04" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-05" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-06" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-09-29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log.2018-09-04" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log.2018-09-27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log.2018-09-28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/index1_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/index1_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/log_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/log_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userinfo_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userinfo_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/war-exec.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/war-exec.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,102 +118,100 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/bookManager$Test.ic" NAME="Test Coverage Results" MODIFIED="1541061347938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.smart.redis.*</FILTER>
+    </SUITE>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bookController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="255" column="51" lean-forward="true" selection-start-line="255" selection-start-column="51" selection-end-line="255" selection-end-column="51" />
+            <state relative-caret-position="636">
+              <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1789#1790#0" expanded="true" />
+                <element signature="e#1837#1838#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SerializeUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            <state relative-caret-position="311">
+              <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JedisClientSingle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java">
+      <file leaf-file-name="BookServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="153" column="85" lean-forward="true" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3427#3428#0" expanded="true" />
-                <element signature="e#3510#3511#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="400">
+              <caret line="98" column="27" lean-forward="true" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JedisClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java">
+      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="361">
+              <caret line="46" column="95" selection-start-line="46" selection-start-column="95" selection-end-line="46" selection-end-column="95" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="muFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/muFile.java">
+      <file leaf-file-name="userList.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="46">
+              <caret line="355" column="77" selection-start-line="355" selection-start-column="77" selection-end-line="355" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#293#294#0" expanded="true" />
-                <element signature="e#347#348#0" expanded="true" />
-                <element signature="e#393#394#0" expanded="true" />
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
                 <element signature="e#457#458#0" expanded="true" />
-                <element signature="e#504#505#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bookServiceImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java">
+      <file leaf-file-name="BookDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3433#3434#0" expanded="true" />
-                <element signature="e#3461#3462#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="16" column="43" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="16" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index1.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index1.jsp">
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="49" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="49" />
+            <state relative-caret-position="325">
+              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userinfo.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userinfo.jsp">
+      <file leaf-file-name="BookMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="73" lean-forward="true" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+            <state relative-caret-position="400">
+              <caret line="40" column="13" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="40" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -145,6 +241,14 @@
       <find>List&lt;Object&gt;</find>
       <find>bookList</find>
       <find>get</find>
+      <find>listBook.do</find>
+      <find>RetryLimitHashedCredentialsMatcher</find>
+      <find>shiroEhcacheManager</find>
+      <find>passwordMatcher</find>
+      <find>网站</find>
+      <find>手</find>
+      <find>手机</find>
+      <find>addBook</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,40 +257,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resumeList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/record.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/dao/bookDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/log.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/applicationContext-shiro.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/Util/UserRealm.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/Book.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/SimpleList.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/redis-context.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/bookMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/RedisCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/redis-spring.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index1.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/muFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/bookService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userinfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/test/shiro.ini" />
+        <option value="$PROJECT_DIR$/src/main/resources/ehcache-shiro.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application_shiro.xml" />
+        <option value="$PROJECT_DIR$/src/main/test/java/com/smart/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mvc-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/shiro/SpringBeanFactoryUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/test/tBean.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/bookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/shiro/UserRealm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
       </list>
     </option>
   </component>
@@ -219,6 +340,12 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="SSM Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="clean" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="SSM Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
           <item name="tomcat7" type="36feed69:MavenProjectsStructure$PluginNode" />
         </path>
       </expand>
@@ -237,9 +364,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,7 +434,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smart" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
@@ -316,7 +443,31 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smart" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smart" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
@@ -331,7 +482,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookManager" type="b2602c69:ProjectViewProjectNode" />
@@ -357,16 +508,25 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/SSM" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.CVS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\Repository\bookManager\src\main\resources" />
+      <recent name="E:\code\Repository\bookManager\src\main\webapp\WEB-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.smart.service" />
+      <recent name="com.smart.dao" />
+      <recent name="com.smart.controller" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\Repository\bookManager\src\main\webapp\WEB-INF\views" />
       <recent name="E:\code\Repository\bookManager\src\main\resources" />
-      <recent name="E:\code\Repository\bookManager\src\main\webapp\style\css\img" />
-      <recent name="E:\code\Repository\bookManager\src\main\webapp\style\css" />
-      <recent name="E:\code\Repository\bookManager\src\main" />
+      <recent name="E:\code\Repository\bookManager\src\main\test" />
+      <recent name="E:\code\Repository\bookManager\src\main\webapp" />
+      <recent name="E:\code\Repository\bookManager\src\main\resources\mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -381,7 +541,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.tBean">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.smart.redis.Test" />
       <module name="bookManager" />
@@ -395,6 +555,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="tBean" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.smart.test.tBean" />
+      <module name="bookManager" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smart.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -434,8 +605,13 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.tBean" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.tBean" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -455,34 +631,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49791667" weight="0.3284055" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.07864583" side_tool="true" weight="0.4244984" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.35208333" />
+      <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.4992743" visible="true" weight="0.2390625" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9213542" visible="true" weight="0.22597677" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9213542" visible="true" weight="0.29778248" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19947916" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17083333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39915523" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5007257" side_tool="true" weight="0.23177083" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49791667" weight="0.3284055" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32946146" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -490,90 +666,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2275">
-          <caret line="116" column="60" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10775">
-          <caret line="431" column="25" lean-forward="true" selection-start-line="431" selection-start-column="25" selection-end-line="431" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/h.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/apply.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.5/mybatis-3.2.5.jar!/org/apache/ibatis/binding/MapperProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/style_log.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/userpanel.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/jquery.ui.all.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/log.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="22" column="147" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext-shiro.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/Util/UserRealm.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1675">
-          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="361" column="60" selection-start-line="361" selection-start-column="60" selection-end-line="361" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/java/jdk/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10500">
-          <caret line="420" column="6" selection-start-line="420" selection-start-column="6" selection-end-line="420" selection-end-column="6" />
+        <state relative-caret-position="719">
+          <caret line="120" column="61" selection-start-line="120" selection-start-column="61" selection-end-line="120" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -586,242 +686,291 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/SimpleList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="365">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state relative-caret-position="229">
+          <caret line="208" column="21" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/css/login.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/ui/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="49" column="60" lean-forward="true" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/ui/do.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/复件 login_logo.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/login_name_bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/login_logo.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/login_button.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/login_bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/public/images/admin_logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="29" column="93" lean-forward="true" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="38" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.7.2/jedis-2.7.2.jar!/redis/clients/jedis/Jedis.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="1033" column="46" lean-forward="true" selection-start-line="1033" selection-start-column="46" selection-end-line="1033" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.7.2/jedis-2.7.2.jar!/redis/clients/jedis/JedisPool.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/com/smart/controller/BookController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/com/smart/dao/BookDao.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/test/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.3.RELEASE/spring-beans-4.3.3.RELEASE-sources.jar!/org/springframework/beans/factory/BeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="171" column="10" selection-start-line="171" selection-start-column="10" selection-end-line="171" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/shiro/SpringBeanFactoryUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/bookDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/test/tBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="200">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/bookMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1375">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/redis-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1312">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/redis-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/RedisCache.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/javax/servlet/http/HttpServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="950">
+          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="185">
+          <caret line="237" column="19" selection-start-line="237" selection-start-column="19" selection-end-line="237" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar!/javax/servlet/ServletContext.class">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/新建文本文档.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/bookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/bookServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3433#3434#0" expanded="true" />
-            <element signature="e#3461#3462#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="225">
+          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="78" column="11" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
+        <state relative-caret-position="525">
+          <caret line="111" column="23" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2.jar!/org/apache/shiro/SecurityUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="6">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2.jar!/org/apache/shiro/subject/Subject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="112" column="35" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/shiro/UserRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="97" column="14" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="498" column="21" lean-forward="true" selection-start-line="498" selection-start-column="21" selection-end-line="498" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/validate/jquery.validate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="3" column="9035" selection-start-line="3" selection-start-column="9035" selection-end-line="3" selection-end-column="9035" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/validate/additional-methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3382">
+          <caret line="76" column="33" lean-forward="true" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="190" column="5" lean-forward="true" selection-start-line="177" selection-start-column="3" selection-end-line="190" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+            <element signature="e#1837#1838#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/muFile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="173">
+          <caret line="13" selection-start-line="13" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" column="43" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="98" column="27" lean-forward="true" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
             <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="153" column="85" lean-forward="true" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3427#3428#0" expanded="true" />
-            <element signature="e#3510#3511#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="46">
+          <caret line="355" column="77" selection-start-line="355" selection-start-column="77" selection-end-line="355" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar!/org/apache/commons/io/FileUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-821">
-          <caret line="806" column="20" lean-forward="true" selection-start-line="806" selection-start-column="20" selection-end-line="806" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index1.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="49" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/bookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="255" column="51" lean-forward="true" selection-start-line="255" selection-start-column="51" selection-end-line="255" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="73" lean-forward="true" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+        <state relative-caret-position="361">
+          <caret line="46" column="95" selection-start-line="46" selection-start-column="95" selection-end-line="46" selection-end-column="95" />
         </state>
       </provider>
     </entry>

@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
   <body>
-    <div class="x-body">
-<div class="container" style="padding-top:30px;height:100%;weight:80%;">
+    <div class="x-body" >
+    <div class="container" style="padding-top:30px;width:1500px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -61,11 +61,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 				<!--/数据表格-->
+				<shiro:hasPermission name="admin">
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="addBook"><i class="fa fa-user"></i><span>添加</span></a></li>
 					<li><a href="javascript:void(0)" id="lockUser" onclick='lockUser()'><i class="fa fa-toggle-on"></i><span>锁定</span></a></li>
                     <li><a href="javascript:void(0)" id="clearUser" onclick='clearUser()'><i class="fa fa-toggle-off"></i><span>解锁</span></a></li>
-				</ul>
+				</ul></shiro:hasPermission>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
 							<tr>
@@ -114,13 +115,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									 <button type="button" class="close" id="close" aria-hidden="true">
                                      &times;
                                      </button>
-										<strong>修改成功！</strong>
+										<strong>登记成功！</strong>
 									</div>
 									<div id="failUpd" class="alert alert-warning">
 									 <button type="button" class="close" id="close"   aria-hidden="true">
                                       &times;
                                      </button>
-										<strong>修改失败！</strong>
+										<strong>登记失败！</strong>
 									</div>
 
 									<div class="alert alert-danger hide" id="tipError" style='color: white'>&nbsp;</div>
@@ -316,6 +317,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
     <script type="text/javascript">
+
     //表单验证
     $.validator.setDefaults({
         debug: true
@@ -437,9 +439,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						    "bookName":bookName,
     						    "bookLocation":bookLocation
     					       }, false, true, true, true,true,
-    					       "<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a>"+
-    					       "<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
-    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>",
+    					       "<shiro:hasAnyRoles name='user,admin'>"+"<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
+    					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
+    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
     					       "id"
     			 );
     	    	 //设置查询条件
@@ -522,16 +524,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	    	//删除用户
             	function delUser(obj){
-            		if(confirm("是否删除该用户")){
+            		if(confirm("是否删除该书籍")){
             			var id =  $(obj).parent("td").attr("id");
-            			alert(id);
-            			$.post("delUser.do",{"id":id},function(response){
+            			$.post("delBook.do",{"id":id},function(response){
                         				if(response.tip=="success"){
-                        					alert("用户删除成功");
+                        					alert("删除成功");
                         					listBook();
                         				}
                         				else if(response.tip=="error"){
-                        					alert("用户删除失败!"+response.msg);
+                        					alert("删除失败!");
                         				}
                         			});
             		}

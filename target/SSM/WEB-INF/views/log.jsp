@@ -20,7 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 
-<body class="login" mycollectionplug="bind">
+<body class="login" mycollectionplug="bind"><div class="adcenter"><script src="http://www.cssmoban.com/include/new/ggad2_728x90.js"></script></div>
+
 <div class="login_m">
 <div class="login_logo"><img src="style/img/logo.png" width="196" height="46"></div>
 <div class="login_boder">

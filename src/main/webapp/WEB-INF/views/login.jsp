@@ -57,7 +57,7 @@ var youdao_conv_id = 271546;
     	<input type="hidden" id="resubmitToken" value="" />
 		 <div class="login_box">
         	<form id="loginForm">
-				<input type="text" id="email" name="email" value="" tabindex="1" placeholder="请输入登录邮箱地址" />
+				<input type="text" id="email" name="email" value="" tabindex="1" placeholder="请输入用户名" />
 			  	<input type="password" id="password" name="password" tabindex="2" placeholder="请输入密码" />
 				<span class="error" style="display:none;" id="beError"></span>
 			    <label class="fl" for="remember"><input type="checkbox" id="remember" value="" checked="checked" name="autoLogin" /> 记住我</label>
@@ -83,8 +83,7 @@ $(function(){
 	    	focusCleanup:true, */
 	        rules: {
 	    	   	email: {
-	    	    	required: true,
-	    	    	email: true
+	    	    	required: true
 	    	   	},
 	    	   	password: {
 	    	    	required: true
@@ -92,8 +91,7 @@ $(function(){
 	    	},
 	    	messages: {
 	    	   	email: {
-	    	    	required: "请输入登录邮箱地址",
-	    	    	email: "请输入有效的邮箱地址，如：vivi@lagou.com"
+	    	    	required: "请输入用户名"
 	    	   	},
 	    	   	password: {
 	    	    	required: "请输入密码"
@@ -112,31 +110,16 @@ $(function(){
 	    		$(form).find(":submit").attr("disabled", true);
 	            $.ajax({
 	            	type:'POST',
-	            	data:{"email":email,"password":password},
+	            	data:{"geNumber":email,"password":password},
 	            	url:'UserType.do',
 					async:false,
 					dataType: 'json',
 	            }).done(function(result) {
-	                if(result.tip=="lock"){
-	                        alert("你的账户已被锁定，请联系管理员解锁（815129099@qq.com）");
-	                }else if(result.tip=="no"){
-                     		$('#beError').show();
-                            $('#beError').html("用户未注册！");
-                    }else if(result.tip=="company"){
-	            			window.location='comIndex';
-					}else if(result.tip=="noCom"){
-					        window.location='company';
-					}else if(result.tip=="student"){
-					        window.location='stuResume';
-					}else if(result.tip=="student"){
-					        window.location='index';
-				    }else if(result.tip=="admin"){
-				            window.location='maSystem';
-				    }
-					else {
-						$('#beError').show();
-						$('#beError').html("密码错误，请重新输入！");
-					}
+	                if(result.tip=="error"){
+	                        window.location='error';
+	                }else if(result.tip=="success"){
+                     	window.location='maSystem';
+                    }
 					$(form).find(":submit").attr("disabled", false);
 	            });
 	        }

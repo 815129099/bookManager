@@ -2,13 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
-            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
        default-autowire="byName" default-lazy-init="false">
 
     <!-- 配置注解处理器 -->
@@ -55,7 +56,8 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
           p:url="jdbc:mysql://localhost:3306/bookmanager?characterEncoding=utf8"
-          p:username="root" p:password="960521" p:maxActive="10" p:maxIdle="10">
+          p:username="root" p:password="960521" p:maxActive="10" p:maxIdle="10"
+          p:validationQuery="SELECT 1"  p:testOnBorrow="true">
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
@@ -77,5 +79,124 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.smart.dao"/>
     </bean>
+
+    <!-- 开启注解方式声明事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 调用我们配置的权限管理器 -->
+        <property name="securityManager" ref="securityManager" />
+        <!-- 配置我们的登录请求地址 -->
+        <property name="loginUrl" value="/login" />
+        <!-- 配置我们在登录页登录成功后的跳转地址，如果你访问的是非/login地址，则跳到您访问的地址 -->
+        <property name="successUrl" value="/maSystem" />
+        <!-- 如果您请求的资源不再您的权限范围，则跳转到/403请求地址 -->
+        <property name="unauthorizedUrl" value="/error" />
+        <property name="filters">
+            <util:map>
+                <entry key="logout" value-ref="logoutFilter" />
+            </util:map>
+        </property>
+        <!-- 权限配置 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- anon表示此地址不需要任何权限即可访问 -->
+                /error=anon
+                /meList=anon
+                /maSystem=anon
+                /login=anon
+                /listBook.do=anon
+                /UserType.do=anon
+                /style/**=anon
+                /logout=logout
+                <!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login -->
+                /** = authc
+            </value>
+        </property>
+    </bean>
+    <bean id="logoutFilter" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/login" />
+    </bean>
+
+    <!-- 凭证匹配器
+    <bean id="passwordMatcher" class="org.apache.shiro.authc.credential.PasswordMatcher">
+        <property name="passwordService" ref="passwordService" />
+    </bean>
+    <bean id="passwordService"
+          class="org.apache.shiro.authc.credential.DefaultPasswordService">
+        <property name="hashService" ref="hashService"></property>
+        <property name="hashFormat" ref="hashFormat"></property>
+        <property name="hashFormatFactory" ref="hashFormatFactory"></property>
+    </bean>
+    <bean id="hashService" class="org.apache.shiro.crypto.hash.DefaultHashService"></bean>
+    <bean id="hashFormat" class="org.apache.shiro.crypto.hash.format.Shiro1CryptFormat"></bean>
+    <bean id="hashFormatFactory"
+          class="org.apache.shiro.crypto.hash.format.DefaultHashFormatFactory">
+    </bean>-->
+
+    <!-- 缓存管理器 使用Ehcache实现
+    <bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>
+    </bean>-->
+
+    <!-- 会话ID生成器-->
+    <bean id="sessionIdGenerator"
+          class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator" />
+    <!-- 会话Cookie模板 关闭浏览器立即失效-->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="sid" />
+        <property name="httpOnly" value="true" />
+        <property name="maxAge" value="-1" />
+    </bean>
+    <!-- 会话DAO-->
+    <bean id="sessionDAO"
+          class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="sessionIdGenerator" ref="sessionIdGenerator" />
+    </bean>
+    <!-- 会话验证调度器，每30分钟执行一次验证 ，设定会话超时及保存-->
+    <bean name="sessionValidationScheduler"
+          class="org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler">
+        <property name="interval" value="1800000" />
+        <property name="sessionManager" ref="sessionManager" />
+    </bean>
+    <!-- 会话管理器-->
+    <bean id="sessionManager"
+          class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- 全局会话超时时间（单位毫秒），默认30分钟-->
+        <property name="globalSessionTimeout" value="1800000" />
+        <property name="deleteInvalidSessions" value="true" />
+        <property name="sessionValidationSchedulerEnabled" value="true" />
+        <property name="sessionValidationScheduler" ref="sessionValidationScheduler" />
+        <property name="sessionDAO" ref="sessionDAO" />
+        <property name="sessionIdCookieEnabled" value="true" />
+        <property name="sessionIdCookie" ref="sessionIdCookie" />
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm" />
+        <!-- 使用下面配置的缓存管理器 -->
+        <property name="cacheManager" ref="cacheManager" />
+        <property name="sessionManager" ref="sessionManager" />
+    </bean>
+    <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
+    <bean
+            class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager" />
+        <property name="arguments" ref="securityManager" />
+    </bean>
+
+    <!-- 注册自定义的Realm，并把密码匹配器注入，使用注解的方式自动注解会无法正确匹配密码 -->
+    <bean id="userRealm" class="com.smart.shiro.UserRealm" lazy-init="false">
+        <!--
+        <property name="credentialsMatcher" ref="passwordMatcher"/>
+        <property name="cachingEnabled" value="false"/>-->
+    </bean>
+
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+    <!-- Shiro生命周期处理器 -->
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
 </beans>

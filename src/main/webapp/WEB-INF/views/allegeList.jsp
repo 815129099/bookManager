@@ -1,4 +1,4 @@
-<%
+    <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <head/>
   <body>
     <div class="x-body">
-<div class="container" style="padding-top:30px;height:100%;weight:80%;">
+<div class="container" style="padding-top:30px;width:1500px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -36,10 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!--查询条件-->
 					<div class="well">
 						<form class="form-inline" role="form" id="query">
+						<shiro:hasAnyRoles name="admin">
 							<div class="form-group" style="margin-right:10px">
 								<label>工号:</label>
 								<input type="text" class="form-control" name="geNumber" id="geNumber" maxlength="128" placeholder="工号">
 							</div>
+						</shiro:hasAnyRoles>
                             <div class="form-group" style="margin-right:10px">
 								<label>书籍代码:</label>
 								<input type="text" class="form-control" name="bookId" id="bookId" maxlength="128" placeholder="书籍代码">

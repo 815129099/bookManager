@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <meta charset="UTF-8">
     <title>借阅记录</title>
+    <meta http-equiv-"expires" content-"60">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -247,6 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                  $("div#dealModal #sucUpd").hide();
                            }
                                  listAllege();
+                                 $("#dealForm #description").val("");
                       }
                       });
                  return false;
@@ -259,18 +261,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	//删除
     	function delAllege(obj){
-    		if(confirm("是否删除该申述")){
-    			var id =  $(obj).parent("td").attr("id");
-    			$.post("delAllege.do",{"id":id},function(response){
-                				if(response.tip==true){
-                					alert("删除成功");
-                					listAllege();
-                				}
-                				else if(response.tip==false){
-                					alert("删除失败!");
-                				}
-                			});
-    		}
+    	var lendTime = $(obj).parent("td").siblings("td").eq(5).html();
+    	if(lendTime!=null && lendTime!=""){
+    	if(confirm("是否删除该记录")){
+            			var id =  $(obj).parent("td").attr("id");
+            			$.post("delRecord.do",{"id":id},function(response){
+                        				if(response.tip=="success"){
+                        					alert("删除成功");
+                        					listAllege();
+                        				}
+                        				else if(response.tip=="error"){
+                        					alert("删除失败!");
+                        				}
+                        			});
+            		}
+    	}else{
+    	alert("该书未还，不可删除借书记录");
+    	}
+
     	}
 
 
