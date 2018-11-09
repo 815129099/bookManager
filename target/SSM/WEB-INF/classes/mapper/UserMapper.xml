@@ -24,4 +24,46 @@
         where geNumber = #{geNumber}
     </select>
 
+    <!-- 员工列表 -->
+    <select id="listUser" parameterType="User" resultType="User">
+        SELECT *
+        FROM user u
+        <where>
+            <if test="geNumber!=null and geNumber!=''">
+                u.geNumber LIKE #{geNumber}
+            </if>
+            <if test="geName!=null and geName!=''">
+                AND u.geName LIKE #{geName}
+            </if>
+            <if test="userState!=null and userState!=''">
+                AND u.userState=#{userState}
+            </if>
+        </where>
+    </select>
+
+    <!--添加用户-->
+    <insert id="addUser" parameterType="User" >
+        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState)
+        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效")
+    </insert>
+
+    <!--通过ID获取用户-->
+    <select id="getUserById" parameterType="String" resultType="User">
+        select *
+        from user
+        where geNumber = #{geNumber}
+    </select>
+
+    <update id="updateUser" parameterType="User">
+        update user
+        set password=#{password},phone=#{phone},userState=#{userState},updateTime=#{updateTime}
+        where geNumber=#{geNumber}
+    </update>
+
+    <update id="delUser" parameterType="String">
+        update user
+        set updateTime=#{updateTime},userState="无效"
+        where geNumber=#{geNumber}
+    </update>
+
 </mapper>

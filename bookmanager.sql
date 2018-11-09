@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80011
 File Encoding         : 65001
 
-Date: 2018-11-05 15:23:39
+Date: 2018-11-09 15:32:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,18 +29,18 @@ CREATE TABLE `book` (
   `bookState` int(11) NOT NULL DEFAULT '1' COMMENT '1在库；0出库',
   PRIMARY KEY (`id`),
   KEY `bookId` (`bookId`)
-) ENGINE=InnoDB AUTO_INCREMENT=1950 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1951 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of book
 -- ----------------------------
 INSERT INTO `book` VALUES ('19', '00001', '博览群书 2005 5', '1', '0', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('20', '00002', '博览群书 2005 6', '1', '1', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('21', '00003', '博览群书 2005 7', '1', '1', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('22', '00004', '博览群书 2005 8', '1', '1', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('20', '00002', '博览群书 2005 6', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('21', '00003', '博览群书 2005 7', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('22', '00004', '博览群书 2005 8', '1', '0', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('23', '00005', '博览群书 2005 9', '1', '1', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('24', '00006', '博览群书 2006 5', '1', '1', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('25', '00007', '博览群书 2006 8', '1', '1', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('24', '00006', '博览群书 2006 5', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('25', '00007', '博览群书 2006 8', '1', '0', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('26', '00008', '博览群书 2006 10', '1', '0', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('27', '00009', '特战精锐 揭秘俄罗斯特种部队', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('28', '00010', '士兵突击', '1', '1', 'A-1-1', '1');
@@ -1964,6 +1964,7 @@ INSERT INTO `book` VALUES ('1945', 'YL17.19', '意林2017第19期', '1', '1', 'J
 INSERT INTO `book` VALUES ('1946', 'QN17.21', '青年文摘2017.21', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1947', '11111', '小gjhvb ', '1', '1', 'A-1-1', '0');
 INSERT INTO `book` VALUES ('1949', '33333', 'sesf ', '1', '1', 'A-1-2', '0');
+INSERT INTO `book` VALUES ('1950', '11111', 'qweq', '1', '1', 'A-1-1', '0');
 
 -- ----------------------------
 -- Table structure for record
@@ -1980,7 +1981,7 @@ CREATE TABLE `record` (
   `backTime` date DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of record
@@ -2003,6 +2004,15 @@ INSERT INTO `record` VALUES ('18', '00128', '刘文祥', 'ge14474', '1871312313'
 INSERT INTO `record` VALUES ('19', '00008', '刘文祥', 'ge14421', '', '未归还', '2018-09-18', null, null);
 INSERT INTO `record` VALUES ('20', 'HW16.5', '刘文祥', 'ge14476', '1871312313', '未归还', '2018-09-21', null, null);
 INSERT INTO `record` VALUES ('21', '00002', '刘文祥', 'ge14474', '1871312313', '已归还', '2018-09-28', '2018-09-28', 'vgggggggggggggggggg');
+INSERT INTO `record` VALUES ('22', '00002', '刘文祥', 'ge14421', '1871312313', '已归还', '2018-11-08', '2018-11-08', '');
+INSERT INTO `record` VALUES ('23', '00002', '刘文祥', 'ge14421', '1871312313', '已归还', '2018-11-08', '2018-11-08', '');
+INSERT INTO `record` VALUES ('24', '00002', '刘文祥', 'ge14421', '1871312313', '未归还', '2018-11-08', null, null);
+INSERT INTO `record` VALUES ('25', '00006', '刘文祥', 'ge00001', '18713123139', '已删除', '2018-11-09', '2018-11-09', '');
+INSERT INTO `record` VALUES ('26', '00003', '刘文祥', 'ge86523', '18713123139', '未归还', '2018-11-09', null, null);
+INSERT INTO `record` VALUES ('27', '00004', '刘文祥', 'ge14475', '18713123139', '未归还', '2018-11-09', null, null);
+INSERT INTO `record` VALUES ('28', '00005', '张三', 'ge14475', '18650118023', '已归还', '2018-11-09', '2018-11-09', '');
+INSERT INTO `record` VALUES ('29', '00006', '张三', 'ge14475', '18650118023', '未归还', '2018-11-09', null, null);
+INSERT INTO `record` VALUES ('30', '00007', '张三', 'ge14475', '18650118023', '未归还', '2018-11-09', null, null);
 
 -- ----------------------------
 -- Table structure for user
@@ -2011,16 +2021,23 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `geNumber` varchar(100) NOT NULL,
+  `geName` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(40) NOT NULL,
   `role` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色：admin，user，visitor',
   `authority` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色：admin，user，visitor',
   `userState` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户状态：0有效，1无效',
   `createTime` date DEFAULT NULL,
   `updateTime` date DEFAULT NULL,
+  `phone` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'ge14476', 'ge14476', 'admin', 'admin', '0', '2018-11-01', '2018-11-01');
+INSERT INTO `user` VALUES ('1', 'ge14476', '刘文祥', 'ge14476', 'admin', 'admin', '有效', '2018-11-01', '2018-11-01', '18650118023');
+INSERT INTO `user` VALUES ('2', 'ge14475', '张三', 'ge14475', 'user', 'user', '有效', '2018-11-08', '2018-11-08', '18650118023');
+INSERT INTO `user` VALUES ('3', 'ge14474', '李四', 'ge14474', 'guest', 'guest', '有效', '2018-11-06', '2018-11-06', '18650118023');
+INSERT INTO `user` VALUES ('4', 'ge14421', '网二', 'ge14421', 'user', 'user', '有效', '2018-11-04', '2018-11-04', '18650118023');
+INSERT INTO `user` VALUES ('5', 'ge14400', '刘文祥', 'ffffff', 'user', 'user', '无效', '2018-11-08', '2018-11-09', '18713123139');
+INSERT INTO `user` VALUES ('6', 'ge00001', 'asd', '111111', 'user', 'user', '无效', '2018-11-09', '2018-11-09', '18713123139');

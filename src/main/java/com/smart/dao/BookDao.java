@@ -29,5 +29,5 @@ public interface BookDao {
     public void addNumber(String bookId);
     public void backTime(Record record);
     public void delRecord(int id);
-    public void delBook(int id);
+    public void delBook(String bookId);
 }

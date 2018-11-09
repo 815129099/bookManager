@@ -17,4 +17,8 @@ public interface UserService {
     public boolean addUser(User user);
     //判断工号是否已存在
     public boolean isNumberExist(String geNumber);
+    //修改
+    public boolean updateUser(User user);
+    //删除
+    public boolean delUser(String geNumber);
 }

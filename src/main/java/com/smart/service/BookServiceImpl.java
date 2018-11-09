@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
 import com.smart.bean.Record;
+import com.smart.bean.User;
 import com.smart.dao.BookDao;
 import com.smart.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,6 +94,15 @@ public class BookServiceImpl implements BookService {
     @Transactional(rollbackFor={Exception.class})
     public boolean checkBook(Record record) {
         boolean isSuccess = false;
+        System.out.println("工号为"+record.getGeNumber());
+        if(record.getGeName()==null || record.getGeName()==""){
+            User user = userDao.findByGeNumber(record.getGeNumber());
+            System.out.println("用户名"+user.getGeName());
+            if(user!=null){
+                record.setGeName(user.getGeName());
+                record.setPhone(user.getPhone());
+            }
+        }
         Date dNow = new Date( );
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
         bookDao.checkBook(record.getBookId());
@@ -133,7 +143,6 @@ public class BookServiceImpl implements BookService {
         Date dNow = new Date( );
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
         record.setBackTime(ft.format(dNow));
-        System.out.println(record.getGeNumber()+","+record.getBookId()+","+record.getBackTime());
         bookDao.addNumber(record.getBookId());
         bookDao.backTime(record);
         isSuccess = true;
@@ -151,9 +160,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(rollbackFor={Exception.class})
-    public boolean delBook(int id) {
+    public boolean delBook(String bookId) {
         boolean isSuccess = false;
-        bookDao.delBook(id);
+        bookDao.delBook(bookId);
         isSuccess = true;
         return isSuccess;
     }

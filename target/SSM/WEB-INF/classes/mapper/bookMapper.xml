@@ -24,13 +24,14 @@
             <if test="bookLocation!=null and bookLocation!=''">
                AND u.bookLocation LIKE #{bookLocation}
             </if>
+            and u.bookState = 1
         </where>
     </select>
 
     <!--添加书籍-->
     <insert id="addBook" parameterType="Book" >
-        INSERT INTO book(bookId,bookName,bookNumber,bookLocation,bookState)
-        VALUES(#{bookId},#{bookName},#{bookNumber},#{bookLocation},"在库")
+        INSERT INTO book(bookId,bookName,bookNumber,lendNumber,bookLocation,bookState)
+        VALUES(#{bookId},#{bookName},#{bookNumber},#{bookNumber},#{bookLocation},1)
     </insert>
 
     <!--通过ID获取书籍-->
@@ -60,7 +61,7 @@
         values(#{bookId},#{geName},#{geNumber},#{phone},#{lendTime},"未归还")
     </insert>
 
-    <!-- 借阅列表 -->
+    <!-- 所有借阅列表 -->
     <select id="listRecord" parameterType="Record" resultType="Record">
         SELECT *
         FROM record u
@@ -78,6 +79,23 @@
         </where>
     </select>
 
+    <!-- 部分借阅列表 -->
+    <select id="listRecordByNumber" parameterType="java.util.Map" resultType="Record">
+        SELECT *
+        FROM record u
+        <where>
+            <if test="bookId!=null and bookId!=''">
+                 u.bookId=#{bookId}
+            </if>
+            <if test="state!=null and state!=''">
+                AND u.state = #{state}
+            </if>
+            and u.state != "已删除"
+            and u.geNumber = #{geNumber}
+        </where>
+    </select>
+
+
     <!--还书登记-->
     <update id="addNumber" parameterType="String">
         update book
@@ -89,5 +107,17 @@
         update record
         set state = "已归还",backTime = #{backTime},description = #{description}
         where bookId = #{bookId} and geNumber = #{geNumber}
+    </update>
+
+    <update id="delBook" parameterType="String">
+        update book
+        set bookState = 0
+        where bookId = #{bookId}
+    </update>
+
+    <update id="delRecord" parameterType="int">
+        update record
+        set state = "已删除"
+        where id = #{id}
     </update>
 </mapper>

@@ -211,7 +211,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	);
     	}
 
-    	//还书登记
+    	//还书登记 修改记录
     	function dealAllege(obj){
     	//防止表单多次提交参数
     	var flag = 1;
@@ -228,7 +228,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            $("div#dealModal #failUpd").hide();
            $("#dealModal").modal('show');
 
-
             $("#dealForm").submit(function(){
              if(flag == 1){
                  flag = 0;
@@ -237,10 +236,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      $("div#dealModal #sucUpd").hide();
                      $("div#dealModal #failUpd").hide();
                  }else{
-                      $.ajax({ type : "post",
-                      url : "backBook.do",
-                      data : {"bookId":bookId,"geNumber":geNumber,"description":$("#dealForm #description").val()},
+                 var description = $("#dealForm #description").val();
+                 var data = {"bookId":bookId,"geNumber":geNumber,"description":description};
+                      $.ajax({
+                      type : "PUT",
+                      url : "Record",
+                      data : JSON.stringify(data),
                       async : false,
+                      contentType:"application/json",
                       success : function(response){
                            if(response.tip=="success"){
                                 $("div#dealModal #sucUpd").show();
@@ -266,17 +269,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	var lendTime = $(obj).parent("td").siblings("td").eq(5).html();
     	if(lendTime!=null && lendTime!=""){
     	if(confirm("是否删除该记录")){
-            			var id =  $(obj).parent("td").attr("id");
-            			$.post("delRecord.do",{"id":id},function(response){
-                        				if(response.tip=="success"){
-                        					alert("删除成功");
-                        					listAllege();
-                        				}
-                        				else if(response.tip=="error"){
-                        					alert("删除失败!");
-                        				}
-                        			});
-            		}
+            var id =  parseInt($(obj).parent("td").attr("id"));
+            var data = {"id":id};
+            $.ajax({
+                    url:"Record",
+                    type:"DELETE",
+                    data:JSON.stringify(data),
+                    contentType:"application/json",
+                    success:function(response){
+                            if(response.tip=="success"){
+                                  alert("删除成功");
+                                  listAllege();
+                            }else if(response.tip=="error"){
+                                   alert("删除失败!");
+                            }}
+                    });
+        }
     	}else{
     	alert("该书未还，不可删除借书记录");
     	}

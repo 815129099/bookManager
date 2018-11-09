@@ -27,7 +27,7 @@ public interface BookService {
     public boolean backBook(Record record);
     //删除借书记录
     public boolean delRecord(int id);
-    public boolean delBook(int id);
+    public boolean delBook(String bookId);
 
 
 }

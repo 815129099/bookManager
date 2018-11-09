@@ -2,6 +2,7 @@ package com.smart.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
+import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -9,8 +10,8 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -67,7 +68,7 @@ public class UserController {
     }
 
     //查询书籍列表
-    @RequestMapping("/listUser.do")
+    @RequestMapping(value = "/listUser.do")
     @ResponseBody
     public Map<String,Object> listUser(User user, Integer pageNum, Integer pageSize)throws Exception{
         Map<String,Object> map = new HashMap<String,Object>();
@@ -91,7 +92,7 @@ public class UserController {
     }
 
     //添加用户
-    @RequestMapping("/addUser.do")
+    @RequestMapping(value = "/User", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> addUser(User user) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
@@ -117,5 +118,41 @@ public class UserController {
             result.put("tip", "error");
         }
         return result;
+    }
+
+    //修改
+    @RequestMapping(value = "/User", method = RequestMethod.PUT)
+    @ResponseBody
+    public Map<String,Object> updateUser(@RequestBody User user) throws IOException {
+        if(!StringUtils.isEmpty(user)){
+            System.out.print(user.getPassword()+"<"+user.getPhone()+","+user.getGeNumber());
+        }
+        Map<String,Object> map = new HashMap<String,Object>();
+        boolean isSuccess = userService.updateUser(user);
+        if(isSuccess){
+            map.put("tip", "success");
+        }
+        else{
+            map.put("tip", "error");
+        }
+        return map;
+    }
+
+    //删除
+    @RequestMapping(value = "/User", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Map<String,Object> delUser(@RequestBody User user) throws IOException {
+        if(user.getGeNumber()!=""){
+            System.out.println(user.getGeNumber());
+        }
+        Map<String,Object> map = new HashMap<String,Object>();
+        boolean isSuccess = userService.delUser(user.getGeNumber());
+        if(isSuccess){
+            map.put("tip", "success");
+        }
+        else{
+            map.put("tip", "error");
+        }
+        return map;
     }
 }

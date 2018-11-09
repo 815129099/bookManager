@@ -54,4 +54,16 @@
         where geNumber = #{geNumber}
     </select>
 
+    <update id="updateUser" parameterType="User">
+        update user
+        set password=#{password},phone=#{phone},userState=#{userState},updateTime=#{updateTime}
+        where geNumber=#{geNumber}
+    </update>
+
+    <update id="delUser" parameterType="String">
+        update user
+        set updateTime=#{updateTime},userState="无效"
+        where geNumber=#{geNumber}
+    </update>
+
 </mapper>

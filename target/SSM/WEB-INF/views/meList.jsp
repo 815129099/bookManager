@@ -38,6 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!--查询条件-->
 					<div class="well">
 						<form class="form-inline" role="form" id="query">
+						<shiro:hasAnyRoles name="admin">
+						<input type="hidden" id="role" value="admin">
+						</shiro:hasAnyRoles>
 							<div class="form-group" style="margin-right:10px">
 								<label>书籍代码:</label>
 								<input type="text" class="form-control" name="bookId" id="bookId" maxlength="128" placeholder="书籍代码">
@@ -61,12 +64,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 				<!--/数据表格-->
-				<shiro:user>
+				<shiro:hasPermission name="admin">
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="addBook"><i class="fa fa-user"></i><span>添加</span></a></li>
 					<li><a href="javascript:void(0)" id="lockUser" onclick='lockUser()'><i class="fa fa-toggle-on"></i><span>锁定</span></a></li>
                     <li><a href="javascript:void(0)" id="clearUser" onclick='clearUser()'><i class="fa fa-toggle-off"></i><span>解锁</span></a></li>
-				</ul></shiro:user>
+				</ul></shiro:hasPermission>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
 							<tr>
@@ -115,13 +118,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									 <button type="button" class="close" id="close" aria-hidden="true">
                                      &times;
                                      </button>
-										<strong>修改成功！</strong>
+										<strong>登记成功！</strong>
 									</div>
 									<div id="failUpd" class="alert alert-warning">
 									 <button type="button" class="close" id="close"   aria-hidden="true">
                                       &times;
                                      </button>
-										<strong>修改失败！</strong>
+										<strong>登记失败！</strong>
 									</div>
 
 									<div class="alert alert-danger hide" id="tipError" style='color: white'>&nbsp;</div>
@@ -334,7 +337,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		listBook();
     	});
 
-    	//添加用户
+    	//添加书籍
             	$("a#addBook").click(function(){
 
             	    $("#addform #bookId").val("");
@@ -342,15 +345,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		$("#addform #bookNumber").val("");
             		$("#addform #bookLocation").val("");
             		$("label.error").remove();
-
             		$("div#addModal #sucUpd").hide();
             		$("div#addModal #failUpd").hide();
-
             		$("#addModal").modal('show');
 
             		//验证书籍代码是否已用
             		$("#addform #bookId").blur(function(){
-
             			$.post("isIdExist.do",{"bookId":$("#addform #bookId").val()},function(response){
             			$("#addform #bookId").parent().find("label.error").remove();
                             if(response.tip=="error"){
@@ -393,26 +393,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             						$("div#addModal #failUpd").hide();
             					}
             					else{
-            					$.post("addBook.do",
-            							{"bookId":$("#addform #bookId").val(),
-            						     "bookName":$("#addform #bookName").val(),
-            						     "bookNumber":$("#addform #bookNumber").val(),
-            						     "bookLocation":$("#addform #bookLocation").val()
-            						     },
-            						     function(response){
-            						if(response.tip=="success"){
-            							   $("div#addModal #sucUpd").show();
-            							    $("div#addModal #failUpd").hide();
-            								 //关闭窗口后刷新列表
-            							    $("#addform #cancel").click(function(){
-            							    	listBook();
-            							    });
-            						   }
-            						   else{
-            							   $("div#addModal #failUpd").show();
-            							   $("div#addModal #sucUpd").hide();
-            						   }
-            					});
+            					var bookId = $("#addform #bookId").val();
+            					var bookName = $("#addform #bookName").val();
+            					var bookNumber = $("#addform #bookNumber").val();
+            					var bookLocation = $("#addform #bookLocation").val();
+            					alert(bookId);
+            					var data = {"bookId":bookId,"bookName":bookName,"bookNumber":bookNumber,"bookLocation":bookLocation};
+            					    $.ajax({
+            					            url:"Book",
+            					            type:"POST",
+            					            data:data,
+            					            success: function(response){
+            					                    if(response.tip=="success"){
+            					                         $("div#addModal #sucUpd").show();
+            					                         $("div#addModal #failUpd").hide();
+            					                          //关闭窗口后刷新列表
+            					                           $("#addform #cancel").click(function(){
+                                                                listBook();
+                                                           });
+                                                    }else{
+                                                          $("div#addModal #failUpd").show();
+                                                          $("div#addModal #sucUpd").hide();
+                                                    }}
+            					            });
             				}
             		      }
             		  });
@@ -439,9 +442,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						    "bookName":bookName,
     						    "bookLocation":bookLocation
     					       }, false, true, true, true,true,
-    					       "<shiro:user>"+"<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a>"+
-    					       "<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
-    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:user>",
+    					       "<shiro:hasAnyRoles name='user,admin'>"+"<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
+    					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delBook(this)'><i class='fa fa-trash'></i></a>"+
+    					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
     					       "id"
     			 );
     	    	 //设置查询条件
@@ -454,87 +457,125 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-    //登记
+    //登记 增加记录
     	function check(obj){
-    		//初始化模态窗口
+    	var role = $("#role").val();
+    	if(role == "admin"){
+    	//初始化模态窗口
+            		var id = $(obj).parent("td").attr("bookId");
+            		var bookId = $(obj).parent("td").siblings("td").eq(1).html();
+            		console.log(bookId);
+            		//$("#resetform #id").val(id);
+            		$("#resetform #bookId").val(bookId);
+            		$("#resetform #geNumber").val("");
+            		$("#resetform #geName").val("");
+            		$("label.error").remove();
 
-    		var id = $(obj).parent("td").attr("bookId");
-    		var bookId = $(obj).parent("td").siblings("td").eq(1).html();
-    		console.log(bookId);
-    		//$("#resetform #id").val(id);
-    		$("#resetform #bookId").val(bookId);
-    		$("#resetform #geNumber").val("");
-    		$("#resetform #geName").val("");
-    		$("label.error").remove();
+            		$("div#resetModal #sucUpd").hide();
+            		$("div#resetModal #failUpd").hide();
+                    var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
+                    //alert(number);
+                    if(number<=0){
+                    alert("该书剩余数量为0，无法借阅！");
+                    bookId = " ";
+                    }else{
+                    $("#resetModal").modal('show');
+                    }
+            		//设置表单验证
+            		 $("#resetform").validate({
+            			  onfocusout:false,
+            			  onkeyup:false,
+            		      rules:{
+            		    	  geName:{required:true},
+            		    	  geNumber:{required:true}
+            		      },
+            		      messages:{
+            		    	  geName:{required:"借阅人名字不能为空<br/>"},
+            		    	  geNumber:{required:"借阅人工号不能为空<br/>"},
+            		      }
+            		    });
 
-    		$("div#resetModal #sucUpd").hide();
-    		$("div#resetModal #failUpd").hide();
-            var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
-            //alert(number);
-            if(number<=0){
-            alert("该书剩余数量为0，无法借阅！");
-            bookId = " ";
-            }else{
-            $("#resetModal").modal('show');
-            }
-    		//设置表单验证
-    		 $("#resetform").validate({
-    			  onfocusout:false,
-    			  onkeyup:false,
-    		      rules:{
-    		    	  geName:{required:true},
-    		    	  geNumber:{required:true}
-    		      },
-    		      messages:{
-    		    	  geName:{required:"借阅人名字不能为空<br/>"},
-    		    	  geNumber:{required:"借阅人工号不能为空<br/>"},
-    		      }
-    		    });
-
-    		$("#resetform").submit(function(){
-    			if(!$("#resetform").valid()){
-    				$("div#resetModal #sucUpd").hide();
-    				$("div#resetModal #failUpd").hide();
-    			}
-    			else{
-    			console.log(bookId);
-    			if(bookId!=null && bookId!=""){
-    			$.post("checkBook.do",{"bookId":bookId,"geName":$("#resetform #geName").val(),"geNumber":$("#resetform #geNumber").val(),"phone":$("#resetform #phone").val()},function(response){
-                    				if(response.tip=="success"){
-                    					   $("div#resetModal #sucUpd").show();
-                    					    $("div#resetModal #failUpd").hide();
-                                            $("#resetform #phone").val("");
-                    						$("#resetform #bookName").val("");
-                    						$("#resetform #bookNumber").val("");
-                    						bookId = null;
-                    						listBook();
-                    				   }
-                    				   else{
-                    					   $("div#resetModal #failUpd").show();
-                    					   $("div#resetModal #sucUpd").hide();
-                    				   }
-                    			});
-    			}
-
-    		}
-
-    		});
+            		$("#resetform").submit(function(){
+            			if(!$("#resetform").valid()){
+            				$("div#resetModal #sucUpd").hide();
+            				$("div#resetModal #failUpd").hide();
+            			}
+            			else{
+            			console.log(bookId);
+            			if(bookId!=null && bookId!=""){
+            			var geName = $("#resetform #geName").val();
+            			var phone = $("#resetform #phone").val();
+            			var geNumber = $("#resetform #geNumber").val();
+            			var data = {"bookId":bookId,"geName":geName,"geNumber":geNumber,"phone":phone};
+            			$.ajax({
+            			        url:"Record",
+            			        type:"POST",
+            			        data:data,
+            			        success:function(response){
+                                        if(response.tip=="success"){
+                                               $("div#resetModal #sucUpd").show();
+                                               $("div#resetModal #failUpd").hide();
+                                               $("#resetform #phone").val("");
+                                               $("#resetform #bookName").val("");
+                                               $("#resetform #bookNumber").val("");
+                                               bookId = null;
+                                               listBook();
+                                        } else{
+                                                $("div#resetModal #failUpd").show();
+                                                $("div#resetModal #sucUpd").hide();
+                                         }}
+            			        });
+            			}
+            		}
+            		});
+    	}else{
+    	var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
+        if(number<=0){
+             alert("该书剩余数量为0，无法借阅！");
+        }else{
+             if(confirm("是否借阅该书")){
+                         var id =  $(obj).parent("td").attr("id");
+                         var bookId = $(obj).parent("td").siblings("td").eq(1).html();
+                         alert(bookId);
+                         var data = {"bookId":bookId};
+                         $.ajax({
+                              url:"Record",
+                              type:"POST",
+                              data:data,
+                              success:function(response){
+                              if(response.tip=="success"){
+                                    alert("借阅成功");
+                                    listBook();
+                              }else if(response.tip=="error"){
+                                     alert("借阅失败!");
+                              }}
+                         });
+                     }
+        }
 
     	}
+    	}
 
-    	    	//删除用户
-            	function delUser(obj){
+    	    	//删除书籍
+            	function delBook(obj){
             		if(confirm("是否删除该书籍")){
             			var id =  $(obj).parent("td").attr("id");
-            			$.post("delBook.do",{"id":id},function(response){
-                        				if(response.tip=="success"){
-                        					alert("删除成功");
-                        					listBook();
-                        				}
-                        				else if(response.tip=="error"){
-                        					alert("删除失败!");
-                        				}
-                        			});
+            			var bookId = $(obj).parent("td").siblings("td").eq(1).html();
+            			alert(bookId);
+            			var data = {"bookId":bookId};
+            			$.ajax({
+            			        url:"Book",
+            			        type:"DELETE",
+            			        data:JSON.stringify(data),
+            			        contentType:"application/json",
+            			        success:function(response){
+                                        if(response.tip=="success"){
+                                              alert("删除成功");
+                                              listBook();
+                                        }else if(response.tip=="error"){
+                                              alert("删除失败!");
+                                        }}
+            			        });
             		}
             	}
 

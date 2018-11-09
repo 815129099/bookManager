@@ -14,6 +14,15 @@ public class Book implements Serializable {
     private String bookName;
     private int lendNumber;
     private String bookLocation;
+    private int bookState;
+
+    public int getBookState() {
+        return bookState;
+    }
+
+    public void setBookState(int bookState) {
+        this.bookState = bookState;
+    }
 
     public int getId() {
         return id;

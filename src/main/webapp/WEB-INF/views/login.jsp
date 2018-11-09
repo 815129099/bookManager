@@ -16,10 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="alternate" media="handheld"  />
 <!-- end 云适配 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>大学生兼职平台-登录</title>
+<title>书籍管理系统-登录</title>
 <meta property="qc:admins" content="23635710066417756375" />
-<meta content="大学生兼职平台-登录" name="description">
-<meta content="大学生兼职平台-登录" name="keywords">
+<meta content="书籍管理系统-登录" name="description">
+<meta content="书籍管理系统-登录" name="keywords">
 
 <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
 

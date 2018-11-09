@@ -143,7 +143,7 @@ public class BookController {
         return map;
     }
     //添加书籍
-    @RequestMapping("/addBook.do")
+    @RequestMapping(value = "/Book", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> addBook(Book book) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
@@ -157,12 +157,19 @@ public class BookController {
         return map;
     }
 
-    //登记
-    @RequestMapping("/checkBook.do")
+    //登记，添加记录
+    @RequestMapping(value = "/Record", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> checkBook(Record record) throws IOException {
-        if(!StringUtils.isEmpty(record)){
-            System.out.print(record.getBookId()+","+record.getGeName()+","+record.getGeNumber()+","+record.getPhone());
+        Subject subject = SecurityUtils.getSubject();
+        String geNumber = (String)subject.getPrincipal();
+        System.out.println("用户农民"+geNumber);
+        //如果没有工号则获取当前用户名
+        if(record.getGeNumber()==null || record.getGeNumber()==""){
+            System.out.println(record.getGeNumber()+"asdasdasd");
+            record.setGeNumber(geNumber);
+        }else{
+            System.out.println(record.getGeNumber()+"123123123");
         }
         Map<String,Object> map = new HashMap<String,Object>();
         boolean isSuccess = bookService.checkBook(record);
@@ -204,10 +211,10 @@ public class BookController {
         return result;
     }
 
-    // 还书登记
-    @RequestMapping("/backBook.do")
+    // 还书登记 修改记录
+    @RequestMapping(value = "/Record", method = RequestMethod.PUT)
     @ResponseBody
-    public Map<String, Object> backBook(Record record) throws Exception {
+    public Map<String, Object> backBook(@RequestBody Record record) throws Exception {
         if(!StringUtils.isEmpty(record)){
             System.out.println(record.getDescription()+","+record.getBookId()+","+record.getGeNumber());
 
@@ -223,11 +230,11 @@ public class BookController {
     }
 
     //删除记录
-    @RequestMapping("/delRecord.do")
+    @RequestMapping(value = "/Record", method = RequestMethod.DELETE)
     @ResponseBody
-    public Map<String,Object> delRecord(int id) throws IOException {
+    public Map<String,Object> delRecord(@RequestBody Record record) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
-        boolean isSuccess = bookService.delRecord(id);
+        boolean isSuccess = bookService.delRecord(record.getId());
         if(isSuccess){
             map.put("tip", "success");
         }
@@ -237,12 +244,12 @@ public class BookController {
         return map;
     }
 
-    //删除记录
-    @RequestMapping("/delBook.do")
+    //删除书籍
+    @RequestMapping(value = "/Book", method = RequestMethod.DELETE)
     @ResponseBody
-    public Map<String,Object> delBook(int id) throws IOException {
+        public Map<String,Object> delBook(@RequestBody Book book) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
-            boolean isSuccess = bookService.delBook(id);
+            boolean isSuccess = bookService.delBook(book.getBookId());
         if(isSuccess){
             map.put("tip", "success");
         }

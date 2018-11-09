@@ -41,7 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <dd><a href="logout">切换帐号</a></dd>
               <dd><a href="logout">退出</a></dd>
             </dl>
-            </shiro:authenticated>
+          </shiro:authenticated>
+
              <shiro:guest><a href="javascript:;">游客</a></shiro:guest>
           </li>
 

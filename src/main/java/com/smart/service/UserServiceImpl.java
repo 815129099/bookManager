@@ -3,6 +3,7 @@ package com.smart.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
+import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,30 @@ public class UserServiceImpl implements UserService {
         if(StringUtils.isEmpty(user)){
             isSuccess = true;
         }
+        return isSuccess;
+    }
+
+    //修改
+    @Transactional(rollbackFor={Exception.class})
+    public boolean updateUser(User user) {
+        boolean isSuccess = false;
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
+        user.setUpdateTime(ft.format(dNow));
+        userDao.updateUser(user);
+        isSuccess = true;
+        return isSuccess;
+    }
+
+    //删除
+    @Transactional(rollbackFor={Exception.class})
+    public boolean delUser(String geNumber) {
+        boolean isSuccess = false;
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
+        String updateTime = ft.format(dNow);
+        userDao.delUser(geNumber,updateTime);
+        isSuccess = true;
         return isSuccess;
     }
 }

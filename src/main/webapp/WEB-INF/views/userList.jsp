@@ -99,66 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 		</div>
-				<!--登记-->
-				<div class="modal fade" id="resetModal" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-							<!--
-								<button type="button" class="close" aria-hidden="true">&times;</button>
-								-->
-								<h4 class="modal-title" id="myModalLabel">登记借阅信息</h4>
-							</div>
-					        <form role="form" id="resetform" method="post">
-                            <input type="hidden" name="id" id="id"/>
-							<div class="modal-body">
-								<div class="well">
-									<div id="sucUpd" class="alert alert-success">
-									 <button type="button" class="close" id="close" aria-hidden="true">
-                                     &times;
-                                     </button>
-										<strong>登记成功！</strong>
-									</div>
-									<div id="failUpd" class="alert alert-warning">
-									 <button type="button" class="close" id="close"   aria-hidden="true">
-                                      &times;
-                                     </button>
-										<strong>登记失败！</strong>
-									</div>
-
-									<div class="alert alert-danger hide" id="tipError" style='color: white'>&nbsp;</div>
-                                        <div class="form-group" style="margin-right: 10px">
-											<label>书籍代码:</label> <input type="text"
-												class="form-control" name="bookId" id="bookId" readonly>
-										</div>
-										<div class="form-group" style="margin-right: 10px">
-											<label>工号:</label> <input type="text"
-												class="form-control" name="geNumber" id="geNumber" placeholder="工号">
-										</div>
-										<div class="form-group" style="margin-right: 10px">
-											<label>姓名:</label> <input type="text"
-												class="form-control" name="geName" id="geName" placeholder="名字">
-										</div>
-										<div class="form-group" style="margin-right: 10px">
-                                        	<label>手机号:</label> <input type="text"
-                                        		class="form-control" name="phone" id="phone" placeholder="手机号">
-                                        </div>
-
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="cancel">取消</button>
-								<button type="submit" class="btn btn-warning" id="resetBtn">登记</button>
-							</div>
-                         </form>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal -->
-				</div>
-				<!-- 重置密码-->
 
 				<!--添加用户-->
 				<div class="modal fade" id="addModal" role="dialog"
@@ -231,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								-->
 								<h4 class="modal-title" id="myModalLabel">修改用户信息</h4>
 							</div>
-					        <form role="form" id="updateform" method="post">
+					        <form role="form" id="updateform">
 							<div class="modal-body">
 								<div class="well">
 									<div id="sucUpd" class="alert alert-success">
@@ -248,23 +188,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</div>
 
 									<div class="alert alert-danger hide" id="tipError" style='color: white'>&nbsp;</div>
-                                        <div class="form-group" style="margin-right: 10px">
-											<label>登录名:</label> <input type="text"
-												class="form-control" name="email" id="email" placeholder="电子邮箱" readonly>
-										</div>
 										<div class="form-group" style="margin-right: 10px">
-											<label>用户名:</label> <input type="text"
-												class="form-control" name="realname" id="realname" placeholder="用户名">
+											<label>工号:</label> <input type="text"
+												class="form-control" name="geNumber" id="geNumber" placeholder="工号" readonly>
 										</div>
 										<div class="form-group" style="margin-right: 10px">
 											<label>手机号码:</label> <input type="text"
-												class="form-control" name="mobile" id="mobile" placeholder="手机号码">
+												class="form-control" name="phone" id="phone" placeholder="手机号码">
 										</div>
 										<div class="form-group" style="margin-right: 10px">
-											<label>权限:</label>
-											<select name="type" id="type" class="form-control">
-											    <option value="普通用户">普通用户</option>
-												<option value="管理员">管理员</option>
+                                        	<label>新密码:</label> <input type="password"
+                                        		class="form-control" name="password" id="password" placeholder="新密码">
+                                        </div>
+                                        <div class="form-group" style="margin-right: 10px">
+                                            <label>验证密码:</label> <input type="password"
+                                                class="form-control" name="rePassword" id="rePassword" placeholder="再次输入密码">
+                                        </div>
+										<div class="form-group" style="margin-right: 10px">
+											<label>状态:</label>
+											<select name="userState" id="userState" class="form-control">
+											    <option value="有效">有效</option>
+												<option value="无效">无效</option>
 											</select>
 										</div>
 
@@ -369,26 +313,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             						$("div#addModal #failUpd").hide();
             					}
             					else{
-            					$.post("addUser.do",
-            							{"geNumber":$("#addform #geNumber").val(),
-            						     "geName":$("#addform #geName").val(),
-            						     "password":$("#addform #rePassword").val(),
-            						     "phone":$("#addform #phone").val()
-            						     },
-            						     function(response){
-            						if(response.tip=="success"){
-            							   $("div#addModal #sucUpd").show();
-            							    $("div#addModal #failUpd").hide();
-            								 //关闭窗口后刷新列表
-            							    $("#addform #cancel").click(function(){
-            							    	listUser();
-            							    });
-            						   }
-            						   else{
-            							   $("div#addModal #failUpd").show();
-            							   $("div#addModal #sucUpd").hide();
-            						   }
-            					});
+            					$.ajax({
+            					        url:"User",
+            					        type:"POST",
+            					        data:{"geNumber":$("#addform #geNumber").val(),
+                                              "geName":$("#addform #geName").val(),
+                                              "password":$("#addform #rePassword").val(),
+                                              "phone":$("#addform #phone").val()},
+                                        success:function(response){
+                                                if(response.tip=="success"){
+                                                      $("div#addModal #sucUpd").show();
+                                                      $("div#addModal #failUpd").hide();
+                                                      //关闭窗口后刷新列表
+                                                      $("#addform #cancel").click(function(){listUser();});
+                                                }
+                                                 else{
+                                                       $("div#addModal #failUpd").show();
+                                                       $("div#addModal #sucUpd").hide();
+                                                 }
+                                        }});
+
             				}
             		      }
             		  });
@@ -414,7 +358,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						    "geName":geName,
     						    "userState":userState
     					       }, false, true, true, true,true,
-    					       "<shiro:hasAnyRoles name='admin'>"+"<a href='javascript:void(0)' id='update' title='修改' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
+    					       "<shiro:hasAnyRoles name='admin'>"+"<a href='javascript:void(0)' id='update' title='修改' style='padding-right:20px' onclick='updateUser(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
     					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
     					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
     					       "id"
@@ -429,95 +373,94 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-    //登记
-    	function check(obj){
+    //修改
+    	function updateUser(obj){
     		//初始化模态窗口
-
-    		var id = $(obj).parent("td").attr("bookId");
-    		var bookId = $(obj).parent("td").siblings("td").eq(1).html();
-    		console.log(bookId);
-    		//$("#resetform #id").val(id);
-    		$("#resetform #bookId").val(bookId);
-    		$("#resetform #geNumber").val("");
-    		$("#resetform #geName").val("");
+    		var id = $(obj).parent("td").attr("id");
+    		var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
+    		$("#updateform #geNumber").val(geNumber);
+    		$("#updateform #phone").val("");
+    		$("#updateform #password").val("");
+    		$("#updateform #rePassword").val("");
+            $("#updateform #userState").val("");
     		$("label.error").remove();
-
-    		$("div#resetModal #sucUpd").hide();
-    		$("div#resetModal #failUpd").hide();
-            var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
-            //alert(number);
-            if(number<=0){
-            alert("该书剩余数量为0，无法借阅！");
-            bookId = " ";
-            }else{
-            $("#resetModal").modal('show');
-            }
+    		$("div#updateModal #sucUpd").hide();
+    		$("div#updateModal #failUpd").hide();
+            $("#updateModal").modal('show');
     		//设置表单验证
-    		 $("#resetform").validate({
+    		 $("#updateform").validate({
     			  onfocusout:false,
     			  onkeyup:false,
     		      rules:{
-    		    	  geName:{required:true},
-    		    	  geNumber:{required:true}
+    		    	  phone:{required:true,isMobile:true},
+    		    	  password:{required:true,rangelength:[6,10]},
+    		    	  rePassword:{required:true,equalTo:"#updateform #password"},
+                      userState:{required:true}
     		      },
     		      messages:{
-    		    	  geName:{required:"借阅人名字不能为空<br/>"},
-    		    	  geNumber:{required:"借阅人工号不能为空<br/>"},
+    		    	  phone:{required:"手机号不能为空<br/>",isMobile:"请输入正确的手机号<br/>"},
+    		    	  password:{required:"新密码不能为空<br/>",rangelength:"请输入6~10位有效密码<br/>"},
+    		    	  rePassword:{required:"验证密码不能为空<br/>",equalTo:"密码不一致<br/>"},
+                      userState:{required:"用户状态不能为空<br/>"}
     		      }
     		    });
 
-    		$("#resetform").submit(function(){
-    			if(!$("#resetform").valid()){
-    				$("div#resetModal #sucUpd").hide();
-    				$("div#resetModal #failUpd").hide();
+    		$("#updateform").submit(function(){
+    			if(!$("#updateform").valid()){
+    				$("div#updateModal #sucUpd").hide();
+    				$("div#updateModal #failUpd").hide();
     			}
     			else{
-    			console.log(bookId);
-    			if(bookId!=null && bookId!=""){
-    			$.post("checkBook.do",{"bookId":bookId,"geName":$("#resetform #geName").val(),"geNumber":$("#resetform #geNumber").val(),"phone":$("#resetform #phone").val()},function(response){
-                    				if(response.tip=="success"){
-                    					   $("div#resetModal #sucUpd").show();
-                    					    $("div#resetModal #failUpd").hide();
-                                            $("#resetform #phone").val("");
-                    						$("#resetform #bookName").val("");
-                    						$("#resetform #bookNumber").val("");
-                    						bookId = null;
-                    						listBook();
-                    				   }
-                    				   else{
-                    					   $("div#resetModal #failUpd").show();
-                    					   $("div#resetModal #sucUpd").hide();
-                    				   }
-                    			});
-    			}
-
-    		}
-
-    		});
-
-    	}
+    			var geNumber = $("#updateform #geNumber").val();
+    			var phone = $("#updateform #phone").val();
+    			var password = $("#updateform #password").val();
+    			var userState = $("#updateform #userState").val();
+    			var data = {"geNumber":geNumber,"phone":phone,"password":password,"userState":userState};
+    			    $.ajax({
+    			            url:"User",
+    			            type:"PUT",
+    			            data:JSON.stringify(data),
+    			            contentType:"application/json",
+    			            success:function(response){
+    			                    if(response.tip=="success"){
+                                    $("div#updateModal #sucUpd").show();
+                                    $("div#updateModal #failUpd").hide();
+                                    $("#updateform #phone").val("");
+                                    $("#updateform #password").val("");
+                                    $("#updateform #repassword").val("");
+                                    $("#updateform #userState").val("");
+                                    listUser();
+                            }else{
+                                     $("div#resetModal #failUpd").show();
+                                     $("div#resetModal #sucUpd").hide();
+                            }}
+    			            })
+    			            }
+    			            });
+    			            }
 
     	    	//删除用户
             	function delUser(obj){
-            		if(confirm("是否删除该书籍")){
-            			var id =  $(obj).parent("td").attr("id");
-            			$.post("delBook.do",{"id":id},function(response){
-                        				if(response.tip=="success"){
-                        					alert("删除成功");
-                        					listBook();
-                        				}
-                        				else if(response.tip=="error"){
-                        					alert("删除失败!");
-                        				}
-                        			});
+            		if(confirm("是否删除该用户")){
+            			var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
+                        var data = {"geNumber":geNumber};
+            			$.ajax({
+            			        url:"User",
+            			        type:"DELETE",
+            			        data:JSON.stringify(data),
+            			        contentType:"application/json",
+            			        success:function(response){
+                                        if(response.tip=="success"){
+                                             alert("删除成功");
+                                             listUser();
+                                        }else if(response.tip=="error"){
+                                             alert("删除失败!");
+                                        }}
+            			        });
             		}
             	}
 
-            	//查看用户
-                	function preview(obj){
-                			var id =  $(obj).parent("td").attr("id");
-                			window.open("pre?id="+id);
-                	}
+
 
             function lockUser(){
             	var row,id;

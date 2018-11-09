@@ -110,31 +110,16 @@ $(function(){
 	    		$(form).find(":submit").attr("disabled", true);
 	            $.ajax({
 	            	type:'POST',
-	            	data:{"email":email,"password":password},
+	            	data:{"geNumber":email,"password":password},
 	            	url:'UserType.do',
 					async:false,
 					dataType: 'json',
 	            }).done(function(result) {
-	                if(result.tip=="lock"){
-	                        alert("你的账户已被锁定，请联系管理员解锁（815129099@qq.com）");
-	                }else if(result.tip=="no"){
-                     		$('#beError').show();
-                            $('#beError').html("用户未注册！");
-                    }else if(result.tip=="company"){
-	            			window.location='comIndex';
-					}else if(result.tip=="noCom"){
-					        window.location='company';
-					}else if(result.tip=="student"){
-					        window.location='stuResume';
-					}else if(result.tip=="student"){
-					        window.location='index';
-				    }else if(result.tip=="admin"){
-				            window.location='maSystem';
-				    }
-					else {
-						$('#beError').show();
-						$('#beError').html("密码错误，请重新输入！");
-					}
+	                if(result.tip=="error"){
+	                        window.location='error';
+	                }else if(result.tip=="success"){
+                     	window.location='maSystem';
+                    }
 					$(form).find(":submit").attr("disabled", false);
 	            });
 	        }
