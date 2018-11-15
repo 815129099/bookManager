@@ -17,6 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 
-<h1>发送未知错误</h1>
-<a href="login">返回登录页面</a>
+<h1>登录失败</h1>
+<h3>原因可能如下：</h3>
+<h4>1、用户名不存在</h4>
+<h4>2、密码错误</h4>
+<h4>3、用户由于信用问题被封</h4>
+<a href="login.do">返回登录页面</a>
 </body></html>

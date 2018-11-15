@@ -7,6 +7,7 @@ import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.dao.BookDao;
 import com.smart.dao.UserDao;
+import com.smart.redis.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -90,23 +91,45 @@ public class BookServiceImpl implements BookService {
         return isSuccess;
     }
 
-    //登记
+    //申请借阅
     @Transactional(rollbackFor={Exception.class})
     public boolean checkBook(Record record) {
         boolean isSuccess = false;
         System.out.println("工号为"+record.getGeNumber());
-        if(record.getGeName()==null || record.getGeName()==""){
-            User user = userDao.findByGeNumber(record.getGeNumber());
-            System.out.println("用户名"+user.getGeName());
-            if(user!=null){
-                record.setGeName(user.getGeName());
-                record.setPhone(user.getPhone());
+        //获取Book
+        Book book;
+        book = (Book)JedisClient.getObject(record.getBookId());
+        if(book==null){
+            book = bookDao.getBookById(record.getBookId());
+            record.setBookName(book.getBookName());
+            if(book!=null){
+                JedisClient.setObject(record.getBookId(),(Object)book);
             }
         }
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-        bookDao.checkBook(record.getBookId());
-        record.setLendTime(ft.format(dNow));
+
+        //借书人名字为空则通过工号查询
+        if(record.getGeName()==null || record.getGeName()==""){
+            User user;
+            user = (User)JedisClient.getObject(record.getGeNumber());
+            if(user==null){
+                user = userDao.findByGeNumber(record.getGeNumber());
+                System.out.println("用户名"+user.getGeName());
+                if(user!=null){
+                    record.setGeName(user.getGeName());
+                    JedisClient.setObject(record.getGeNumber(),(Object)user);
+                }
+            }
+
+
+        }
+
+        if(book.getLendNumber()>0){
+            //书籍数量减1
+            bookDao.checkBook(record.getBookId());
+        }else {
+            return false;
+        }
+        record.setApplyTime(DateUtil.getDate());//申请时间
         bookDao.record(record);
         isSuccess = true;
         return isSuccess;
@@ -140,9 +163,7 @@ public class BookServiceImpl implements BookService {
     @Transactional(rollbackFor={Exception.class})
     public boolean backBook(Record record) {
         boolean isSuccess = false;
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-        record.setBackTime(ft.format(dNow));
+        record.setBackTime(DateUtil.getDate());
         bookDao.addNumber(record.getBookId());
         bookDao.backTime(record);
         isSuccess = true;
@@ -153,6 +174,10 @@ public class BookServiceImpl implements BookService {
     @Transactional(rollbackFor={Exception.class})
     public boolean delRecord(int id) {
         boolean isSuccess = false;
+        Record record = bookDao.getRecordById(id);
+        if(StringUtils.isEmpty(record.getLendTime())){
+            bookDao.addNumber(record.getBookId());
+        }
         bookDao.delRecord(id);
         isSuccess = true;
         return isSuccess;
@@ -163,6 +188,31 @@ public class BookServiceImpl implements BookService {
     public boolean delBook(String bookId) {
         boolean isSuccess = false;
         bookDao.delBook(bookId);
+        isSuccess = true;
+        return isSuccess;
+    }
+
+    //批准申请
+    @Transactional(rollbackFor={Exception.class})
+    @Override
+    public boolean pass(int[] arr) {
+        boolean isSuccess = false;
+        for (int id:arr) {
+            bookDao.pass(id,DateUtil.getFour());
+        }
+        isSuccess = true;
+        return isSuccess;
+    }
+
+    //退回申请
+    @Transactional(rollbackFor={Exception.class})
+    @Override
+    public boolean back(int[] arr) {
+        boolean isSuccess = false;
+        for (int id:arr) {
+            bookDao.back(id);
+            bookDao.addNumber(bookDao.getRecordById(id).getBookId());
+        }
         isSuccess = true;
         return isSuccess;
     }

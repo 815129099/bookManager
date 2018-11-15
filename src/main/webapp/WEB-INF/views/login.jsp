@@ -116,9 +116,9 @@ $(function(){
 					dataType: 'json',
 	            }).done(function(result) {
 	                if(result.tip=="error"){
-	                        window.location='error';
+	                        window.location='error.do';
 	                }else if(result.tip=="success"){
-                     	window.location='maSystem';
+                     	window.location='maSystem.do';
                     }
 					$(form).find(":submit").attr("disabled", false);
 	            });

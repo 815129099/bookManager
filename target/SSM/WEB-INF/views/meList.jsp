@@ -8,14 +8,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>用户列表</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link href="style/css/style20160105.css" rel="stylesheet">
     <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
     <div class="x-body" >
-    <div class="container" style="padding-top:30px;width:1500px;">
+    <div class="container" style="padding-top:30px;width:1300px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -308,7 +308,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <script src="style/js/jquery.1.10.1.min.js"></script>
         <script src="style/js/bootstrap.min.js"></script>
         <script type="text/javascript"  src="style/lib/layui/layui.js" ></script>
-        <script type="text/javascript" src="style/js/xadmin.js"></script>
+        <script type="text/javascript" src="style/js/admin.js"></script>
         <script src="style/js/service.ddlist.jquery.min.js"></script>
 
      <!-- 表单验证 -->
@@ -400,7 +400,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					alert(bookId);
             					var data = {"bookId":bookId,"bookName":bookName,"bookNumber":bookNumber,"bookLocation":bookLocation};
             					    $.ajax({
-            					            url:"Book",
+            					            url:"Book.do",
             					            type:"POST",
             					            data:data,
             					            success: function(response){
@@ -442,7 +442,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						    "bookName":bookName,
     						    "bookLocation":bookLocation
     					       }, false, true, true, true,true,
-    					       "<shiro:hasAnyRoles name='user,admin'>"+"<a href='javascript:void(0)' id='update' title='登记' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
+    					       "<shiro:hasAnyRoles name='user,admin'>"+"<a href='javascript:void(0)' id='update' title='申请' style='padding-right:20px' onclick='check(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
     					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delBook(this)'><i class='fa fa-trash'></i></a>"+
     					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
     					       "id"
@@ -504,11 +504,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			console.log(bookId);
             			if(bookId!=null && bookId!=""){
             			var geName = $("#resetform #geName").val();
-            			var phone = $("#resetform #phone").val();
+
             			var geNumber = $("#resetform #geNumber").val();
-            			var data = {"bookId":bookId,"geName":geName,"geNumber":geNumber,"phone":phone};
+            			var data = {"bookId":bookId,"geName":geName,"geNumber":geNumber};
             			$.ajax({
-            			        url:"Record",
+            			        url:"Record.do",
             			        type:"POST",
             			        data:data,
             			        success:function(response){
@@ -539,7 +539,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                          alert(bookId);
                          var data = {"bookId":bookId};
                          $.ajax({
-                              url:"Record",
+                              url:"Record.do",
                               type:"POST",
                               data:data,
                               success:function(response){
@@ -564,7 +564,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			alert(bookId);
             			var data = {"bookId":bookId};
             			$.ajax({
-            			        url:"Book",
+            			        url:"Book.do",
             			        type:"DELETE",
             			        data:JSON.stringify(data),
             			        contentType:"application/json",
@@ -579,11 +579,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		}
             	}
 
-            	//查看用户
+            	//查看
                 	function preview(obj){
-                			var id =  $(obj).parent("td").attr("id");
-                			window.open("pre?id="+id);
-                	}
+                		var id =  $(obj).parent("td").attr("id");
+                        var bookId = $(obj).parent("td").siblings("td").eq(1).html();
+                        if(bookId == '' || bookId == undefined || bookId == null){
+                            alert("发生未知错误");
+                        }else{
+                            window.location="allegeList.do?bookId="+bookId;
+                        }
+                    }
 
             function lockUser(){
             	var row,id;

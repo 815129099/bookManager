@@ -224,6 +224,19 @@
       <version>2.4</version>
     </dependency>
 
+    <!--spring支持-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--邮件发送-->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
 
   </dependencies>
   <build>
@@ -235,7 +248,7 @@
         <version>2.2</version>
         <configuration>
           <!--配置端口号-->
-          <port>8090</port>
+          <port>8091</port>
           <!--配置访问路径，此处配置为根目录，即http://localhost/-->
           <path>/SSM</path>
         </configuration>

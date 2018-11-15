@@ -9,13 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <%@ page isELIgnored="false" %>
            <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>后台系统管理</title>
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container">
         <div class="logo"><a href="maSystem">图书管理系统</a></div>
         <div class="left_open">
-            <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+            <i title="展开左侧栏" class="iconfont">&#xe661;</i>
         </div>
         <ul class="layui-nav right" lay-filter="">
 
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </li>
 
 
-          <li class="layui-nav-item to-index"><a href="login">登录</a></li>
+          <li class="layui-nav-item to-index"><a href="login.do">登录</a></li>
         </ul>
         
     </div>
@@ -59,21 +59,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="nav">
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe6b8;</i>
+                    <i class="iconfont">&#xe806;</i>
                     <cite>书籍管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
+                    <i class="iconfont nav_right">&#xe685;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="meList">
-                            <i class="iconfont">&#xe6a7;</i>
+                        <a _href="meList.do">
+                            <i class="iconfont">&#xe673;</i>
                             <cite>书籍列表</cite>
                         </a>
                     </li >
                     <shiro:authenticated>
                     <li>
-                        <a _href="allegeList">
-                            <i class="iconfont">&#xe6a7;</i>
+                        <a _href="allegeList.do">
+                            <i class="iconfont">&#xe673;</i>
                             <cite>借阅记录</cite>
                         </a>
                     </li>
@@ -83,20 +83,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <shiro:hasAnyRoles name="admin">
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">&#xe726;</i>
+                    <i class="iconfont">&#xe7ac;</i>
                     <cite>员工管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
+                    <i class="iconfont nav_right">&#xe685;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="userList">
-                            <i class="iconfont">&#xe6a7;</i>
+                        <a _href="userList.do">
+                            <i class="iconfont">&#xe673;</i>
                             <cite>员工列表</cite>
                         </a>
                     </li >
                 </ul>
             </li>
             </shiro:hasAnyRoles>
+
+             <shiro:hasAnyRoles name="admin,user">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="iconfont">&#xe7a7;</i>
+                                <cite>信息管理</cite>
+                                <i class="iconfont nav_right">&#xe685;</i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a _href="userList.do">
+                                        <i class="iconfont">&#xe673;</i>
+                                        <cite>我的通知</cite>
+                                    </a>
+                                </li >
+                                <li>
+                                     <a _href="detail.do">
+                                          <i class="iconfont">&#xe908;</i>
+                                          <cite>修改密码</cite>
+                                     </a>
+                                </li >
+                            </ul>
+                        </li>
+                        </shiro:hasAnyRoles>
+
+
         </ul>
       </div>
     </div>
@@ -110,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='meList' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='meList.do' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
         </div>
@@ -125,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 底部结束 -->
      <script type="text/javascript" src="style/js/jquery.1.10.1.min.js"></script>
         <script type="text/javascript"  src="style/lib/layui/layui.js" ></script>
-        <script type="text/javascript" src="style/js/xadmin.js"></script>
+        <script type="text/javascript" src="style/js/admin.js"></script>
 
         <script src="style/js/service.ddlist.jquery.min.js"></script>
         <script src="style/js/validate/jquery.validate.min.js"></script>

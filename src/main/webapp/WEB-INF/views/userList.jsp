@@ -14,8 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="UTF-8">
     <title>用户列表</title>
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link href="style/css/style20160105.css" rel="stylesheet">
     <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -27,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
     <div class="x-body" >
-    <div class="container" style="padding-top:30px;width:1500px;">
+    <div class="container" style="padding-top:30px;width:1300px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -63,7 +62,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<!-- /well -->
 				</div>
-
+ <div class="alert alert-success alert-dismissable">
+	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+		        &times;
+	            </button>
+	            状态说明<br/>
+	                锁定：用户由于拖欠违约金等会被管理员锁定，锁定的用户无法登陆。
+            </div>
 				<!--/数据表格-->
 				<shiro:hasPermission name="admin">
 				<ul class="toolbar">
@@ -75,9 +80,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<thead>
 							<tr>
 
-							<th>#</th>
+							<th><shiro:hasAnyRoles name="admin"><input type="checkbox" id="chkAll"/></shiro:hasAnyRoles><shiro:hasAnyRoles name="user">#</shiro:hasAnyRoles></th>
 							<th>工号</th>
 							<th>名称</th>
+							<th>手机号</th>
 							<th>状态</th>
 							<th>修改时间</th>
 							<th>操作</th>
@@ -87,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tbody>
 							<tfoot>
 								<tr>
-									<td colspan="6">
+									<td colspan="7">
 									<div id="total" class="pull-left" style="padding-top:20px;padding-left:10px">&nbsp;</div>
 									<div class="pull-right">
 			                           <ul class="pagination" id="pagination"></ul>
@@ -233,7 +239,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <script src="style/js/jquery.1.10.1.min.js"></script>
         <script src="style/js/bootstrap.min.js"></script>
         <script type="text/javascript"  src="style/lib/layui/layui.js" ></script>
-        <script type="text/javascript" src="style/js/xadmin.js"></script>
+        <script type="text/javascript" src="style/js/admin.js"></script>
         <script src="style/js/service.ddlist.jquery.min.js"></script>
 
      <!-- 表单验证 -->
@@ -314,7 +320,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					}
             					else{
             					$.ajax({
-            					        url:"User",
+            					        url:"User.do",
             					        type:"POST",
             					        data:{"geNumber":$("#addform #geNumber").val(),
                                               "geName":$("#addform #geName").val(),
@@ -339,6 +345,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	});
 
     });
+
+    //查看用户
+                    	function preview(obj){
+                    			var id =  $(obj).parent("td").attr("id");
+                    			var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
+                    			window.location="allegeList.do?geNumber="+geNumber;
+                    	}
+
     	function listUser(){
     	//查询条件
     	var geNumber = $("form#query #geNumber").val();
@@ -353,11 +367,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       function(response){
     	       console.log(response.page);
     	    	 //生成结果列表
-    			 initDataTable("userTable", 6, new Array("geNumber","geName","userState","updateTime"), response.page,
+    			 initDataTable("userTable", 7, new Array("geNumber","geName","phone","userState","updateTime"), response.page,
     						"listUser.do",  {"geNumber":geNumber,
     						    "geName":geName,
     						    "userState":userState
-    					       }, false, true, true, true,true,
+    					       }, true, true, false, true,true,
     					       "<shiro:hasAnyRoles name='admin'>"+"<a href='javascript:void(0)' id='update' title='修改' style='padding-right:20px' onclick='updateUser(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
     					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
     					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
@@ -417,7 +431,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			var userState = $("#updateform #userState").val();
     			var data = {"geNumber":geNumber,"phone":phone,"password":password,"userState":userState};
     			    $.ajax({
-    			            url:"User",
+    			            url:"User.do",
     			            type:"PUT",
     			            data:JSON.stringify(data),
     			            contentType:"application/json",
@@ -441,11 +455,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	    	//删除用户
             	function delUser(obj){
-            		if(confirm("是否删除该用户")){
+            	var state = $(obj).parent("td").siblings("td").eq(4).html();
+            	if(state=="有效"){
+            	    alert("有效状态的用户不可删除！！！");
+            	}else{
+                    if(confirm("是否删除该用户")){
             			var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
                         var data = {"geNumber":geNumber};
             			$.ajax({
-            			        url:"User",
+            			        url:"User.do",
             			        type:"DELETE",
             			        data:JSON.stringify(data),
             			        contentType:"application/json",
@@ -460,47 +478,95 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		}
             	}
 
+            	}
 
 
-            function lockUser(){
-            	var row,id;
-            	var num = 0;
-            	 $("input[type='checkbox']").each(function(){
-            		 if($(this).is(":checked"))
-                      {
-                      num++;
-            			 row = $(this).parent("td").parent("tr");
-            			 id = row.find("td #update").parents("td").attr("id");
-                      }
-            		        	 $.post("lockUser.do",
-            					{"id":id});
-            		        	  listBook();
-            	 });
-            	 if(num==0){
-            	 alert("请选择用户");
-            	 }
-            	 $("#chkAll").attr("checked",false);
-            };
 
-            function clearUser(){
-            	var row,id;
-            	var num = 0;
-            	 $("input[type='checkbox']").each(function(){
-            		 if($(this).is(":checked"))
-                      {
-                      num++;
-            			 row = $(this).parent("td").parent("tr");
-            			 id = row.find("td #update").parents("td").attr("id");
-                      }
-            		        	 $.post("clearUser.do",
-            					{"id":id});
-            		        	  listBook();
-            	 });
-            	 if(num==0){
-            	 alert("请选择用户");
-            	 }
-            	 $("#chkAll").attr("checked",false);
-            };
+             function lockUser(){
+                        	var row,id;
+                        	var num = 0;
+                        	var arr = new Array();
+                        	 $("input[type='checkbox']").each(function(){
+                        		 if($(this).is(":checked"))
+                                  {
+                        			 row = $(this).parent("td").parent("tr");
+                        			 var flag = row.find("td").eq(4).html();
+                        			 if(flag!="无效"){
+                        			 id = row.find("td #update").parents("td").attr("id");
+                                                 			 if(id!=undefined){
+                                                 			  arr[num] = id;
+                                                 			  num++;
+                                                 			 }
+                        			 }else{
+                        			 alert("用户"+row.find("td").eq(2).html()+"已被锁定，请勿重复提交！")
+                        			 }
+
+                                  }
+                                });
+
+                        	 if(num==0){
+                        	 alert("请选择记录");
+                        	 }else{
+                                $.ajax({
+                                        url:"lockUser.do",
+                                        type:"post",
+                                        data:{arr:arr},
+                                        traditional: true,
+                                        success:function(result){
+                                            if(result.tip=="success"){
+                                                alert("锁定成功");
+                                            }else{
+                                            alert("锁定失败");
+                                            }
+                                            listUser();
+                                        }
+                                });
+                        	 }
+                        	 $("input:checkbox").removeAttr("checked");
+                        }
+
+                        function clearUser(){
+                        	var row,id;
+                        	var num = 0;
+                        	var arr = new Array();
+                        	 $("input[type='checkbox']").each(function(){
+                        		 if($(this).is(":checked"))
+                                  {
+                        			 row = $(this).parent("td").parent("tr");
+                        			 var flag = row.find("td").eq(4).html();
+                        			 if(flag!="有效"){
+                        			 id = row.find("td #update").parents("td").attr("id");
+                                                 			 if(id!=undefined){
+                                                 			  arr[num] = id;
+                                                 			  num++;
+                                                 			 }
+                        			 }else{
+                        			 alert("用户"+row.find("td").eq(3).html()+"已解锁，请不要重复提交！")
+                        			 }
+
+                                  }
+                                });
+
+                        	 if(num==0){
+                        	 alert("请选择记录");
+                        	 }else{
+                                $.ajax({
+                                        url:"clearUser.do",
+                                        type:"post",
+                                        data:{arr:arr},
+                                        traditional: true,
+                                        success:function(result){
+                                            if(result.tip=="success"){
+                                                alert("修改成功");
+                                            }else{
+                                            alert("修改失败");
+                                            }
+                                            listUser();
+                                        }
+                                });
+                        	 }
+                        	 $("input:checkbox").removeAttr("checked");
+                        }
     </script>
   </body>
 

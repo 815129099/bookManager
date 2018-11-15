@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80011
 File Encoding         : 65001
 
-Date: 2018-11-09 15:32:56
+Date: 2018-11-15 15:26:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,14 +34,14 @@ CREATE TABLE `book` (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES ('19', '00001', '博览群书 2005 5', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('19', '00001', '博览群书 2005 5', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('20', '00002', '博览群书 2005 6', '1', '0', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('21', '00003', '博览群书 2005 7', '1', '0', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('22', '00004', '博览群书 2005 8', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('22', '00004', '博览群书 2005 8', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('23', '00005', '博览群书 2005 9', '1', '1', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('24', '00006', '博览群书 2006 5', '1', '0', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('25', '00007', '博览群书 2006 8', '1', '0', 'A-1-1', '1');
-INSERT INTO `book` VALUES ('26', '00008', '博览群书 2006 10', '1', '0', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('24', '00006', '博览群书 2006 5', '1', '1', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('25', '00007', '博览群书 2006 8', '1', '1', 'A-1-1', '1');
+INSERT INTO `book` VALUES ('26', '00008', '博览群书 2006 10', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('27', '00009', '特战精锐 揭秘俄罗斯特种部队', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('28', '00010', '士兵突击', '1', '1', 'A-1-1', '1');
 INSERT INTO `book` VALUES ('29', '00011', '中国诗学 第七辑', '1', '1', 'A-1-1', '1');
@@ -650,7 +650,7 @@ INSERT INTO `book` VALUES ('631', '00613', '母亲的教诲', '1', '1', 'C-5-2',
 INSERT INTO `book` VALUES ('632', '00614', '狼图腾', '1', '1', 'C-5-2', '1');
 INSERT INTO `book` VALUES ('633', '00615', '彼得大帝', '1', '1', 'C-5-2', '1');
 INSERT INTO `book` VALUES ('634', '00616', '前超声诊断与鉴别诊断', '1', '1', 'D-1', '1');
-INSERT INTO `book` VALUES ('635', '00617', '健康营养月子餐500例', '0', '0', 'D-1', '1');
+INSERT INTO `book` VALUES ('635', '00617', '健康营养月子餐500例', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('636', '00618', '十月怀胎安产百科', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('637', '00619', '孕产妈妈营养大百科', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('638', '00620', '孕婴实用手册', '1', '1', 'D-1', '1');
@@ -663,12 +663,12 @@ INSERT INTO `book` VALUES ('644', '00626', '再试一次就成功', '1', '1', 'D
 INSERT INTO `book` VALUES ('645', '00627', '育儿一日一页', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('646', '00628', '育儿一本足够', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('647', '00629', '80后准爸准妈的第一本孕育书', '1', '1', 'D-1', '1');
-INSERT INTO `book` VALUES ('648', '00630', '王琪孕前准备专家指导', '0', '0', 'D-1', '1');
+INSERT INTO `book` VALUES ('648', '00630', '王琪孕前准备专家指导', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('649', '00631', '幸福怀孕', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('650', '00632', '怀孕40周专家方案', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('651', '00633', '10月怀孕大百科', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('652', '00634', '备孕怀孕胎教百科', '1', '1', 'D-1', '1');
-INSERT INTO `book` VALUES ('653', '00635', '席雪怀孕分娩公开课', '0', '0', 'D-1', '1');
+INSERT INTO `book` VALUES ('653', '00635', '席雪怀孕分娩公开课', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('654', '00636', '席血坐月子与新生儿护理公开课', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('655', '00637', '长胎不长肉的孕期营养餐单', '1', '1', 'D-1', '1');
 INSERT INTO `book` VALUES ('656', '00638', '好食助好孕养好儿', '1', '1', 'D-1', '1');
@@ -1834,7 +1834,7 @@ INSERT INTO `book` VALUES ('1815', 'BY17.24', '半月选读2017第24期', '1', '
 INSERT INTO `book` VALUES ('1816', 'HW16.1', '海外文摘2016 1.', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1817', 'HW16.2', '海外文摘2016 2.', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1818', 'HW16.3', '海外文摘2016 3.', '1', '1', 'J-1', '1');
-INSERT INTO `book` VALUES ('1819', 'HW16.5', '海外文摘2016 5.', '1', '0', 'J-1', '1');
+INSERT INTO `book` VALUES ('1819', 'HW16.5', '海外文摘2016 5.', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1820', 'HW16.6', '海外文摘2016 6.', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1821', 'HW16.7', '海外文摘2016 7.', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1822', 'HW16.9', '海外文摘2016 9.', '1', '1', 'J-1', '1');
@@ -1964,7 +1964,6 @@ INSERT INTO `book` VALUES ('1945', 'YL17.19', '意林2017第19期', '1', '1', 'J
 INSERT INTO `book` VALUES ('1946', 'QN17.21', '青年文摘2017.21', '1', '1', 'J-1', '1');
 INSERT INTO `book` VALUES ('1947', '11111', '小gjhvb ', '1', '1', 'A-1-1', '0');
 INSERT INTO `book` VALUES ('1949', '33333', 'sesf ', '1', '1', 'A-1-2', '0');
-INSERT INTO `book` VALUES ('1950', '11111', 'qweq', '1', '1', 'A-1-1', '0');
 
 -- ----------------------------
 -- Table structure for record
@@ -1975,44 +1974,26 @@ CREATE TABLE `record` (
   `bookId` varchar(40) NOT NULL,
   `geName` varchar(40) NOT NULL,
   `geNumber` varchar(40) NOT NULL,
-  `phone` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `bookName` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `state` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '归还，未还',
-  `lendTime` date NOT NULL,
+  `lendTime` date DEFAULT NULL,
   `backTime` date DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `applyTime` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of record
 -- ----------------------------
-INSERT INTO `record` VALUES ('4', '00003', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-12', '2018-09-18', '书籍完好');
-INSERT INTO `record` VALUES ('5', '00009', '刘文祥', 'ge14475', '1871312313', '已归还', '2018-09-12', '2018-09-12', '234234');
-INSERT INTO `record` VALUES ('6', '00004', '刘文祥', 'ge14474', '1871312313', '已归还', '2018-09-12', '2018-09-14', '书籍完好');
-INSERT INTO `record` VALUES ('7', '00008', '刘文祥', 'ge14423', '1871312313', '已归还', '2018-09-12', '2018-09-18', '');
-INSERT INTO `record` VALUES ('8', '00011', '刘文祥', 'ge14421', '1871312313', '已归还', '2018-09-12', '2018-09-13', 'adsd');
-INSERT INTO `record` VALUES ('9', '00002', '刘文祥', 'ge14444', '1871312313', '已归还', '2018-09-14', '2018-09-14', '书籍完好');
-INSERT INTO `record` VALUES ('10', '00001', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-14', '书籍完好');
-INSERT INTO `record` VALUES ('11', '00001', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-14', '书籍完好');
-INSERT INTO `record` VALUES ('12', '00001', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-14', '书籍完好');
-INSERT INTO `record` VALUES ('13', ' 00001', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-14', '45');
-INSERT INTO `record` VALUES ('14', '00002', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-18', '书记完好');
-INSERT INTO `record` VALUES ('15', '00003', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-18', '书籍完好');
-INSERT INTO `record` VALUES ('16', '00004', '刘文祥', 'ge14476', '1871312313', '已归还', '2018-09-14', '2018-09-18', '书籍完好');
-INSERT INTO `record` VALUES ('17', '00001', '刘文祥', 'ge14476', '1871312313', '未归还', '2018-09-14', null, null);
-INSERT INTO `record` VALUES ('18', '00128', '刘文祥', 'ge14474', '1871312313', '已删除', '2018-09-18', '2018-09-21', '');
-INSERT INTO `record` VALUES ('19', '00008', '刘文祥', 'ge14421', '', '未归还', '2018-09-18', null, null);
-INSERT INTO `record` VALUES ('20', 'HW16.5', '刘文祥', 'ge14476', '1871312313', '未归还', '2018-09-21', null, null);
-INSERT INTO `record` VALUES ('21', '00002', '刘文祥', 'ge14474', '1871312313', '已归还', '2018-09-28', '2018-09-28', 'vgggggggggggggggggg');
-INSERT INTO `record` VALUES ('22', '00002', '刘文祥', 'ge14421', '1871312313', '已归还', '2018-11-08', '2018-11-08', '');
-INSERT INTO `record` VALUES ('23', '00002', '刘文祥', 'ge14421', '1871312313', '已归还', '2018-11-08', '2018-11-08', '');
-INSERT INTO `record` VALUES ('24', '00002', '刘文祥', 'ge14421', '1871312313', '未归还', '2018-11-08', null, null);
-INSERT INTO `record` VALUES ('25', '00006', '刘文祥', 'ge00001', '18713123139', '已删除', '2018-11-09', '2018-11-09', '');
-INSERT INTO `record` VALUES ('26', '00003', '刘文祥', 'ge86523', '18713123139', '未归还', '2018-11-09', null, null);
-INSERT INTO `record` VALUES ('27', '00004', '刘文祥', 'ge14475', '18713123139', '未归还', '2018-11-09', null, null);
-INSERT INTO `record` VALUES ('28', '00005', '张三', 'ge14475', '18650118023', '已归还', '2018-11-09', '2018-11-09', '');
-INSERT INTO `record` VALUES ('29', '00006', '张三', 'ge14475', '18650118023', '未归还', '2018-11-09', null, null);
-INSERT INTO `record` VALUES ('30', '00007', '张三', 'ge14475', '18650118023', '未归还', '2018-11-09', null, null);
+INSERT INTO `record` VALUES ('35', '00001', '张三', 'ge14475', '博览群书 2005 5', '借阅', '2018-11-12', '2018-11-13', 'adad', '2018-11-13 10:24');
+INSERT INTO `record` VALUES ('36', '00002', '张三', 'ge14475', '博览群书 2005 6', '删除', '2018-11-15', '2018-11-13', 'asdasd', '2018-11-13 10:24');
+INSERT INTO `record` VALUES ('37', '00003', '张三', 'ge14475', '博览群书 2005 7', '删除', '2018-11-15', '2018-11-13', 'asdasd', '2018-11-13 10:25');
+INSERT INTO `record` VALUES ('38', '00001', '张三', 'ge14475', '博览群书 2005 5', '删除', '2018-11-15', '2018-11-13', 'adad', '2018-11-13 10:25');
+INSERT INTO `record` VALUES ('39', '00002', '张三', 'ge14475', '博览群书 2005 6', '删除', '2018-11-15', '2018-11-13', 'asdasd', '2018-11-13 10:25');
+INSERT INTO `record` VALUES ('40', '00003', '张三', 'ge14475', '博览群书 2005 7', '删除', '2018-11-15', '2018-11-13', 'asdasd', '2018-11-13 10:25');
+INSERT INTO `record` VALUES ('41', '00003', '张三', 'ge14475', '博览群书 2005 7', '退回', null, null, null, '2018-11-13 15:31');
+INSERT INTO `record` VALUES ('42', '00002', '张三', 'ge14475', '博览群书 2005 6', '退回', null, null, null, '2018-11-13 15:31');
 
 -- ----------------------------
 -- Table structure for user
@@ -2029,15 +2010,16 @@ CREATE TABLE `user` (
   `createTime` date DEFAULT NULL,
   `updateTime` date DEFAULT NULL,
   `phone` varchar(20) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'ge14476', '刘文祥', 'ge14476', 'admin', 'admin', '有效', '2018-11-01', '2018-11-01', '18650118023');
-INSERT INTO `user` VALUES ('2', 'ge14475', '张三', 'ge14475', 'user', 'user', '有效', '2018-11-08', '2018-11-08', '18650118023');
-INSERT INTO `user` VALUES ('3', 'ge14474', '李四', 'ge14474', 'guest', 'guest', '有效', '2018-11-06', '2018-11-06', '18650118023');
-INSERT INTO `user` VALUES ('4', 'ge14421', '网二', 'ge14421', 'user', 'user', '有效', '2018-11-04', '2018-11-04', '18650118023');
-INSERT INTO `user` VALUES ('5', 'ge14400', '刘文祥', 'ffffff', 'user', 'user', '无效', '2018-11-08', '2018-11-09', '18713123139');
-INSERT INTO `user` VALUES ('6', 'ge00001', 'asd', '111111', 'user', 'user', '无效', '2018-11-09', '2018-11-09', '18713123139');
+INSERT INTO `user` VALUES ('1', 'ge14476', '刘文祥', 'ge14476', 'admin', 'admin', '有效', '2018-11-01', '2018-11-14', '18650118023', 'liu.wenxiang@CXTC.COM');
+INSERT INTO `user` VALUES ('2', 'ge14475', '张三', 'ge14475', 'user', 'user', '有效', '2018-11-08', '2018-11-14', '18650118023', 'liu.wenxiang@CXTC.COM');
+INSERT INTO `user` VALUES ('3', 'ge14474', '李四', 'ge14474', 'guest', 'guest', '有效', '2018-11-06', '2018-11-14', '18650118023', 'liu.wenxiang@CXTC.COM');
+INSERT INTO `user` VALUES ('4', 'ge14421', '网二', 'ge14421', 'user', 'user', '有效', '2018-11-04', '2018-11-14', '18650118023', 'liu.wenxiang@CXTC.COM');
+INSERT INTO `user` VALUES ('5', 'ge14400', '刘文祥', 'ffffff', 'user', 'user', '无效', '2018-11-08', '2018-11-14', '18713123139', 'liu.wenxiang@CXTC.COM');
+INSERT INTO `user` VALUES ('6', 'ge00001', 'asd', '111111', 'user', 'user', '删除', '2018-11-09', '2018-11-14', '18713123139', 'liu.wenxiang@CXTC.COM');

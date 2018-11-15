@@ -1,4 +1,4 @@
-﻿<%
+﻿ <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -8,13 +8,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>工会书籍管理系统</title>
-<meta name="keywords" content="工会书籍管理系统">
-<meta name="description" content="工会书籍管理系统">
+<title>书籍管理系统-登录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
 <meta name="viewport" content="width=device-width">
 <link href="public/css/base.css" rel="stylesheet" type="text/css">
 <link href="public/css/login.css" rel="stylesheet" type="text/css">
@@ -22,91 +21,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="login">
-<form id="loginForm">
+<form id="form">
 	<div class="logo"></div>
     <div class="login_form">
     	<div class="user">
-        	<input class="text_value" value="" name="username" type="text" id="username">
-            <input class="text_value" value="" name="password" type="password" id="password">
+        	<input class="text_value" value="" name="geNumber" type="text" id="geNumber" placeholder="请输入工号">
+            <input class="text_value" value="" name="password" type="password" id="password" placeholder="请输入密码">
         </div>
-        <button class="button" id="submit" type="submit">登录</button>
+        <button class="button" id="submit" type="button">登录</button>
     </div>
-    
-    <div id="tip"></div>
+
+    <div id="tip" style="color:red"></div>
     <div class="foot">
-    Copyright © 2011-2015  All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家"></a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a>
+
     </div>
     </form>
 </div>
 <script src="style/js/jquery.1.10.1.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="style/js/jquery.lib.min.js"></script>
-<script>var basedir='public/ui/';</script>
-<script src="public/ui/do.js"></script>
-<script src="public/ui/config.js"></script>
 <script type="text/javascript">
-$(function(){
-	//验证表单
-	 	$("#loginForm").validate({
-	 		/* onkeyup: false,
-	    	focusCleanup:true, */
-	        rules: {
-	    	   	username: {
-	    	    	required: true
-	    	   	},
-	    	   	password: {
-	    	    	required: true
-	    	   	}
-	    	},
-	    	messages: {
-	    	   	username: {
-	    	    	required: "请输入登录邮箱地址"
-	    	   	},
-	    	   	password: {
-	    	    	required: "请输入密码"
-	    	   	}
-	    	},
-	    	submitHandler:function(form){
-	    		if($('#remember').prop("checked")){
-	      			$('#remember').val(1);
-	      		}else{
-	      			$('#remember').val(null);
-	      		}
-	    		var email = $('#email').val();
-	    		var password = $('#password').val();
-	    		var remember = $('#remember').val();
+$(document).ready(function(){
+    $("#submit").click(function(){
+        var a = $("#geNumber").val();
+        var b = $("#password").val();
+        if(a == '' || a == undefined || a == null){
+            $("#tip").html("工号不能为空");
+        }else if(b == '' || b == undefined || b == null){
+             $("#tip").html("密码不能为空");
+        }else{
+            $("#tip").html("");
+            $.ajax({
+                    url:"UserType.do",
+                    type:"POST",
+                    data:{"geNumber":a,"password":b},
+                    async:false,
+                    dataType: 'json',
+                    success:function(result){
+                            if(result.tip=="error"){
+                            	 window.location='error.do';
+                            }else if(result.tip=="success"){
+                                 window.location='maSystem.do';
+                            }},
+                    error:function(){window.location='error';}
+                    })
+        }
+    });
 
-	    		$(form).find(":submit").attr("disabled", true);
-	            $.ajax({
-	            	type:'POST',
-	            	data:{"email":email,"password":password},
-	            	url:'UserType.do',
-					async:false,
-					dataType: 'json',
-	            }).done(function(result) {
-	                if(result.tip=="lock"){
-	                        alert("你的账户已被锁定，请联系管理员解锁（815129099@qq.com）");
-	                }else if(result.tip=="no"){
-                     		$('#beError').show();
-                            $('#beError').html("用户未注册！");
-                    }else if(result.tip=="company"){
-	            			window.location='comIndex';
-					}else if(result.tip=="noCom"){
-					        window.location='company';
-					}else if(result.tip=="student"){
-					        window.location='stuResume';
-					}else if(result.tip=="student"){
-					        window.location='index';
-				    }else if(result.tip=="admin"){
-				            window.location='maSystem';
-				    }
-					else {
-						$('#beError').show();
-						$('#beError').html("密码错误，请重新输入！");
-					}
-					$(form).find(":submit").attr("disabled", false);
-	            });
-	        }
-		});
-})
-</script></body>
+});
+
+</script>
+</body>
 </html>

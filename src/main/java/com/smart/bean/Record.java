@@ -12,11 +12,28 @@ public class Record implements Serializable {
     private String bookId;
     private String geName;
     private String geNumber;
-    private String phone;
+    private String bookName;
+    private String applyTime;
     private String lendTime;
     private String state;
     private String description;
     private String backTime;
+
+    public String getApplyTime() {
+        return applyTime;
+    }
+
+    public void setApplyTime(String applyTime) {
+        this.applyTime = applyTime;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
 
     public void setBackTime(String backTime) {
         this.backTime = backTime;
@@ -51,10 +68,6 @@ public class Record implements Serializable {
         this.lendTime = lendTime;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public void setState(String state) {
         this.state = state;
     }
@@ -66,7 +79,6 @@ public class Record implements Serializable {
     public int getId() {
         return id;
     }
-
 
     public String getDescription() {
         return description;
@@ -82,10 +94,6 @@ public class Record implements Serializable {
 
     public String getLendTime() {
         return lendTime;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
     public String getState() {

@@ -48,31 +48,40 @@ public class BookController {
 
 
 
-    @RequestMapping(value="/index")
+    @RequestMapping(value="/index.do")
     public ModelAndView index() {
         return new ModelAndView("index1");
     }
 
-    @RequestMapping(value="/maSystem")
+    @RequestMapping(value="/maSystem.do")
     public ModelAndView maSystem() {
         return new ModelAndView("maSystem");
     }
 
-    @RequestMapping(value="/meList")
+    @RequestMapping(value="/meList.do")
     public ModelAndView meList() {
         return new ModelAndView("meList");
     }
 
-    @RequestMapping(value="/allegeList")
-    public ModelAndView allegeList() {
-        return new ModelAndView("allegeList");
+    @RequestMapping(value="/allegeList.do")
+    public ModelAndView allegeList(String geNumber,String bookId)
+    {
+        ModelAndView modelAndView = new ModelAndView("allegeList");
+        if(!StringUtils.isEmpty(geNumber)&&StringUtils.isEmpty(bookId)){
+            System.out.println(geNumber);
+            modelAndView.addObject("geNumber",geNumber);
+        }else if(StringUtils.isEmpty(geNumber)&&!StringUtils.isEmpty(bookId)){
+            System.out.println(bookId);
+            modelAndView.addObject("bookId",bookId);
+        }
+        return modelAndView;
     }
 
 
 
 
     // 用户列表
-    @RequestMapping("/bookList")
+    @RequestMapping("/bookList.do")
     @ResponseBody
     public Map<String, Object> bookList() throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -109,7 +118,7 @@ public class BookController {
         return map;
     }
 
-    //查询书籍列表
+    //查询借阅记录列表
     @RequestMapping("/listRecord.do")
     @ResponseBody
     public Map<String,Object> listRecord(Record record, Integer pageNum, Integer pageSize)throws Exception{
@@ -143,7 +152,7 @@ public class BookController {
         return map;
     }
     //添加书籍
-    @RequestMapping(value = "/Book", method = RequestMethod.POST)
+    @RequestMapping(value = "/Book.do", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> addBook(Book book) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
@@ -158,12 +167,12 @@ public class BookController {
     }
 
     //登记，添加记录
-    @RequestMapping(value = "/Record", method = RequestMethod.POST)
+    @RequestMapping(value = "/Record.do", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> checkBook(Record record) throws IOException {
         Subject subject = SecurityUtils.getSubject();
         String geNumber = (String)subject.getPrincipal();
-        System.out.println("用户农民"+geNumber);
+        System.out.println("用户"+geNumber);
         //如果没有工号则获取当前用户名
         if(record.getGeNumber()==null || record.getGeNumber()==""){
             System.out.println(record.getGeNumber()+"asdasdasd");
@@ -212,7 +221,7 @@ public class BookController {
     }
 
     // 还书登记 修改记录
-    @RequestMapping(value = "/Record", method = RequestMethod.PUT)
+    @RequestMapping(value = "/Record.do", method = RequestMethod.PUT)
     @ResponseBody
     public Map<String, Object> backBook(@RequestBody Record record) throws Exception {
         if(!StringUtils.isEmpty(record)){
@@ -230,7 +239,7 @@ public class BookController {
     }
 
     //删除记录
-    @RequestMapping(value = "/Record", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/Record.do", method = RequestMethod.DELETE)
     @ResponseBody
     public Map<String,Object> delRecord(@RequestBody Record record) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
@@ -245,7 +254,7 @@ public class BookController {
     }
 
     //删除书籍
-    @RequestMapping(value = "/Book", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/Book.do", method = RequestMethod.DELETE)
     @ResponseBody
         public Map<String,Object> delBook(@RequestBody Book book) throws IOException {
         Map<String,Object> map = new HashMap<String,Object>();
@@ -258,7 +267,51 @@ public class BookController {
         }
         return map;
     }
-    @RequestMapping(value="/upload",method=RequestMethod.POST)
+
+
+    //通过申请
+    @RequestMapping(value = "/pass.do")
+    @ResponseBody
+    public Map<String,Object> pass(int[] arr) throws IOException {
+        for (int id:arr) {
+            System.out.println(id);
+        }
+        Map<String,Object> map = new HashMap<String,Object>();
+        boolean isSuccess = bookService.pass(arr);
+        if(isSuccess){
+            map.put("tip", "success");
+        }
+        else{
+            map.put("tip", "error");
+        }
+        return map;
+    }
+
+
+    //退回申请
+    @RequestMapping(value = "/back.do")
+    @ResponseBody
+    public Map<String,Object> back(int[] arr) throws IOException {
+        for (int id:arr) {
+            System.out.println(id);
+        }
+        Map<String,Object> map = new HashMap<String,Object>();
+        boolean isSuccess = bookService.back(arr);
+        if(isSuccess){
+            map.put("tip", "success");
+        }
+        else{
+            map.put("tip", "error");
+        }
+        return map;
+    }
+
+
+
+
+
+
+    @RequestMapping(value="/upload.do",method=RequestMethod.POST)
     public String upload(HttpServletRequest request,
                          @ModelAttribute muFile file, Model model) throws Exception {
 
@@ -285,7 +338,7 @@ public class BookController {
 
     }
 
-    @RequestMapping(value="/download")
+    @RequestMapping(value="/download.do")
     public ResponseEntity<byte[]> download(HttpServletRequest request,
                                            @RequestParam("filename") String filename,
                                            Model model)throws Exception {

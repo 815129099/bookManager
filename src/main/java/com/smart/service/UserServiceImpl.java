@@ -6,6 +6,7 @@ import com.smart.bean.Book;
 import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.dao.UserDao;
+import com.smart.redis.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,10 +54,8 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor={Exception.class})
     public boolean addUser(User user) {
         boolean isSuccess = false;
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-        user.setCreateTime(ft.format(dNow));
-        user.setUpdateTime(ft.format(dNow));
+        user.setCreateTime(DateUtil.getDate());
+        user.setUpdateTime(DateUtil.getDate());
         userDao.addUser(user);
         isSuccess = true;
         return isSuccess;
@@ -84,9 +83,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor={Exception.class})
     public boolean updateUser(User user) {
         boolean isSuccess = false;
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-        user.setUpdateTime(ft.format(dNow));
+        user.setUpdateTime(DateUtil.getDate());
         userDao.updateUser(user);
         isSuccess = true;
         return isSuccess;
@@ -96,11 +93,45 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor={Exception.class})
     public boolean delUser(String geNumber) {
         boolean isSuccess = false;
-        Date dNow = new Date( );
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm");
-        String updateTime = ft.format(dNow);
-        userDao.delUser(geNumber,updateTime);
+        userDao.delUser(geNumber,DateUtil.getDate());
         isSuccess = true;
         return isSuccess;
     }
+
+    //修改密码
+    @Transactional(rollbackFor={Exception.class})
+    @Override
+    public boolean updatePassword(String geNumber, String password, String newPassword) {
+        boolean isSuccess = false;
+        String str = userDao.findByGeNumber(geNumber).getPassword();
+        if(str.equals(password)){
+            userDao.updatePassword(newPassword,geNumber,DateUtil.getDate());
+            isSuccess = true;
+        }
+        return isSuccess;
+    }
+    //批准申请
+    @Transactional(rollbackFor={Exception.class})
+    @Override
+    public boolean lockUser(int[] arr) {
+        boolean isSuccess = false;
+        for (int id:arr) {
+            userDao.lockUser(id,DateUtil.getDate());
+        }
+        isSuccess = true;
+        return isSuccess;
+    }
+
+    //退回申请
+    @Transactional(rollbackFor={Exception.class})
+    @Override
+    public boolean clearUser(int[] arr) {
+        boolean isSuccess = false;
+        for (int id:arr) {
+            userDao.clearUser(id,DateUtil.getDate());
+        }
+        isSuccess = true;
+        return isSuccess;
+    }
+
 }

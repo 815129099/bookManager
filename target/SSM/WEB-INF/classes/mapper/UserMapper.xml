@@ -66,4 +66,9 @@
         where geNumber=#{geNumber}
     </update>
 
+    <update id="updatePassword" parameterType="String">
+        update user
+        set password=#{password},updateTime=#{updateTime}
+        where geNumber=#{geNumber}
+    </update>
 </mapper>

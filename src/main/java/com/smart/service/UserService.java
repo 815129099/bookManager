@@ -21,4 +21,9 @@ public interface UserService {
     public boolean updateUser(User user);
     //删除
     public boolean delUser(String geNumber);
+    public boolean updatePassword(String geNumber,String password,String newPassword);
+    //锁定用户
+    public boolean lockUser(int[] arr);
+    //解锁用户
+    public boolean clearUser(int[] arr);
 }

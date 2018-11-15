@@ -57,8 +57,8 @@
 
     <!--记录借阅人信息-->
     <insert id="record" parameterType="Record">
-        insert record(bookId,geName,geNumber,phone,lendTime,state)
-        values(#{bookId},#{geName},#{geNumber},#{phone},#{lendTime},"未归还")
+        insert record(bookId,geName,geNumber,applyTime,bookName,state)
+        values(#{bookId},#{geName},#{geNumber},#{applyTime},#{bookName},"申请")
     </insert>
 
     <!-- 所有借阅列表 -->
@@ -75,7 +75,7 @@
             <if test="state!=null and state!=''">
                 AND u.state = #{state}
             </if>
-            and u.state != "已删除"
+            and u.state != "删除"
         </where>
     </select>
 
@@ -90,7 +90,7 @@
             <if test="state!=null and state!=''">
                 AND u.state = #{state}
             </if>
-            and u.state != "已删除"
+            and u.state != "删除"
             and u.geNumber = #{geNumber}
         </where>
     </select>
@@ -105,7 +105,7 @@
 
     <update id="backTime" parameterType="Record">
         update record
-        set state = "已归还",backTime = #{backTime},description = #{description}
+        set state = "归还",backTime = #{backTime},description = #{description}
         where bookId = #{bookId} and geNumber = #{geNumber}
     </update>
 
@@ -117,7 +117,25 @@
 
     <update id="delRecord" parameterType="int">
         update record
-        set state = "已删除"
+        set state = "删除"
         where id = #{id}
+    </update>
+
+    <select id="getRecordById" parameterType="int" resultType="Record">
+        select *
+        from record
+        where id=#{id}
+    </select>
+
+    <update id="pass">
+        update record
+        set state="借阅",lendTime=#{lendTime}
+        where id=#{id}
+    </update>
+
+    <update id="back" parameterType="int">
+        update record
+        set state="退回"
+        where id=#{id}
     </update>
 </mapper>

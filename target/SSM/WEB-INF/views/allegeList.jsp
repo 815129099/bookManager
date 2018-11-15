@@ -8,15 +8,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            uri="http://java.sun.com/jsp/jstl/core" %>
            <%@ page isELIgnored="false" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>借阅记录</title>
     <meta http-equiv-"expires" content-"60">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link href="style/css/style20160105.css" rel="stylesheet">
     <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -25,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <head/>
   <body>
     <div class="x-body">
-<div class="container" style="padding-top:30px;width:1500px;">
+<div class="container" style="padding-top:30px;width:1300px;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -50,8 +49,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<label>状态:</label>
 								<select name="state" id="state" class="form-control">
 								  <option value=""></option>
-								  <option value="已归还">已归还</option>
-								  <option value="未归还">未归还</option>
+								  <option value="申请">申请</option>
+								  <option value="借阅">借阅</option>
+								  <option value="归还">归还</option>
+								  <option value="退回">退回</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -62,15 +63,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- /well -->
 				</div>
 
-				<!--/数据表格-->
+            <div class="alert alert-success alert-dismissable">
+	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+		        &times;
+	            </button>
+	            状态说明<br/>
+	                申请：用户提出借书的需求。借阅：管理员批准了用户的申请。退回：管理员没有批准用户的申请。归还：用户已归还借阅书籍。
+	                <br/>注意：退回的可以重新批准，已批准的无法退回。
+            </div>
 
+				<!--/数据表格-->
+<shiro:hasPermission name="admin">
+				<ul class="toolbar">
+					<li><a href="javascript:void(0)" id="passRecord" onclick='passRecord()'><i class="fa fa-toggle-on"></i><span>批准</span></a></li>
+                    <li><a href="javascript:void(0)" id="backRecord" onclick='backRecord()'><i class="fa fa-toggle-off"></i><span>退回</span></a></li>
+				</ul></shiro:hasPermission>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
 							<tr>
-							<th>#</th>
+
+							<th><shiro:hasAnyRoles name="admin"><input type="checkbox" id="chkAll"/></shiro:hasAnyRoles><shiro:hasAnyRoles name="user">#</shiro:hasAnyRoles></th>
+
 							<th>工号</th>
 							<th>书籍代码</th>
-							<th>手机号</th>
+							<th>书籍名称</th>
+							<th>状态</th>
+							<th>申请时间</th>
 							<th>借阅时间</th>
 							<th>归还时间</th>
 							<th>描述</th>
@@ -81,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tbody>
 							<tfoot>
 								<tr>
-									<td colspan="8">
+									<td colspan="10">
 									<div id="total" class="pull-left" style="padding-top:20px;padding-left:10px">&nbsp;</div>
 									<div class="pull-right">
 			                           <ul class="pagination" id="pagination"></ul>
@@ -149,7 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <script src="style/js/jquery.1.10.1.min.js"></script>
         <script src="style/js/bootstrap.min.js"></script>
         <script type="text/javascript"  src="style/lib/layui/layui.js" ></script>
-        <script type="text/javascript" src="style/js/xadmin.js"></script>
+        <script type="text/javascript" src="style/js/admin.js"></script>
         <script src="style/js/service.ddlist.jquery.min.js"></script>
 
      <!-- 表单验证 -->
@@ -163,17 +181,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
 
     <script type="text/javascript">
+    var preGeNumber;
+    var preBookId;
     //表单验证
     $.validator.setDefaults({
         debug: true
     });
 
     $(document).ready(function(){
+
     	//查询全部用户列表
     	listAllege();
     $("#chkAll").click(function(){
     	chkAll("chkAll","chk");
     });
+      preGeNumber = '${geNumber}';
+        preBookId = '${bookId}';
     	//查询功能
     	$("#querybtn").click(function(){
     		listAllege();
@@ -182,8 +205,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });
     	function listAllege(){
     	//查询条件
-    	var geNumber = $("form#query #geNumber").val();
-    	var bookId = $("form#query #bookId").val();
+    	var geNumber;
+    	if(preGeNumber == '' || preGeNumber == undefined || preGeNumber == null){
+    	    geNumber = $("form#query #geNumber").val();
+    	}else{
+    	    geNumber = preGeNumber;
+    	}
+
+    	var bookId;
+    	if(preBookId == '' || preBookId == undefined || preBookId == null){
+            bookId = $("form#query #bookId").val();
+        }else{
+            bookId = preBookId;
+        }
     	var state = $("form#query #state").val();
 
     	//借阅列表
@@ -194,12 +228,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       },
     	       function(response){
     	    	 //生成结果列表
-    			 initDataTable("userTable", 7, new Array("geNumber","bookId","phone","lendTime","backTime","description"), response.page,
+    			 initDataTable("userTable", 8, new Array("geNumber","bookId","bookName","state","applyTime","lendTime","backTime","description"), response.page,
     						"listRecord.do",  {"geNumber":geNumber,
     						    "bookId":bookId,
     						    "state":state
-    					       }, false, true, true, true,true,
-    					       "<a href='javascript:void(0)' title='处理' style='padding-right:20px' onclick='dealAllege(this)'><i class='fa fa-edit'></i></a>"+
+    					       }, true, true, false, true,true,
+    					       "<shiro:hasAnyRoles name='admin'>"+"<a href='javascript:void(0)' title='处理' id='update' style='padding-right:20px' onclick='dealAllege(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
     					       "<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delAllege(this)'><i class='fa fa-trash'></i></a>",
     					       "id"
     			 );
@@ -216,11 +250,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	//防止表单多次提交参数
     	var flag = 1;
     	//var id =  $(obj).parent("td").attr("id");
-    	var lendTime = $(obj).parent("td").siblings("td").eq(5).html();
+    	var lendTime = $(obj).parent("td").siblings("td").eq(7).html();
+    	var backTime = $(obj).parent("td").siblings("td").eq(6).html();
     	var bookId = $(obj).parent("td").siblings("td").eq(2).html();
     	var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
     	if(lendTime!=null & lendTime!=""){
     	    alert("该书已归还！");
+    	}else if(backTime==null || backTime == undefined || backTime ==""){
+    	    alert("该申请未批准，无法进行还书！");
     	}else{
     	   $("#dealForm #bookId").val(bookId)
            $("label.error").remove();
@@ -240,7 +277,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  var data = {"bookId":bookId,"geNumber":geNumber,"description":description};
                       $.ajax({
                       type : "PUT",
-                      url : "Record",
+                      url : "Record.do",
                       data : JSON.stringify(data),
                       async : false,
                       contentType:"application/json",
@@ -266,30 +303,118 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	//删除
     	function delAllege(obj){
-    	var lendTime = $(obj).parent("td").siblings("td").eq(5).html();
-    	if(lendTime!=null && lendTime!=""){
-    	if(confirm("是否删除该记录")){
-            var id =  parseInt($(obj).parent("td").attr("id"));
-            var data = {"id":id};
-            $.ajax({
-                    url:"Record",
-                    type:"DELETE",
-                    data:JSON.stringify(data),
-                    contentType:"application/json",
-                    success:function(response){
-                            if(response.tip=="success"){
-                                  alert("删除成功");
-                                  listAllege();
-                            }else if(response.tip=="error"){
-                                   alert("删除失败!");
-                            }}
-                    });
-        }
+    	var lendTime = $(obj).parent("td").siblings("td").eq(6).html();
+    	var backTime = $(obj).parent("td").siblings("td").eq(7).html();
+    	if((backTime==null || backTime=="" || backTime == undefined)&&(lendTime!=null && lendTime!="")){
+    	alert("该书已借未还，不可删除借书记录");
     	}else{
-    	alert("该书未还，不可删除借书记录");
+    	if(confirm("是否删除该记录")){
+                    var id =  parseInt($(obj).parent("td").attr("id"));
+                    var data = {"id":id};
+                    $.ajax({
+                            url:"Record.do",
+                            type:"DELETE",
+                            data:JSON.stringify(data),
+                            contentType:"application/json",
+                            success:function(response){
+                                    if(response.tip=="success"){
+                                          alert("删除成功");
+                                          listAllege();
+                                    }else if(response.tip=="error"){
+                                           alert("删除失败!");
+                                    }}
+                            });
+                }
     	}
 
     	}
+
+
+            function passRecord(){
+            	var row,id;
+            	var num = 0;
+            	var arr = new Array();
+            	 $("input[type='checkbox']").each(function(){
+            		 if($(this).is(":checked"))
+                      {
+            			 row = $(this).parent("td").parent("tr");
+            			 var flag = row.find("td").eq(6).html();
+            			 if(flag==null || flag==undefined || flag==""){
+            			 id = row.find("td #update").parents("td").attr("id");
+                                     			 if(id!=undefined){
+                                     			  arr[num] = id;
+                                     			  num++;
+                                     			 }
+            			 }else{
+            			 alert(row.find("td").eq(3).html()+"已批准，请勿重复提交！")
+            			 }
+
+                      }
+                    });
+
+            	 if(num==0){
+            	 alert("请选择记录");
+            	 }else{
+                    $.ajax({
+                            url:"pass.do",
+                            type:"post",
+                            data:{arr:arr},
+                            traditional: true,
+                            success:function(result){
+                                if(result.tip=="success"){
+                                    alert("修改成功");
+                                }else{
+                                alert("修改失败");
+                                }
+                                listAllege();
+                            }
+                    });
+            	 }
+            	 $("input:checkbox").removeAttr("checked");
+            }
+
+            function backRecord(){
+            	var row,id;
+            	var num = 0;
+            	var arr = new Array();
+            	 $("input[type='checkbox']").each(function(){
+            		 if($(this).is(":checked"))
+                      {
+            			 row = $(this).parent("td").parent("tr");
+            			 var flag = row.find("td").eq(6).html();
+            			 if(flag==null || flag==undefined || flag==""){
+            			 id = row.find("td #update").parents("td").attr("id");
+                                     			 if(id!=undefined){
+                                     			  arr[num] = id;
+                                     			  num++;
+                                     			 }
+            			 }else{
+            			 alert(row.find("td").eq(3).html()+"已批准，无法退回！")
+            			 }
+
+                      }
+                    });
+
+            	 if(num==0){
+            	 alert("请选择记录");
+            	 }else{
+                    $.ajax({
+                            url:"back.do",
+                            type:"post",
+                            data:{arr:arr},
+                            traditional: true,
+                            success:function(result){
+                                if(result.tip=="success"){
+                                    alert("修改成功");
+                                }else{
+                                alert("修改失败");
+                                }
+                                listAllege();
+                            }
+                    });
+            	 }
+            	 $("input:checkbox").removeAttr("checked");
+            }
 
 
 

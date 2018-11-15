@@ -22,5 +22,10 @@ public interface UserDao {
      public void updateUser(User user);
      //删除
      public void delUser(@Param("geNumber")String geNumber,@Param("updateTime") String updateTime);
-
+     //修改密码
+     public void updatePassword(@Param("password") String password,@Param("geNumber") String geNumber,@Param("updateTime") String updateTime);
+     //锁定用户
+     public void lockUser(@Param("id") int id,@Param("updateTime") String updateTime);
+     //解锁用户
+     public void clearUser(@Param("id") int id,@Param("updateTime") String updateTime);
 }

@@ -28,6 +28,9 @@ public interface BookService {
     //删除借书记录
     public boolean delRecord(int id);
     public boolean delBook(String bookId);
-
+    //批准申请
+    public boolean pass(int[] arr);
+    //退回申请
+    public boolean back(int[] arr);
 
 }

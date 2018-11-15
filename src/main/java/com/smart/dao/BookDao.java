@@ -2,6 +2,8 @@ package com.smart.dao;
 
 import com.smart.bean.Book;
 import com.smart.bean.Record;
+import com.sun.javafx.collections.MappingChange;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -30,4 +32,10 @@ public interface BookDao {
     public void backTime(Record record);
     public void delRecord(int id);
     public void delBook(String bookId);
+    public Record getRecordById(int id);
+    //批准申请
+    public void pass(@Param("id") int id,@Param("lendTime") String lendTime);
+    public void back(int id);
+    //获取record到期的记录
+    public List<Map<String,Object>> getRecordList();
 }
