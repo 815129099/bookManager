@@ -63,17 +63,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- /well -->
 				</div>
 
-            <div class="alert alert-success alert-dismissable">
+            <div class="alert alert-info alert-dismissable">
 	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
 		        &times;
 	            </button>
-	            状态说明<br/>
-	                申请：用户提出借书的需求。借阅：管理员批准了用户的申请。退回：管理员没有批准用户的申请。归还：用户已归还借阅书籍。
-	                <br/>注意：退回的可以重新批准，已批准的无法退回。
+	            状态说明：<br/>
+	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请：用户提出借书的需求。借阅：管理员批准了用户的申请。退回：管理员没有批准用户的申请。归还：用户已归还借阅书籍。
+	                <br/>下列表格颜色说明：
+	                <br/>
+	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger">红色表示已逾期</button>
+	                <button type="button" class="btn btn-success">绿色表示距离书籍归还日还有0~3天</button>
+	                <button type="button" class="btn btn-warning">黄色表示距离书籍归还日还有4~7天</button>
             </div>
 
 				<!--/数据表格-->
-<shiro:hasPermission name="admin">
+            <shiro:hasPermission name="admin">
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="passRecord" onclick='passRecord()'><i class="fa fa-toggle-on"></i><span>批准</span></a></li>
                     <li><a href="javascript:void(0)" id="backRecord" onclick='backRecord()'><i class="fa fa-toggle-off"></i><span>退回</span></a></li>
@@ -81,9 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
 							<tr>
-
 							<th><shiro:hasAnyRoles name="admin"><input type="checkbox" id="chkAll"/></shiro:hasAnyRoles><shiro:hasAnyRoles name="user">#</shiro:hasAnyRoles></th>
-
 							<th>工号</th>
 							<th>书籍代码</th>
 							<th>书籍名称</th>
@@ -176,9 +178,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
      <!-- 表格 -->
          <script type="text/javascript" src="style/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="style/js/common1.js"></script>
+        <script type="text/javascript" src="style/js/common2.js"></script>
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
+     <!--layer弹窗-->
 
     <script type="text/javascript">
     var preGeNumber;
@@ -255,7 +258,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	var bookId = $(obj).parent("td").siblings("td").eq(2).html();
     	var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
     	if(lendTime!=null & lendTime!=""){
-    	    alert("该书已归还！");
+    	    alert("该书已归还");
     	}else if(backTime==null || backTime == undefined || backTime ==""){
     	    alert("该申请未批准，无法进行还书！");
     	}else{
@@ -339,15 +342,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       {
             			 row = $(this).parent("td").parent("tr");
             			 var flag = row.find("td").eq(6).html();
-            			 if(flag==null || flag==undefined || flag==""){
-            			 id = row.find("td #update").parents("td").attr("id");
+            			 var s = row.find("td").eq(4).html();
+
+            			 if(flag!=null && flag != "" && flag!=undefined){
+            			 alert(row.find("td").eq(3).html()+"已批准，请勿重复提交！")
+
+            			 }else if(s=="退回"){
+            			  alert("已退回，无法批准！");
+            			 }else{
+                                id = row.find("td #update").parents("td").attr("id");
                                      			 if(id!=undefined){
                                      			  arr[num] = id;
                                      			  num++;
                                      			 }
-            			 }else{
-            			 alert(row.find("td").eq(3).html()+"已批准，请勿重复提交！")
             			 }
+
+
 
                       }
                     });

@@ -140,6 +140,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												class="form-control" name="geName" id="geName" placeholder="名称">
 										</div>
 										<div class="form-group" style="margin-right: 10px">
+                                        	<label>邮箱:</label> <input type="text"
+                                        		class="form-control" name="email" id="email" placeholder="邮箱">
+                                        </div>
+										<div class="form-group" style="margin-right: 10px">
                                         	<label>密码:</label> <input type="password"
                                         		class="form-control" name="password" id="password" placeholder="密码">
                                         </div>
@@ -274,6 +278,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	    $("#addform #geNumber").val("");
             		$("#addform #geName").val("");
             		$("#addform #phone").val("");
+            		$("#addform #email").val("");
             		$("label.error").remove();
 
             		$("div#addModal #sucUpd").hide();
@@ -305,13 +310,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		    	  password:{required:true,rangelength:[6,10]},
             		    	  rePassword:{required:true,equalTo:"#password"},
             		    	  phone:{required:true,isMobile:true},
+            		    	  email:{required:true,email:true},
             		      },
             		      messages:{
             		    	  geNumber:{required:"工号不能为空<br/>",rangelength:"请输入7位员工工号<br/>"},
             		    	  geName:{required:"名称不能为空<br/>"},
             		    	  password:{required:"密码不能为空<br/>",rangelength:"请输入6~10位有效密码<br/>"},
             		    	  rePassword:{required:"验证密码不能为空<br/>",equalTo:"密码不一致<br/>"},
-            		    	  phone:{required:"手机号不能为空<br/>",isMobile:"请输入正确的手机号"}
+            		    	  phone:{required:"手机号不能为空<br/>",isMobile:"请输入正确的手机号"},
+            		    	  email:{required:"邮箱不能为空<br/>",isMobile:"请输入正确的邮箱"}
             		      },
             		      submitHandler:function(){
             					if(!$("#addform").valid()){
@@ -325,7 +332,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					        data:{"geNumber":$("#addform #geNumber").val(),
                                               "geName":$("#addform #geName").val(),
                                               "password":$("#addform #rePassword").val(),
-                                              "phone":$("#addform #phone").val()},
+                                              "phone":$("#addform #phone").val(),
+                                              "email":$("#addform #email").val()},
                                         success:function(response){
                                                 if(response.tip=="success"){
                                                       $("div#addModal #sucUpd").show();

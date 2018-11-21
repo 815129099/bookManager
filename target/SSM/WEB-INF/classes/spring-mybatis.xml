@@ -3,13 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd"
        default-autowire="byName" default-lazy-init="false">
 
     <!-- 配置注解处理器 -->
@@ -19,6 +21,11 @@
     <context:component-scan base-package="com.smart.service"/>
     <!--扫描redis配置文件-->
     <context:property-placeholder ignore-unresolvable="true" location="classpath:redis.properties"/>
+
+    <!--任务调度器-->
+    <task:scheduler id="scheduler" pool-size="10"/>
+    <!--开启注解调度支持 @Scheduled-->
+    <task:annotation-driven executor="scheduler" proxy-target-class="true"/>
 
     <!--Spring整合Redis-->
     <!--设置连接池-->
@@ -85,6 +92,23 @@
     <!-- 开启注解方式声明事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+    <!--邮件配置-->
+    <context:property-placeholder location="classpath:mail.properties" ignore-unresolvable="true"/>
+    <!--配置邮件接口-->
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.smtp.host}"/>
+        <property name="username" value="${mail.smtp.username}"/>
+        <property name="password" value="${mail.smtp.password}"/>
+        <property name="defaultEncoding" value="${mail.smtp.defaultEncoding}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+            </props>
+        </property>
+    </bean>
+
+
     <!--Spring整合shiro-->
     <!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -110,6 +134,7 @@
                 /maSystem.do=anon
                 /login.do=anon
                 /test.do=anon
+                /send.do=anon
                 /listBook.do=anon
                 /UserType.do=anon
                 /style/**=anon

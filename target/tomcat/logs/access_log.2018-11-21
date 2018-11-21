@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/maSystem.do HTTP/1.1" 200 3534 http-bio-8091-exec-1 243
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/style/css/font.css HTTP/1.1" 304 - http-bio-8091-exec-2 51
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/style/js/admin.js HTTP/1.1" 304 - http-bio-8091-exec-3 37
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/style/js/common1.js HTTP/1.1" 304 - http-bio-8091-exec-4 45
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/meList.do HTTP/1.1" 200 26460 http-bio-8091-exec-5 142
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:14 +0800] "GET /SSM/style/css/style20160105.css HTTP/1.1" 304 - http-bio-8091-exec-9 21
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:15 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2251 http-bio-8091-exec-10 726
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:16 +0800] "GET /SSM/login.do HTTP/1.1" 200 2168 http-bio-8091-exec-10 43
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:18 +0800] "POST /SSM/UserType.do HTTP/1.1" 200 28 http-bio-8091-exec-10 21
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:18 +0800] "GET /SSM/maSystem.do HTTP/1.1" 200 5727 http-bio-8091-exec-2 15
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:18 +0800] "GET /SSM/meList.do HTTP/1.1" 200 27379 http-bio-8091-exec-2 76
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:18 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2251 http-bio-8091-exec-2 12
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:20 +0800] "GET /SSM/allegeList.do HTTP/1.1" 200 16423 http-bio-8091-exec-2 69
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:20 +0800] "GET /SSM/style/js/common2.js HTTP/1.1" 304 - http-bio-8091-exec-1 30
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:20 +0800] "POST /SSM/listRecord.do HTTP/1.1" 200 3468 http-bio-8091-exec-1 34
+0:0:0:0:0:0:0:1 - - [21/Nov/2018:09:20:33 +0800] "POST /SSM/listRecord.do HTTP/1.1" 200 1354 http-bio-8091-exec-1 16

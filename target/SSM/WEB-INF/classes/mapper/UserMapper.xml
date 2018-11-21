@@ -8,20 +8,20 @@
     <select id="findRoles" parameterType="String" resultType="String">
         select role
         from user
-        where geNumber = #{geNumber}
+        where geNumber = #{geNumber} and userState="有效"
     </select>
 
     <!--通过geNumber获取权限-->
     <select id="findPermissions" parameterType="String" resultType="String">
         select authority
         from user
-        where geNumber = #{geNumber}
+        where geNumber = #{geNumber} and userState="有效"
     </select>
 
     <select id="findByGeNumber" parameterType="String" resultType="User">
         select *
         from user
-        where geNumber = #{geNumber}
+        where geNumber = #{geNumber} and userState="有效"
     </select>
 
     <!-- 员工列表 -->
@@ -38,13 +38,14 @@
             <if test="userState!=null and userState!=''">
                 AND u.userState=#{userState}
             </if>
+            and u.userState!="删除"
         </where>
     </select>
 
     <!--添加用户-->
     <insert id="addUser" parameterType="User" >
-        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState)
-        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效")
+        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState,email)
+        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效",#{email})
     </insert>
 
     <!--通过ID获取用户-->
@@ -62,7 +63,7 @@
 
     <update id="delUser" parameterType="String">
         update user
-        set updateTime=#{updateTime},userState="无效"
+        set updateTime=#{updateTime},userState="删除"
         where geNumber=#{geNumber}
     </update>
 
@@ -70,5 +71,17 @@
         update user
         set password=#{password},updateTime=#{updateTime}
         where geNumber=#{geNumber}
+    </update>
+
+    <update id="lockUser">
+        update user
+        set userState ="无效",updateTime=#{updateTime}
+        where id=#{id}
+    </update>
+
+    <update id="clearUser">
+        update user
+        set userState ="有效",updateTime=#{updateTime}
+        where id=#{id}
     </update>
 </mapper>

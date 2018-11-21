@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>用户列表</title>
+    <title>书籍列表</title>
 
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -397,7 +397,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					var bookName = $("#addform #bookName").val();
             					var bookNumber = $("#addform #bookNumber").val();
             					var bookLocation = $("#addform #bookLocation").val();
-            					alert(bookId);
             					var data = {"bookId":bookId,"bookName":bookName,"bookNumber":bookNumber,"bookLocation":bookLocation};
             					    $.ajax({
             					            url:"Book.do",
@@ -476,7 +475,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
                     //alert(number);
                     if(number<=0){
-                    alert("该书剩余数量为0，无法借阅！");
+                    alert("该书剩余数量为0，无法申请借阅！");
                     bookId = " ";
                     }else{
                     $("#resetModal").modal('show');
@@ -490,8 +489,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		    	  geNumber:{required:true}
             		      },
             		      messages:{
-            		    	  geName:{required:"借阅人名字不能为空<br/>"},
-            		    	  geNumber:{required:"借阅人工号不能为空<br/>"},
+            		    	  geName:{required:"申请人名字不能为空<br/>"},
+            		    	  geNumber:{required:"申请人工号不能为空<br/>"},
             		      }
             		    });
 
@@ -531,9 +530,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	}else{
     	var number = parseInt($(obj).parent("td").siblings("td").eq(5).html());
         if(number<=0){
-             alert("该书剩余数量为0，无法借阅！");
+             alert("该书剩余数量为0，无法申请借阅！");
         }else{
-             if(confirm("是否借阅该书")){
+             if(confirm("是否申请借阅该书")){
                          var id =  $(obj).parent("td").attr("id");
                          var bookId = $(obj).parent("td").siblings("td").eq(1).html();
                          alert(bookId);
@@ -544,10 +543,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                               data:data,
                               success:function(response){
                               if(response.tip=="success"){
-                                    alert("借阅成功");
+                                    alert("申请成功");
                                     listBook();
                               }else if(response.tip=="error"){
-                                     alert("借阅失败!");
+                                     alert("申请失败!");
                               }}
                          });
                      }

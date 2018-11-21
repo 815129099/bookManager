@@ -2,944 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7691d149-6145-40e9-9daa-1b70a308047c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookmanager.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bookmanager.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/log.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/404155bdb4d5fc2a5accf687fbb96d64.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/back1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/img3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/新建文本文档.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/colorbox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/external.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/css/font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_durex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_ggj_prize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_index.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_index_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ad_rising.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/addnew.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/alert.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/arr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/backtop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/bbs_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/bbs_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/bbs_side.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/bgwall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/brackets.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/breakline.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/button.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/buttons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/c_edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/check_popbox_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/checkbox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/close_grey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/close_notice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/collection_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/collection_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/confirm.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/control_current.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/controls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/corners.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/du_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/expire_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/expired_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_btn_green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_btn_green_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_btn_red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_btn_red_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_comma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_no.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_register.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footbar_text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/footerbar_repeat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ggj_repeat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/gotPrize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/gotPrize01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/gotPrize02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/hc_list_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/hc_list_bg_curr.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/homeNoResult.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/horizontal.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/hot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/icon_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/icon_file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/icon_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index_ad_rt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/index_s01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jd_btn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jd_dot_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jd_dot_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jd_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jiathis_ico.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jiathis_ico_24x24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/jiathis_ico_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/job_122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/job_122_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/job_detail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/lb_error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/loading_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/login_btm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/logo_upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/menu_arrow.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/menu_check.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/msg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/myjob_option1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/myjob_option2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/no1234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noResumeReceived.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noreply.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noresult.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noresult_50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noresult_95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/noticeDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/offer_status.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/open_services_steps.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/overlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/overlay01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/overlay02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/overlay_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/partner_enter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/position_del.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/preview_btn_unverify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_cover_white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_op.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_select_139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_select_190.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_select_287.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_select_410.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/profile_square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/progress.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/progress_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/publish_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/qr_cloud_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/qr_cloud_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/qr_index.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/qr_register.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/qrcode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/quote_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/quote_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/radio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/radioSel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/radio_checked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/record.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/record_check.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/registor_now.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/remind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_dashed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_preview_btns.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_tip_home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_tip_joblist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_tip_unhandle_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_tip_unhandle_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_tip_unhandle_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resume_web.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/resumeset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/reward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/reward_big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/right_reason.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/s_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/s_choose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/s_drop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/saoma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/saowo_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/saowo_title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/select.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/select_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/select_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/select_short.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/service_icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/sina-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/square.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/stars.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/starsPop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/status_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/status_dot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/sub.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/sub_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/subscribe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/subscribe_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/thumb_cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/tip_didi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/tip_success.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/tipclose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/tipclose_b4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/title_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/title_arrow01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/title_arrow_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/unread.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/unresume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/unvalid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/upload_file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/user_choose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/user_warn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/valid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/vertical.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/wbqq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/welcome_c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/img/xs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/jiathis_share.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/style.css.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/style20160105.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/css/style20160105.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/css/window.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/05ca024b95d242bb8178edaa5bd1b25a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/11c812bedb4a481fa06ca488dac2f23f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/2bba2b71d0b0443eaea1774f7ee17c9f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/329b56ef443c4ae2a2024955f58705f8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/354d445c5fd84f1990b91eb559677eb5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/381b343557774270a508206b3a725f39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/3ad1d8845e8345019006b38cd45302c0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/4469b1b83b1f46c7adec255c4b1e4802.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/451a3ab87bb149a5b0779baf81f0a667.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/5caf8f9631114bf990f87bb11360653e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/73338ca8e1694b298d223745670f8daf_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/7fdf693be1044ed8a71f561420162a3b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/8d63eda78f714d2dacb0e5d201bbce2e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/8e05f869fe0640318d62c562d6a9a322.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/a254b11ecead45bda166afa8aaa9c8bc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/aboutus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/b533f6e729e74b418fcd6862bbde95dc_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/c0052c69ef4546c3b7d08366d0744974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/c5e0d4d3dc9047c89986c9eca2feb277.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/c75654bc2ab141df8218983cfe5c89f9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/c9d8a0756d1442caa328adcf28a38857.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/cloud_m.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/cloud_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/company.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/companylist_qr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/copyright_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/d03110162390422bb97cebc7fd2ab586.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/d05a2cc6e6c94bdd80e074eb05e37ebd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/d1f91afa15eb451eaef4d14dcb3b54ec_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/default_headpic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/e802e0078d194e76afbb7abb102af275.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/f4822a445a8b495ebad81fcfad3e40e2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/f57de6b836fa454ebd13c41537e152ba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff80808140ac5ed90140b953972e0215.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff80808142a8df050142b1674c596676.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff80808142e0968f0142e0d41f1205f2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff8080814356e881014357741e5910f1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff808081441c19bf01441f9a47190b3a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff80808145ae05750145b0467a1c7ddd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/ff80808146d99c970146efd983ea016a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/footbar_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/get_flash_player.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/addrPage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/bgs.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/blank.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/mapctrls1d3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/mapctrls2d0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/mapctrls2d0_mb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/markers_new_ie6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/node.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/nodeT.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/img/sel_body_n_top.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/job_qr_btm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/jquery_school.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/leader_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/linuxcn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo_default01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/logo_white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/mapctrls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/mapctrls2d0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/marker_red_sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/muke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/product_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/psw_step1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/qq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/qr_delivery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/qr_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/qrcode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/quote_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/quote_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/rising280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/step1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/step2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/step3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/step4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/step5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/subject280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/tips.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/valid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/w3cplus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/weibo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/wx1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/wx2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/wx3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/zhouyou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/images/zhubajie.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/Chart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/ajaxCross.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/ajaxfileupload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/allmobilize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/analytics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/analytics01.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/certification.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/collections.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/company6.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/company_list.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/conv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/conversion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/core.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/count.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/delivery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/excanvas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/function.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/h.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/home.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/j.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/job8.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/job_detail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/job_list.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jquery-hbzx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jquery.colorbox-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jquery.tinymce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/jquery.ui.datetimepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/profile11.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/received_resumes.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/search.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/services.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/setting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/grade1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/grade2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/jquery-latest.pack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/statics/star_small.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/step2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/step3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/step4.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/step5.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/step6.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/sub.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/swfobject_modified.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/tinymce.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/tongji.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/wb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/xadmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/js/common1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/js/common2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/application_shiro.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/Record.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/bean/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/bookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/controller/bookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/bookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/dao/bookDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/redis/DateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/redis/DateUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/bookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/com/smart/service/bookService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/mapper/bookMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/redis.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/allegeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/allegeList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/log.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/maSystem.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/maSystem.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/meList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/meList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/test.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SSM/WEB-INF/views/userList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM/WEB-INF/views/userList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/images/111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/css/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/admin_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/login_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/login_button.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/login_logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/login_name_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/images/复件 login_logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/ui/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/public/ui/do.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/colorbox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/datatables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/external.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_durex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_ggj_prize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_index.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_index_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ad_rising.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/addnew.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/alert.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/arr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/backtop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/bbs_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/bbs_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/bbs_side.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/bgwall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/brackets.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/breakline.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/button.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/buttons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/c_edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/check_popbox_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/checkbox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/close_grey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/close_notice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/collection_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/collection_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/confirm.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/control_current.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/controls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/corners.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/du_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/expire_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/expired_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_btn_green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_btn_green_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_btn_red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_btn_red_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_comma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_no.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_register.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footbar_text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/footerbar_repeat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ggj_repeat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/gotPrize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/gotPrize01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/gotPrize02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/hc_list_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/hc_list_bg_curr.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/homeNoResult.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/horizontal.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/hot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/icon_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/icon_file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/icon_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/icons.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index_ad_rt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/index_s01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jd_btn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jd_dot_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jd_dot_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jd_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jiathis_ico.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jiathis_ico_24x24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/jiathis_ico_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/job_122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/job_122_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/job_detail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/lb_error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/loading_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/login_btm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/logo_upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/menu_arrow.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/menu_check.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/msg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/myjob_option1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/myjob_option2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/no1234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noResumeReceived.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noreply.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noresult.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noresult_50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noresult_95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/noticeDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/offer_status.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/open_services_steps.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/overlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/overlay01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/overlay02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/overlay_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/partner_enter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/position_del.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/preview_btn_unverify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_cover_white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_op.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_select_139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_select_190.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_select_287.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_select_410.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/profile_square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/progress.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/progress_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/publish_tip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/qr_cloud_close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/qr_cloud_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/qr_index.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/qr_register.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/qrcode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/quote_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/quote_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/radio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/radioSel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/radio_checked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/record.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/record_check.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/registor_now.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/remind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_dashed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_preview_btns.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_tip_home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_tip_joblist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_tip_unhandle_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_tip_unhandle_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_tip_unhandle_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resume_web.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/resumeset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/reward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/reward_big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/right_reason.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/s_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/s_choose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/s_drop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/saoma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/saowo_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/saowo_title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/select.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/select_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/select_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/select_short.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/service_icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/sina-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/square.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/stars.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/starsPop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/status_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/status_dot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/sub.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/sub_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/subscribe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/subscribe_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/thumb_cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/tip_didi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/tip_success.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/tipclose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/tipclose_b4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/title_arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/title_arrow01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/title_arrow_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/unread.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/unresume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/unvalid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/upload_file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/user_choose.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/user_warn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/valid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/vertical.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/wbqq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/welcome_c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/img/xs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/jiathis_share.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/style.css.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/style20160105.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/table.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/window.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/css/xadmin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/fonts/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/fonts/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/fonts/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/fonts/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/05ca024b95d242bb8178edaa5bd1b25a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/11c812bedb4a481fa06ca488dac2f23f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/2bba2b71d0b0443eaea1774f7ee17c9f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/329b56ef443c4ae2a2024955f58705f8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/354d445c5fd84f1990b91eb559677eb5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/381b343557774270a508206b3a725f39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/3ad1d8845e8345019006b38cd45302c0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/4469b1b83b1f46c7adec255c4b1e4802.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/451a3ab87bb149a5b0779baf81f0a667.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/5caf8f9631114bf990f87bb11360653e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/73338ca8e1694b298d223745670f8daf_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/7fdf693be1044ed8a71f561420162a3b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/8d63eda78f714d2dacb0e5d201bbce2e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/8e05f869fe0640318d62c562d6a9a322.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/a254b11ecead45bda166afa8aaa9c8bc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/aboutus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/b533f6e729e74b418fcd6862bbde95dc_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/c0052c69ef4546c3b7d08366d0744974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/c5e0d4d3dc9047c89986c9eca2feb277.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/c75654bc2ab141df8218983cfe5c89f9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/c9d8a0756d1442caa328adcf28a38857.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/cloud_m.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/cloud_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/company.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/companylist_qr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/copyright_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/d03110162390422bb97cebc7fd2ab586.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/d05a2cc6e6c94bdd80e074eb05e37ebd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/d1f91afa15eb451eaef4d14dcb3b54ec_318969.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/default_headpic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/e802e0078d194e76afbb7abb102af275.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/f4822a445a8b495ebad81fcfad3e40e2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/f57de6b836fa454ebd13c41537e152ba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff80808140ac5ed90140b953972e0215.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff80808142a8df050142b1674c596676.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff80808142e0968f0142e0d41f1205f2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff8080814356e881014357741e5910f1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff808081441c19bf01441f9a47190b3a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff80808145ae05750145b0467a1c7ddd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/ff80808146d99c970146efd983ea016a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/footbar_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/get_flash_player.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/addrPage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/bgs.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/blank.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/mapctrls1d3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/mapctrls2d0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/mapctrls2d0_mb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/markers_new_ie6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/node.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/nodeT.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/img/sel_body_n_top.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/job_qr_btm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/jquery_school.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/leader_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/linuxcn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo_default01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/logo_white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/mapctrls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/mapctrls2d0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/marker_red_sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/muke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/product_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/psw_step1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/qq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/qr_delivery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/qr_resume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/qrcode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/quote_l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/quote_r.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/rising280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/step1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/step2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/step3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/step4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/step5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/subject280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/tips.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/valid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/w3cplus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/weibo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/wx1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/wx2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/wx3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/zhouyou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/images/zhubajie.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/Chart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/ajaxCross.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/ajaxfileupload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/allmobilize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/analytics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/analytics01.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/certification.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/collections.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/common1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/company6.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/company_list.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/conv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/conversion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/core.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/count.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/delivery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/excanvas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/function.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/h.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/home.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/j.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/job8.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/job_detail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/job_list.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jqPaginator/jqPaginator.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery-1.12.4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery-hbzx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.1.10.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.1.12.4.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.colorbox-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.lib.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.tinymce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/jquery.ui.datetimepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/profile11.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/received_resumes.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/search.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/service.ddlist.jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/services.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/setting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/grade1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/grade2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/jquery-latest.pack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/statics/star_small.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/step2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/step3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/step4.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/step5.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/step6.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/sub.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/swfobject_modified.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/tinymce.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/tongji.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/validate/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/validate/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/wb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/js/xadmin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/layui.mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/font/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/font/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/font/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/font/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/11.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/13.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/14.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/15.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/17.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/18.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/19.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/22.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/23.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/24.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/26.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/27.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/28.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/29.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/31.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/33.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/34.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/35.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/36.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/37.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/39.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/42.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/43.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/44.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/45.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/47.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/48.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/49.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/51.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/52.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/53.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/54.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/55.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/56.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/57.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/58.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/59.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/61.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/62.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/63.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/64.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/65.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/66.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/67.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/68.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/69.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/71.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/images/face/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/code.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/laydate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/layedit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/layer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/laypage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/laytpl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/upload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/lay/modules/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/layui.all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM/style/lib/layui/layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/bean/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/bean/Record.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smart/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/bean/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smart/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/smart/controller/bookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/controller/bookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/dao/bookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/dao/bookDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/BookServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/bookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/bookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/smart/service/SchedulerMail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/smart/service/SchedulerMail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/bookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/bookMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-11-05" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-11-06" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-11-07" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-11-08" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2018-11-09" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/systemerror.log.2018-11-05" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/allegeList_jsp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/error_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/error_jsp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/error_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/error_jsp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/index1_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/index1_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/login_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/login_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/detail_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/detail_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/detail_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/detail_jsp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/maSystem_jsp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/meList_jsp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userList_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userList_jsp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userList_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/WEB_002dINF/views/userList_jsp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/index_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/SSM/org/apache/jsp/index_jsp.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -956,81 +58,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SchedulerMail.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/SchedulerMail.java">
+      <file leaf-file-name="BookController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-370">
-              <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1700">
+              <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <file leaf-file-name="userList.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="27" column="76" lean-forward="true" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Record.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-              <folding>
-                <element signature="e#506#507#0" expanded="true" />
-                <element signature="e#538#539#0" expanded="true" />
-                <element signature="e#588#589#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allegeList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1300">
-              <caret line="52" column="55" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/DateUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="85" column="9" selection-start-line="81" selection-start-column="7" selection-end-line="85" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="8375">
+              <caret line="335" column="72" selection-start-line="335" selection-start-column="72" selection-end-line="335" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -1038,8 +79,20 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -1056,15 +109,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&amp;#</find>
-      <find>js</find>
-      <find>jque</find>
       <find>PUT</find>
       <find>getSubject</find>
       <find>xa</find>
       <find>sessionValidationScheduler</find>
       <find>phone</find>
-      <find>check</find>
       <find>getBook</find>
       <find>Record</find>
       <find>hasAnyRoles</find>
@@ -1086,6 +135,10 @@
       <find>alert</find>
       <find>complex-type.2.3</find>
       <find>MAP</find>
+      <find>check</find>
+      <find>initDataTable</find>
+      <find>trlist</find>
+      <find>common</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1094,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userinfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/test/shiro.ini" />
         <option value="$PROJECT_DIR$/src/main/resources/ehcache-shiro.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis.xml" />
@@ -1120,20 +171,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/style/css/style20160105.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mail.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/SendMailController.java" />
@@ -1141,10 +185,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/SchedulerMail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/redis/DateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/SchedulerMail.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/service/SchedulerMail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/js/common1.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/js/common2.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smart/bean/User.java" />
       </list>
     </option>
   </component>
@@ -1194,11 +247,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="299" />
-    <option name="y" value="18" />
-    <option name="width" value="1281" />
-    <option name="height" value="980" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1363,8 +416,11 @@
     <property name="settings.editor.selected.configurable" value="vcs.CVS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\Repository\bookManager\src\main\webapp\style\js" />
       <recent name="E:\code\Repository\bookManager\src\main\resources" />
+      <recent name="E:\code\Repository\bookManager\src\main\webapp\style" />
+      <recent name="E:\code\Repository\bookManager\src\main\webapp\style\fonts" />
       <recent name="E:\code\Repository\bookManager\src\main\webapp\WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1372,12 +428,9 @@
       <recent name="com.smart.dao" />
       <recent name="com.smart.controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\Repository\bookManager\src\main\resources" />
-      <recent name="E:\code\Repository\bookManager\src\main\webapp\style" />
-      <recent name="E:\code\Repository\bookManager\src\main\webapp\style\fonts" />
       <recent name="E:\code\Repository\bookManager\src\main\webapp\WEB-INF" />
-      <recent name="E:\code\Repository\bookManager\src\main\webapp\WEB-INF\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1494,8 +547,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1503,13 +555,13 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.07864583" side_tool="true" weight="0.4244984" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.4992743" visible="true" weight="0.15885417" />
+      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.4992743" visible="true" weight="0.22375" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9213542" visible="true" weight="0.42344245" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9213542" weight="0.39243808" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19947916" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.239375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -1519,11 +571,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="7" sideWeight="0.5007257" side_tool="true" weight="0.23177083" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49791667" weight="0.3284055" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32946146" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49791667" weight="0.3284055" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1535,23 +587,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/horizontal.gif" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/jd_btn.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/job_detail.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/no1234.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/preview_btn_unverify.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/checkbox.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/alert.gif" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/img/ad_index.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.ttf">
-      <provider selected="true" editor-type-id="fontseditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/fonts/iconfont.eot">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/ui.css" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/xadmin.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1560,11 +595,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/lib/layui/layui.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/common1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/css/font.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1599,34 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="88" column="41" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750">
-          <caret line="588" column="58" selection-start-line="588" selection-start-column="58" selection-end-line="588" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1092">
@@ -1644,13 +646,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userinfo.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="306" column="5" selection-start-line="271" selection-start-column="4" selection-end-line="306" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1665,31 +660,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="217" column="5" lean-forward="true" selection-start-line="194" selection-start-column="4" selection-end-line="217" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="130" column="51" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
           <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1707,20 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="230" column="32" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="457" column="76" selection-start-line="457" selection-start-column="76" selection-end-line="457" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mail.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1728,97 +688,227 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/SendMailController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="964">
           <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="52" column="55" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/dao/BookDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+        <state relative-caret-position="825">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/DateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding>
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2050">
+          <caret line="85" column="9" selection-start-line="81" selection-start-column="7" selection-end-line="85" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/SchedulerMail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="130">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1850">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="211" column="26" lean-forward="true" selection-start-line="211" selection-start-column="26" selection-end-line="211" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206">
+          <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/RedisCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/SimpleList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/SerializeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/JedisClientSingle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
           <folding>
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3448#3449#0" expanded="true" />
+            <element signature="e#3531#3532#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="76" lean-forward="true" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
+        <state relative-caret-position="3650">
+          <caret line="146" column="11" selection-start-line="146" selection-start-column="11" selection-end-line="146" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/jquery.dataTables.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        <state relative-caret-position="-5">
+          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/redis/DateUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/jquery.lib.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="85" column="9" selection-start-line="81" selection-start-column="7" selection-end-line="85" selection-end-column="9" />
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/service.ddlist.jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/jquery-1.12.4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="88" column="41" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/maSystem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="159" column="60" selection-start-line="159" selection-start-column="60" selection-end-line="159" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/meList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="318" column="60" selection-start-line="318" selection-start-column="60" selection-end-line="318" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/common1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="70" column="44" lean-forward="true" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/js/common2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="88" column="28" lean-forward="true" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allegeList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="75" column="80" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8375">
+          <caret line="335" column="72" selection-start-line="335" selection-start-column="72" selection-end-line="335" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/service/SchedulerMail.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/Record.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-370">
-          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smart/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>

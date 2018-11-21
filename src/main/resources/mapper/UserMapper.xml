@@ -44,8 +44,8 @@
 
     <!--添加用户-->
     <insert id="addUser" parameterType="User" >
-        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState)
-        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效")
+        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState,email)
+        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效",#{email})
     </insert>
 
     <!--通过ID获取用户-->

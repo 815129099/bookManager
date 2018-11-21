@@ -4,11 +4,16 @@
 <!--namespace指定接口-->
 <mapper namespace="com.smart.dao.BookDao">
 
-
 <select id="getList" resultType="Book">
     select *
     from book
 </select>
+
+    <select id="getRecordList" resultType="java.util.Map">
+        SELECT record.*,user.email
+        FROM record,user
+        where record.state="借阅" and record.geNumber=user.geNumber
+    </select>
 
     <!-- 书籍列表 -->
     <select id="listBook" parameterType="Book" resultType="Book">

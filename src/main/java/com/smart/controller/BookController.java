@@ -107,7 +107,7 @@ public class BookController {
                 pageSize = 15;
             }
             if (book.getBookName() != null) {
-                book.setBookName("%" + book.getBookName() + "%");
+                book.setBookName(book.getBookName() + "%");
             }
             if(book.getBookLocation() != null){
                 book.setBookLocation("%" + book.getBookLocation() + "%");

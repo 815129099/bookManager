@@ -38,12 +38,6 @@ public class UserController {
     @ResponseBody
     public Map<String,Object> Login(String geNumber, String password){
         Map<String,Object> map = new HashMap<String,Object>();
-        System.out.println("SESSION ID = " + SecurityUtils.getSubject().getSession().getId());
-        System.out.println("用户名：" + SecurityUtils.getSubject().getPrincipal());
-        System.out.println("HOST：" + SecurityUtils.getSubject().getSession().getHost());
-        System.out.println("TIMEOUT ：" + SecurityUtils.getSubject().getSession().getTimeout());
-        System.out.println("START：" + SecurityUtils.getSubject().getSession().getStartTimestamp());
-        System.out.println("LAST：" + SecurityUtils.getSubject().getSession().getLastAccessTime());
         //主体,当前状态为没有认证的状态“未认证”
         Subject subject = SecurityUtils.getSubject();
         // 登录后存放进shiro token
@@ -54,10 +48,10 @@ public class UserController {
         try {
             //利用异常操作
             //需要开始调用到Realm中
-            System.out.println("========================================");
-            System.out.println("1、进入认证方法");
+            //System.out.println("========================================");
+            //System.out.println("1、进入认证方法");
             subject.login(token);
-            System.out.println("登录完成");
+            //System.out.println("登录完成");
         } catch (Exception e) {
             map.put("tip","error");
             return map;

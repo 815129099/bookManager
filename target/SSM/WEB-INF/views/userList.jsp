@@ -62,7 +62,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<!-- /well -->
 				</div>
-
+ <div class="alert alert-success alert-dismissable">
+	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+		        &times;
+	            </button>
+	            状态说明<br/>
+	                锁定：用户由于拖欠违约金等会被管理员锁定，锁定的用户无法登陆。
+            </div>
 				<!--/数据表格-->
 				<shiro:hasPermission name="admin">
 				<ul class="toolbar">
@@ -74,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<thead>
 							<tr>
 
-							<th>#</th>
+							<th><shiro:hasAnyRoles name="admin"><input type="checkbox" id="chkAll"/></shiro:hasAnyRoles><shiro:hasAnyRoles name="user">#</shiro:hasAnyRoles></th>
 							<th>工号</th>
 							<th>名称</th>
 							<th>手机号</th>
@@ -133,6 +139,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<label>名称:</label> <input type="text"
 												class="form-control" name="geName" id="geName" placeholder="名称">
 										</div>
+										<div class="form-group" style="margin-right: 10px">
+                                        	<label>邮箱:</label> <input type="text"
+                                        		class="form-control" name="email" id="email" placeholder="邮箱">
+                                        </div>
 										<div class="form-group" style="margin-right: 10px">
                                         	<label>密码:</label> <input type="password"
                                         		class="form-control" name="password" id="password" placeholder="密码">
@@ -268,6 +278,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	    $("#addform #geNumber").val("");
             		$("#addform #geName").val("");
             		$("#addform #phone").val("");
+            		$("#addform #email").val("");
             		$("label.error").remove();
 
             		$("div#addModal #sucUpd").hide();
@@ -299,13 +310,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		    	  password:{required:true,rangelength:[6,10]},
             		    	  rePassword:{required:true,equalTo:"#password"},
             		    	  phone:{required:true,isMobile:true},
+            		    	  email:{required:true,email:true},
             		      },
             		      messages:{
             		    	  geNumber:{required:"工号不能为空<br/>",rangelength:"请输入7位员工工号<br/>"},
             		    	  geName:{required:"名称不能为空<br/>"},
             		    	  password:{required:"密码不能为空<br/>",rangelength:"请输入6~10位有效密码<br/>"},
             		    	  rePassword:{required:"验证密码不能为空<br/>",equalTo:"密码不一致<br/>"},
-            		    	  phone:{required:"手机号不能为空<br/>",isMobile:"请输入正确的手机号"}
+            		    	  phone:{required:"手机号不能为空<br/>",isMobile:"请输入正确的手机号"},
+            		    	  email:{required:"邮箱不能为空<br/>",isMobile:"请输入正确的邮箱"}
             		      },
             		      submitHandler:function(){
             					if(!$("#addform").valid()){
@@ -319,7 +332,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					        data:{"geNumber":$("#addform #geNumber").val(),
                                               "geName":$("#addform #geName").val(),
                                               "password":$("#addform #rePassword").val(),
-                                              "phone":$("#addform #phone").val()},
+                                              "phone":$("#addform #phone").val(),
+                                              "email":$("#addform #email").val()},
                                         success:function(response){
                                                 if(response.tip=="success"){
                                                       $("div#addModal #sucUpd").show();
@@ -365,7 +379,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     						"listUser.do",  {"geNumber":geNumber,
     						    "geName":geName,
     						    "userState":userState
-    					       }, false, true, true, true,true,
+    					       }, true, true, false, true,true,
     					       "<shiro:hasAnyRoles name='admin'>"+"<a href='javascript:void(0)' id='update' title='修改' style='padding-right:20px' onclick='updateUser(this)'><i class='fa fa-edit'></i></a></shiro:hasAnyRoles>"+
     					       "<shiro:hasPermission name='admin'>"+"<a href='javascript:void(0)' title='删除' id='del' style='padding-right:20px' onclick='delUser(this)'><i class='fa fa-trash'></i></a>"+
     					       "<a href='javascript:void(0)' title='查看'  style='padding-right:20px' onclick='preview(this)'><i class='fa fa-wrench'></i></a>"+"</shiro:hasPermission>",
@@ -449,7 +463,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	    	//删除用户
             	function delUser(obj){
-            		if(confirm("是否删除该用户")){
+            	var state = $(obj).parent("td").siblings("td").eq(4).html();
+            	if(state=="有效"){
+            	    alert("有效状态的用户不可删除！！！");
+            	}else{
+                    if(confirm("是否删除该用户")){
             			var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
                         var data = {"geNumber":geNumber};
             			$.ajax({
@@ -468,47 +486,95 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		}
             	}
 
+            	}
 
 
-            function lockUser(){
-            	var row,id;
-            	var num = 0;
-            	 $("input[type='checkbox']").each(function(){
-            		 if($(this).is(":checked"))
-                      {
-                      num++;
-            			 row = $(this).parent("td").parent("tr");
-            			 id = row.find("td #update").parents("td").attr("id");
-                      }
-            		        	 $.post("lockUser.do",
-            					{"id":id});
-            		        	  listBook();
-            	 });
-            	 if(num==0){
-            	 alert("请选择用户");
-            	 }
-            	 $("#chkAll").attr("checked",false);
-            };
 
-            function clearUser(){
-            	var row,id;
-            	var num = 0;
-            	 $("input[type='checkbox']").each(function(){
-            		 if($(this).is(":checked"))
-                      {
-                      num++;
-            			 row = $(this).parent("td").parent("tr");
-            			 id = row.find("td #update").parents("td").attr("id");
-                      }
-            		        	 $.post("clearUser.do",
-            					{"id":id});
-            		        	  listBook();
-            	 });
-            	 if(num==0){
-            	 alert("请选择用户");
-            	 }
-            	 $("#chkAll").attr("checked",false);
-            };
+             function lockUser(){
+                        	var row,id;
+                        	var num = 0;
+                        	var arr = new Array();
+                        	 $("input[type='checkbox']").each(function(){
+                        		 if($(this).is(":checked"))
+                                  {
+                        			 row = $(this).parent("td").parent("tr");
+                        			 var flag = row.find("td").eq(4).html();
+                        			 if(flag!="无效"){
+                        			 id = row.find("td #update").parents("td").attr("id");
+                                                 			 if(id!=undefined){
+                                                 			  arr[num] = id;
+                                                 			  num++;
+                                                 			 }
+                        			 }else{
+                        			 alert("用户"+row.find("td").eq(2).html()+"已被锁定，请勿重复提交！")
+                        			 }
+
+                                  }
+                                });
+
+                        	 if(num==0){
+                        	 alert("请选择记录");
+                        	 }else{
+                                $.ajax({
+                                        url:"lockUser.do",
+                                        type:"post",
+                                        data:{arr:arr},
+                                        traditional: true,
+                                        success:function(result){
+                                            if(result.tip=="success"){
+                                                alert("锁定成功");
+                                            }else{
+                                            alert("锁定失败");
+                                            }
+                                            listUser();
+                                        }
+                                });
+                        	 }
+                        	 $("input:checkbox").removeAttr("checked");
+                        }
+
+                        function clearUser(){
+                        	var row,id;
+                        	var num = 0;
+                        	var arr = new Array();
+                        	 $("input[type='checkbox']").each(function(){
+                        		 if($(this).is(":checked"))
+                                  {
+                        			 row = $(this).parent("td").parent("tr");
+                        			 var flag = row.find("td").eq(4).html();
+                        			 if(flag!="有效"){
+                        			 id = row.find("td #update").parents("td").attr("id");
+                                                 			 if(id!=undefined){
+                                                 			  arr[num] = id;
+                                                 			  num++;
+                                                 			 }
+                        			 }else{
+                        			 alert("用户"+row.find("td").eq(3).html()+"已解锁，请不要重复提交！")
+                        			 }
+
+                                  }
+                                });
+
+                        	 if(num==0){
+                        	 alert("请选择记录");
+                        	 }else{
+                                $.ajax({
+                                        url:"clearUser.do",
+                                        type:"post",
+                                        data:{arr:arr},
+                                        traditional: true,
+                                        success:function(result){
+                                            if(result.tip=="success"){
+                                                alert("修改成功");
+                                            }else{
+                                            alert("修改失败");
+                                            }
+                                            listUser();
+                                        }
+                                });
+                        	 }
+                        	 $("input:checkbox").removeAttr("checked");
+                        }
     </script>
   </body>
 
