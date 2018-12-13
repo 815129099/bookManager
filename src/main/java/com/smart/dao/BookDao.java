@@ -13,6 +13,7 @@ public interface BookDao {
     public List<Book> getList();
     //书籍列表
     public List<Book> listBook(Book book);
+    //public List<Book> getListById(@Param("beginId")String beginId,@Param("endId")String endId);
     //添加书籍
     public void addBook(Book book);
     //通过Id获取书籍

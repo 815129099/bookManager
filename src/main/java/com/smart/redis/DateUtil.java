@@ -44,14 +44,14 @@ public class DateUtil {
         aCalendar.setTime(date);
         int day = aCalendar.get(Calendar.DAY_OF_YEAR);
         int year = aCalendar.get(Calendar.YEAR);
-        System.out.println("YEAR:"+year+"day:"+day);
+        //System.out.println("YEAR:"+year+"day:"+day);
 
         //当前日期
         Date date1 = new Date();
         aCalendar.setTime(date1);
         int day1 = aCalendar.get(Calendar.DAY_OF_YEAR);
         int year1 = aCalendar.get(Calendar.YEAR);
-        System.out.println("YEAR1:"+year1+"day1:"+day1);
+        //System.out.println("YEAR1:"+year1+"day1:"+day1);
 
         //判断是否是同一年
         if(year != year1)   //同一年
@@ -73,6 +73,7 @@ public class DateUtil {
         {
             flag = day1-day;
         }
+        System.out.println(flag);
         return flag;
     }
 

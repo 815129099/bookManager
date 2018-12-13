@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
    	<link rel="stylesheet" href="style/css/table.css">
    	<link rel="stylesheet" href="style/css/bootstrap.min.css">
+   	<link rel="stylesheet" href="style/css/jquery.datetimepicker.css">
    <head/>
   <body>
     <div class="x-body">
@@ -34,6 +35,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="widget">
 					<!--查询条件-->
 					<div class="well">
+                        <shiro:hasAnyRoles name="admin">
+                        <form class="form-inline" role="form" id="query1">
+						<input type="hidden" id="role" value="admin">
+                            <div class="form-group" style="margin-right:10px">
+								<label>开始时间:</label>
+								<div class="input-group">
+								<input type="text" class="form-control" name="begin" id="begin" style="width:120px" autocomplete="off" placeholder="开始时间">
+							    <span class="input-group-addon" id="beginTime"><i class="fa fa-times"></i></span>
+							    </div>
+							</div>
+                            <div class="form-group" style="margin-right:10px">
+								<label>结束时间:</label>
+								<div class="input-group">
+								<input type="text" class="form-control" name="end" id="end"  autocomplete="off"  style="width:120px" placeholder="结束时间">
+							    <span class="input-group-addon" id="endTime"><i class="fa fa-times"></i></span>
+							    </div>
+							</div>
+							<div class="form-group" style="margin-right:10px">
+								<label>状态:</label>
+								<select name="state" id="state" class="form-control">
+								  <option value=""></option>
+								  <option value="申请">申请</option>
+								  <option value="借阅">借阅</option>
+								  <option value="归还">归还</option>
+								  <option value="退回">退回</option>
+								</select>
+							</div>
+							<div class="form-group">
+							<button type="button" class="btn btn-info" id="querybtn1">导出</button>
+							</div>
+						</form>
+						</shiro:hasAnyRoles>
+					<br/>
 						<form class="form-inline" role="form" id="query">
 						<shiro:hasAnyRoles name="admin">
 							<div class="form-group" style="margin-right:10px">
@@ -44,6 +78,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="form-group" style="margin-right:10px">
 								<label>书籍代码:</label>
 								<input type="text" class="form-control" name="bookId" id="bookId" maxlength="128" placeholder="书籍代码">
+							</div>
+                            <div class="form-group" style="margin-right:10px">
+								<label>申请时间:</label>
+								<div class="input-group">
+								<input type="text" class="form-control" name="apply" id="apply" style="width:120px" autocomplete="off" placeholder="申请时间">
+							    <span class="input-group-addon" id="applyTime"><i class="fa fa-times"></i></span>
+							    </div>
+							</div>
+                            <div class="form-group" style="margin-right:10px">
+								<label>借阅时间:</label>
+								<div class="input-group">
+								<input type="text" class="form-control" name="lend" id="lend"  autocomplete="off"  style="width:120px" placeholder="借阅时间">
+							    <span class="input-group-addon" id="lendTime"><i class="fa fa-times"></i></span>
+							    </div>
 							</div>
 							<div class="form-group" style="margin-right:10px">
 								<label>状态:</label>
@@ -181,6 +229,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script type="text/javascript" src="style/js/common2.js"></script>
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
+  <!--时间插件-->
+             <script src="style/js/dateformat.js"></script>
+             <script src="style/js/jquery.datetimepicker1.js"></script>
      <!--layer弹窗-->
 
     <script type="text/javascript">
@@ -195,9 +246,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     	//查询全部用户列表
     	listAllege();
-    $("#chkAll").click(function(){
+ //时间控件初始化
+    	$('#apply').datetimepicker({format:"Y-m-d",timepicker:false});
+    	$('#lend').datetimepicker({format:"Y-m-d",timepicker:false});
+    	$('#begin').datetimepicker({format:"Y-m-d",timepicker:false});
+        $('#end').datetimepicker({format:"Y-m-d",timepicker:false});
+        $("#chkAll").click(function(){
     	chkAll("chkAll","chk");
     });
+
+
+     //时间查询条件清空
+            	$("#applyTime").click(function(){
+            		$("#apply").val("");
+            	});
+            	$("#lendTime").click(function(){
+                     $("#lend").val("");
+                });
+            	$("#beginTime").click(function(){
+            		$("#begin").val("");
+            	});
+            	$("#endTime").click(function(){
+                     $("#end").val("");
+                });
       preGeNumber = '${geNumber}';
         preBookId = '${bookId}';
     	//查询功能
@@ -205,7 +276,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		listAllege();
     	});
 
+    	$("#querybtn1").click(function(){
+    		exportAllege();
+    	});
+
     });
+
+    function exportAllege(){
+    var begin = $("form#query1 #begin").val();
+    var end = $("form#query1 #end").val();
+    var userState = $("form#query1 #state").val();
+    window.location.href='exportAllege.do?begin='+begin+'&end='+end+'&userState='+userState;
+    }
     	function listAllege(){
     	//查询条件
     	var geNumber;
@@ -222,12 +304,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             bookId = preBookId;
         }
     	var state = $("form#query #state").val();
-
+        var applyTime = $("form#query #apply").val();
+        var lendTime = $("form#query #lend").val();
     	//借阅列表
     	$.post('listRecord.do',
     	       {"geNumber":geNumber,
     		    "bookId":bookId,
-    		    "state":state
+    		    "state":state,
+    		    "applyTime":applyTime,
+    		    "lendTime":lendTime
     	       },
     	       function(response){
     	    	 //生成结果列表
@@ -308,8 +393,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	function delAllege(obj){
     	var lendTime = $(obj).parent("td").siblings("td").eq(6).html();
     	var backTime = $(obj).parent("td").siblings("td").eq(7).html();
+    	var applyState = $(obj).parent("td").siblings("td").eq(4).html();
     	if((backTime==null || backTime=="" || backTime == undefined)&&(lendTime!=null && lendTime!="")){
     	alert("该书已借未还，不可删除借书记录");
+    	}else if(applyState=="申请"){
+            alert("该记录未处理，无法删除!");
     	}else{
     	if(confirm("是否删除该记录")){
                     var id =  parseInt($(obj).parent("td").attr("id"));

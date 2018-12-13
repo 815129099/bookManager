@@ -65,7 +65,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
           p:url="jdbc:mysql://localhost:3306/bookmanager?characterEncoding=utf8"
-          p:username="root" p:password="960521" p:maxActive="10" p:maxIdle="10"
+          p:username="root" p:password="960310" p:maxActive="10" p:maxIdle="10"
           p:validationQuery="SELECT 1"  p:testOnBorrow="true">
     </bean>
 
@@ -135,6 +135,7 @@
                 /login.do=anon
                 /test.do=anon
                 /send.do=anon
+                /downloadExecl=anon
                 /listBook.do=anon
                 /UserType.do=anon
                 /style/**=anon

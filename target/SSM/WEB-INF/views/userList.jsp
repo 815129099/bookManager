@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
    	<link rel="stylesheet" href="style/css/table.css">
    	<link rel="stylesheet" href="style/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="style/css/jquery.datetimepicker.css">
   </head>
 
 
@@ -46,6 +46,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<label>名称:</label>
 							<input type="text" class="form-control" name="geName" id="geName" maxlength="128" placeholder="名称">
 							</div>
+                            <div class="form-group" style="margin-right:10px">
+								<label>修改时间:</label>
+								<div class="input-group">
+								<input type="text" class="form-control" name="begin" id="begin" style="width:120px"  autocomplete="off"  placeholder="修改时间">
+							    <span class="input-group-addon" id="updateTime"><i class="fa fa-times"></i></span>
+							    </div>
+							</div>
 							<div class="form-group" style="margin-right:10px">
                             	<label>状态:</label>
                             	<select name="userState" id="userState" class="form-control">
@@ -57,6 +64,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 							<div class="form-group">
 							<button type="button" class="btn btn-warning" id="querybtn">查询</button>
+							</div>
+                            <div class="form-group  pull-right">
+							<button type="button" class="btn btn-info" id="querybtn1">导出</button>
 							</div>
 						</form>
 					</div>
@@ -254,6 +264,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script type="text/javascript" src="style/js/common1.js"></script>
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
+  <!--时间插件-->
+             <script src="style/js/dateformat.js"></script>
+             <script src="style/js/jquery.datetimepicker1.js"></script>
     <script type="text/javascript">
 
     //表单验证
@@ -263,13 +276,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     $(document).ready(function(){
     	//查询全部用户列表
+    //时间控件初始化
+    	$('#begin').datetimepicker({format:"Y-m-d",timepicker:false});
     	listUser();
     $("#chkAll").click(function(){
     	chkAll("chkAll","chk");
     });
+
+     //时间查询条件清空
+            	$("#updateTime").click(function(){
+            		$("#begin").val("");
+            	});
+
     	//查询功能
     	$("#querybtn").click(function(){
     		listUser();
+    	});
+    	$("#querybtn1").click(function(){
+    		window.location.href='exportUser.do';
     	});
 
     	//添加用户
@@ -366,12 +390,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	var geNumber = $("form#query #geNumber").val();
     	var geName = $("form#query #geName").val();
     	var userState = $("form#query #userState").val();
-    	//获取用户列表
-    	$.post('listUser.do',
-    	       {"geNumber":geNumber,
-    	       "geName":geName,
-    	       "userState":userState
-    	       },
+    	var updateTime = $("form#query #begin").val();
+
+            	//获取用户列表
+            	$.post('listUser.do',
+            	       {"geNumber":geNumber,
+            	       "geName":geName,
+            	       "userState":userState,
+            	       "updateTime":updateTime
+            	       },
     	       function(response){
     	       console.log(response.page);
     	    	 //生成结果列表
@@ -549,7 +576,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                  			  num++;
                                                  			 }
                         			 }else{
-                        			 alert("用户"+row.find("td").eq(3).html()+"已解锁，请不要重复提交！")
+                        			 alert("用户"+row.find("td").eq(3).html()+"已解锁，请不要重复提交！");
                         			 }
 
                                   }
@@ -573,8 +600,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         }
                                 });
                         	 }
-                        	 $("input:checkbox").removeAttr("checked");
-                        }
+                        	 $("input:checkbox").removeAttr("checked");}
     </script>
   </body>
 

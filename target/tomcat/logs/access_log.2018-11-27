@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [27/Nov/2018:15:20:55 +0800] "GET /SSM/maSystem.do HTTP/1.1" 200 3534 http-bio-8091-exec-1 215
+0:0:0:0:0:0:0:1 - - [27/Nov/2018:15:20:55 +0800] "GET /SSM/style/js/common1.js HTTP/1.1" 304 - http-bio-8091-exec-7 35
+0:0:0:0:0:0:0:1 - - [27/Nov/2018:15:20:55 +0800] "GET /SSM/meList.do HTTP/1.1" 200 26460 http-bio-8091-exec-2 55
+0:0:0:0:0:0:0:1 - - [27/Nov/2018:15:20:56 +0800] "POST /SSM/listBook.do HTTP/1.1" 200 2251 http-bio-8091-exec-9 927

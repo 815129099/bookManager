@@ -58,8 +58,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="form-group">
 							<button type="button" class="btn btn-warning" id="querybtn">查询</button>
 							</div>
+                            <shiro:hasAnyRoles name="admin">
+                            <div class="form-group  pull-right">
+							<button type="button" class="btn btn-info" id="querybtn1">导出</button>
+							</div></shiro:hasAnyRoles>
 						</form>
+
 					</div>
+
+
 					<!-- /well -->
 				</div>
 
@@ -337,6 +344,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		listBook();
     	});
 
+        //导出功能
+            	$("#querybtn1").click(function(){
+            		window.location.href='exportBook.do';
+            	});
+
     	//添加书籍
             	$("a#addBook").click(function(){
 
@@ -421,6 +433,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	});
 
     });
+
+
     	function listBook(){
     	//查询条件
     	var bookId = $("form#query #bookId").val();
@@ -505,6 +519,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			var geName = $("#resetform #geName").val();
 
             			var geNumber = $("#resetform #geNumber").val();
+
             			var data = {"bookId":bookId,"geName":geName,"geNumber":geNumber};
             			$.ajax({
             			        url:"Record.do",

@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a _href="userList.do">
+                                    <a _href="userInform.do">
                                         <i class="iconfont">&#xe673;</i>
                                         <cite>我的通知</cite>
                                     </a>

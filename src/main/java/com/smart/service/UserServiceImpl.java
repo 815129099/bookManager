@@ -3,6 +3,7 @@ package com.smart.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
+import com.smart.bean.Inform;
 import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.dao.UserDao;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
         return userDao.findByGeNumber(geNumber);
     }
 
-    //查询书籍列表
+    //查询员工列表
     public PageInfo<User> pageUser(User user, Integer pageNum, Integer pageSize) {
         System.out.println(user.getGeNumber()+","+user.getGeName()+","+user.getUserState());
         PageInfo<User> page = null;
@@ -134,4 +135,37 @@ public class UserServiceImpl implements UserService {
         return isSuccess;
     }
 
+    //查询书籍列表
+    public PageInfo<Inform> pageInform(Inform inform, Integer pageNum, Integer pageSize) {
+        System.out.println(inform.getTitle());
+        PageInfo<Inform> page = null;
+        PageHelper.startPage(pageNum, pageSize);
+        List<Inform> iList = userDao.listInform(inform);
+        page = new PageInfo<Inform>(iList);
+        return page;
+    }
+
+    @Override
+    public Inform getInformById(int id) {
+        return userDao.getInformById(id);
+    }
+
+    //删除
+    @Transactional(rollbackFor={Exception.class})
+    public boolean delInform(int id) {
+        boolean isSuccess = false;
+        userDao.deleteInform(id,DateUtil.getDate());
+        isSuccess = true;
+        return isSuccess;
+    }
+
+    @Override
+    public List<User> getUserList() {
+        return userDao.getUserList();
+    }
+
+    @Override
+    public List<Record> getRecordByTime(String begin, String end, String userState) {
+        return userDao.getRecordByTime(begin,end,userState);
+    }
 }

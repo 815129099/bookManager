@@ -24,6 +24,25 @@
         where geNumber = #{geNumber} and userState="有效"
     </select>
 
+    <select id="getUserList" resultType="User">
+        select * from user
+    </select>
+
+    <select id="getRecordByTime" parameterType="String" resultType="Record">
+        select *
+        from record r
+        <where>
+            <if test="begin!=null and begin!=''">
+                r.applyTime >= #{begin}
+            </if>
+            <if test="end!=null and end!=''">
+                and #{end} > r.applyTime
+            </if>
+            <if test="userState!=null and userState!=''">
+                and r.state = #{userState}
+            </if>
+        </where>
+    </select>
     <!-- 员工列表 -->
     <select id="listUser" parameterType="User" resultType="User">
         SELECT *
@@ -37,6 +56,9 @@
             </if>
             <if test="userState!=null and userState!=''">
                 AND u.userState=#{userState}
+            </if>
+            <if test="updateTime!=null and updateTime!=''">
+                AND u.updateTime >= #{updateTime}
             </if>
             and u.userState!="删除"
         </where>
@@ -84,4 +106,37 @@
         set userState ="有效",updateTime=#{updateTime}
         where id=#{id}
     </update>
+
+    <!-- 员工列表 -->
+    <select id="listInform" parameterType="Inform" resultType="Inform">
+        SELECT *
+        FROM inform i
+        <where>
+            <if test="title!=null and title!=''">
+                i.title LIKE #{title}
+            </if>
+            <if test="createTime!=null and createTime!=''">
+                AND i.createTime >= #{createTime}
+            </if>
+            and geNumber=#{geNumber}
+            and i.informState = 0
+        </where>
+    </select>
+
+    <select id="getInformById" parameterType="int" resultType="Inform">
+        select *
+        from inform
+        where id = #{id}
+    </select>
+
+    <update id="deleteInform">
+        update inform
+        set informState = 1,updateTime=#{updateTime}
+        where id=#{id}
+    </update>
+
+    <insert id="addInform" parameterType="Inform">
+        insert into inform(geNumber,detail,title,createTime,updateTime,informState)
+        values(#{geNumber},#{detail},#{title},#{createTime},#{updateTime},0)
+    </insert>
 </mapper>

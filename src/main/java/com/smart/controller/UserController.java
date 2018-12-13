@@ -2,8 +2,11 @@ package com.smart.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
+import com.smart.bean.Inform;
 import com.smart.bean.Record;
 import com.smart.bean.User;
+import com.smart.redis.ExcelParam;
+import com.smart.redis.ExcelUtil;
 import com.smart.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -14,8 +17,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -67,13 +73,26 @@ public class UserController {
         return new ModelAndView("userList");
     }
 
+    @RequestMapping(value="/userInform.do")
+    public ModelAndView userInform() {
+        return new ModelAndView("userInform");
+    }
+
 
     @RequestMapping(value="/error.do")
     public ModelAndView error() {
         return new ModelAndView("error");
     }
 
-    //查询书籍列表
+    @RequestMapping(value="/inform")
+    public ModelAndView inform(String id) {
+        System.out.println(id);
+
+        ModelAndView modelAndView = new ModelAndView("inform");
+        modelAndView.addObject("inform",userService.getInformById(Integer.parseInt(id)));
+        return modelAndView;
+    }
+    //查询用户列表
     @RequestMapping(value = "/listUser.do")
     @ResponseBody
     public Map<String,Object> listUser(User user, Integer pageNum, Integer pageSize)throws Exception{
@@ -215,5 +234,95 @@ public class UserController {
             map.put("tip", "error");
         }
         return map;
+    }
+
+    //查询书籍列表
+    @RequestMapping(value = "/listInform.do")
+    @ResponseBody
+    public Map<String,Object> listInform(Inform inform, Integer pageNum, Integer pageSize)throws Exception{
+        Map<String,Object> map = new HashMap<String,Object>();
+        Subject subject = SecurityUtils.getSubject();
+        String geNumber = (String)subject.getPrincipal();
+        inform.setGeNumber(geNumber);
+        //获取分页信息
+        if (pageNum == null || pageNum == 0) {
+            pageNum = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 15;
+        }
+        if (inform.getTitle() != null) {
+            inform.setTitle("%" + inform.getTitle() + "%");
+        }
+        PageInfo<Inform> page = userService.pageInform(inform, pageNum, pageSize);
+        map.put("page", page);
+        return map;
+    }
+
+    //删除
+    @RequestMapping(value = "/Inform.do", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Map<String,Object> delInform(@RequestBody Inform inform) throws IOException {
+            System.out.println(inform.getId());
+
+        Map<String,Object> map = new HashMap<String,Object>();
+        boolean isSuccess = userService.delInform(inform.getId());
+        if(isSuccess){
+            map.put("tip", "success");
+        }
+        else{
+            map.put("tip", "error");
+        }
+        return map;
+    }
+
+    @RequestMapping(value = "exportUser.do")
+    public void exportUser(HttpServletResponse response) throws Exception {
+        List<User> list = userService.getUserList();
+        String[] heads = {"序号", "工号", "姓名", "角色", "状态", "创建时间", "修改时间","电话","邮件"};
+        List<String[]> data = new LinkedList<String[]>();
+        for (int i = 0; i < list.size(); i++) {
+            User entity = list.get(i);
+            String[] temp = new String[9];
+            temp[0] = String.valueOf(i+1);
+            temp[1] = entity.getGeNumber();
+            temp[2] = entity.getGeName();
+            temp[3] = String.valueOf(entity.getRole());
+            temp[4] = String.valueOf(entity.getUserState());
+            temp[5] = entity.getCreateTime();
+            temp[6] = entity.getUpdateTime();
+            temp[7] = entity.getPhone();
+            temp[8] = entity.getEmail();
+            data.add(temp);
+        }
+        ExcelParam param = new ExcelParam.Builder("用户列表").headers(heads).data(data).build();
+        ExcelUtil.export(param, response);
+    }
+
+    @RequestMapping(value = "exportAllege.do")
+    public void exportAllege(String begin,String end,String userState,HttpServletResponse response) throws Exception {
+        //String u = java.net.URLDecoder.decode("userState","utf-8");
+        String u = new String(userState.getBytes("ISO-8859-1"), "UTF-8");
+        System.out.println(begin+","+end+","+u);
+        List<Record> list = userService.getRecordByTime(begin,end,u);
+        String[] heads = {"序号", "书籍代码", "姓名", "工号", "书名", "状态", "申请时间","借阅日期","归还日期","描述"};
+        List<String[]> data = new LinkedList<String[]>();
+        for (int i = 0; i < list.size(); i++) {
+            Record entity = list.get(i);
+            String[] temp = new String[10];
+            temp[0] = String.valueOf(i+1);
+            temp[1] = entity.getBookId();
+            temp[2] = entity.getGeName();
+            temp[3] = entity.getGeNumber();
+            temp[4] = entity.getBookName();
+            temp[5] = entity.getState();
+            temp[6] = entity.getApplyTime();
+            temp[7] = entity.getLendTime();
+            temp[8] = entity.getBackTime();
+            temp[9] = entity.getDescription();
+            data.add(temp);
+        }
+        ExcelParam param = new ExcelParam.Builder("借阅记录表").headers(heads).data(data).build();
+        ExcelUtil.export(param, response);
     }
 }

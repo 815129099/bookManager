@@ -1,6 +1,8 @@
 package com.smart.service;
 
+import com.smart.bean.Inform;
 import com.smart.dao.BookDao;
+import com.smart.dao.UserDao;
 import com.smart.redis.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -24,13 +26,18 @@ public class SchedulerMail {
     private JavaMailSender javaMailSender;//在spring中配置的邮件发送的bean
     @Autowired
     private BookDao bookDao;
+    @Autowired
+    private UserDao userDao;
 
 
     public void test(){
         System.out.println("每隔10秒钟，啦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊");
     }
 
-
+/*"0 0 12 * * ?" 每天中午12点触发
+"0 15 10 ? * *" 每天上午10:15触发
+"0 15 10 * * ?" 每天上午10:15触发
+*/
     @Scheduled(cron = "0 0 8 * * ?")
     public void sendMail03(){
         List<Map<String,Object>> list = bookDao.getRecordList();
@@ -41,10 +48,12 @@ public class SchedulerMail {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if(flag==7){
-                sendMail(7,map.get("geName").toString(),map.get("email").toString(),map.get("bookName").toString(),map.get("lendTime").toString());
-            }else if(flag==3){
-                sendMail(3,map.get("geName").toString(),map.get("email").toString(),map.get("bookName").toString(),map.get("lendTime").toString());
+            if(flag==21){
+                sendMail(7,map.get("geName").toString(),map.get("email").toString(),map.get("bookName").toString(),map.get("lendTime").toString(),map.get("geNumber").toString());
+            }else if(flag==25){
+                sendMail(3,map.get("geName").toString(),map.get("email").toString(),map.get("bookName").toString(),map.get("lendTime").toString(),map.get("geNumber").toString());
+            }else if(flag==28){
+                sendMail(0,map.get("geName").toString(),map.get("email").toString(),map.get("bookName").toString(),map.get("lendTime").toString(),map.get("geNumber").toString());
             }
 
         }
@@ -52,7 +61,7 @@ public class SchedulerMail {
 
     }
 
-    public void sendMail(int num,String geName,String email,String bookName,String lendTime){
+    public void sendMail(int num,String geName,String email,String bookName,String lendTime,String geNumber){
         System.out.println(num+","+geName+","+email+","+bookName+","+lendTime);
         MimeMessage mMessage=javaMailSender.createMimeMessage();//创建邮件对象
         MimeMessageHelper mMessageHelper;
@@ -72,6 +81,14 @@ public class SchedulerMail {
             //FileSystemResource resource=new FileSystemResource(file);
            // mMessageHelper.addInline("fengye", resource);//这里指定一个id,在上面引用
             //mMessageHelper.addAttachment("back1.jpg", resource);//在邮件中添加一个附件
+            Inform inform = new Inform();
+            inform.setGeNumber(geNumber);
+            inform.setTitle("工会书籍"+num+"天后到期通知");
+            inform.setDetail(geName+"您好，您"+lendTime+"借阅的《"+bookName+"》还剩"+num+"天，请及时归还" +
+                    "逾期将扣额外金额");
+            inform.setCreateTime(DateUtil.getDate());
+            inform.setUpdateTime(DateUtil.getDate());
+            userDao.addInform(inform);
             javaMailSender.send(mMessage);//发送邮件
         } catch (MessagingException e) {
             e.printStackTrace();

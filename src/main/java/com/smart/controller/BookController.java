@@ -5,6 +5,8 @@ import com.smart.bean.Book;
 import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.bean.muFile;
+import com.smart.redis.ExcelParam;
+import com.smart.redis.ExcelUtil;
 import com.smart.service.BookService;
 import com.smart.service.UserService;
 import org.apache.commons.io.FileUtils;
@@ -24,13 +26,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 @Controller
@@ -170,13 +170,15 @@ public class BookController {
     @RequestMapping(value = "/Record.do", method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> checkBook(Record record) throws IOException {
+        System.out.println(record.getGeName());
         Subject subject = SecurityUtils.getSubject();
         String geNumber = (String)subject.getPrincipal();
         System.out.println("用户"+geNumber);
         //如果没有工号则获取当前用户名
         if(record.getGeNumber()==null || record.getGeNumber()==""){
-            System.out.println(record.getGeNumber()+"asdasdasd");
+
             record.setGeNumber(geNumber);
+            System.out.println(record.getGeNumber()+"asdasdasd");
         }else{
             System.out.println(record.getGeNumber()+"123123123");
         }
@@ -357,6 +359,26 @@ public class BookController {
                 headers, HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "exportBook.do")
+    public void exportBook(HttpServletResponse response) throws Exception {
+        List<Book> list = bookService.getList();
+        String[] heads = {"序号", "书籍代码", "书籍名称", "数量", "可借数量", "书架", "状态"};
+        List<String[]> data = new LinkedList<String[]>();
+        for (int i = 0; i < list.size(); i++) {
+            Book entity = list.get(i);
+            String[] temp = new String[7];
+            temp[0] = String.valueOf(i+1);
+            temp[1] = entity.getBookId();
+            temp[2] = entity.getBookName();
+            temp[3] = String.valueOf(entity.getBookNumber());
+            temp[4] = String.valueOf(entity.getLendNumber());
+            temp[5] = entity.getBookLocation();
+            temp[6] = String.valueOf(entity.getBookState());
+            data.add(temp);
+        }
+        ExcelParam param = new ExcelParam.Builder("书籍列表").headers(heads).data(data).build();
+        ExcelUtil.export(param, response);
+    }
 
 
 

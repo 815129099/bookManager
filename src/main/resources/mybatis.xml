@@ -6,6 +6,7 @@
         <typeAlias alias="Book" type="com.smart.bean.Book"/>
         <typeAlias alias="Record" type="com.smart.bean.Record"/>
         <typeAlias alias="User" type="com.smart.bean.User"/>
+        <typeAlias type="com.smart.bean.Inform" alias="Inform"/>
     </typeAliases>
 
     <!-- 配置分页插件 -->

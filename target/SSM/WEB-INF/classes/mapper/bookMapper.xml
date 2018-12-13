@@ -9,6 +9,7 @@
     from book
 </select>
 
+
     <select id="getRecordList" resultType="java.util.Map">
         SELECT record.*,user.email
         FROM record,user
@@ -79,6 +80,12 @@
             </if>
             <if test="state!=null and state!=''">
                 AND u.state = #{state}
+            </if>
+            <if test="applyTime!=null and applyTime!=''">
+                AND u.applyTime >= #{applyTime}
+            </if>
+            <if test="lendTime!=null and lendTime!=''">
+                AND u.lendTime >= #{lendTime}
             </if>
             and u.state != "删除"
         </where>

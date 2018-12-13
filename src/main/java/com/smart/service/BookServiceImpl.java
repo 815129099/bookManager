@@ -38,6 +38,8 @@ public class BookServiceImpl implements BookService {
         return list;
     }
 
+
+
     //查询书籍列表
     public PageInfo<Book> pageBook(Book book, Integer pageNum, Integer pageSize) {
         PageInfo<Book> page = null;
@@ -92,35 +94,26 @@ public class BookServiceImpl implements BookService {
     }
 
     //申请借阅
-    @Transactional(rollbackFor={Exception.class})
+
     public boolean checkBook(Record record) {
         boolean isSuccess = false;
         System.out.println("工号为"+record.getGeNumber());
+        System.out.println("工号为"+record.getBookId());
         //获取Book
-        Book book;
-        book = (Book)JedisClient.getObject(record.getBookId());
-        if(book==null){
-            book = bookDao.getBookById(record.getBookId());
-            record.setBookName(book.getBookName());
-            if(book!=null){
-                JedisClient.setObject(record.getBookId(),(Object)book);
-            }
-        }
+        Book book = bookDao.getBookById(record.getBookId());
+        System.out.println("bookName："+book.getBookName());
+        record.setBookName(book.getBookName());
+        System.out.println("bookName："+record.getBookName());
 
+
+        System.out.println("12312123");
         //借书人名字为空则通过工号查询
         if(record.getGeName()==null || record.getGeName()==""){
-            User user;
-            user = (User)JedisClient.getObject(record.getGeNumber());
-            if(user==null){
-                user = userDao.findByGeNumber(record.getGeNumber());
-                System.out.println("用户名"+user.getGeName());
-                if(user!=null){
-                    record.setGeName(user.getGeName());
-                    JedisClient.setObject(record.getGeNumber(),(Object)user);
-                }
-            }
-
-
+            System.out.println("222222222");
+            User user = userDao.findByGeNumber(record.getGeNumber());
+            System.out.println("用户名"+user.getGeName());
+            record.setGeName(user.getGeName());
+            System.out.println("用户名:::"+record.getGeName());
         }
 
         if(book.getLendNumber()>0){
@@ -175,9 +168,7 @@ public class BookServiceImpl implements BookService {
     public boolean delRecord(int id) {
         boolean isSuccess = false;
         Record record = bookDao.getRecordById(id);
-        if(StringUtils.isEmpty(record.getLendTime())){
-            bookDao.addNumber(record.getBookId());
-        }
+
         bookDao.delRecord(id);
         isSuccess = true;
         return isSuccess;

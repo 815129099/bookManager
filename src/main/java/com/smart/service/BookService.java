@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface BookService {
     public List<Book> getList();
+    //public List<Book> getList(String beginId,String endId);
     //查询书籍列表
     public PageInfo<Book> pageBook(Book book, Integer pageNum, Integer pageSize);
     //添加书籍
