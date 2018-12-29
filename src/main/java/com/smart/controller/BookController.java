@@ -213,6 +213,7 @@ public class BookController {
     @ResponseBody
     public Map<String, Object> isNameExist(String bookName) throws Exception {
         Map<String, Object> result = new HashMap<String, Object>();
+        System.out.println(bookName);
         boolean isSuccess = bookService.isNameExist(bookName);
         if (isSuccess) {
             result.put("tip", "success");
@@ -312,52 +313,6 @@ public class BookController {
 
 
 
-
-    @RequestMapping(value="/upload.do",method=RequestMethod.POST)
-    public String upload(HttpServletRequest request,
-                         @ModelAttribute muFile file, Model model) throws Exception {
-
-        System.out.println(file.getDescription());
-        //如果文件不为空，写入上传路径
-        if(!file.getFile().isEmpty()) {
-            //上传文件路径
-            String path = "F:/FileDownloads/"+file.getFile().getOriginalFilename();
-            //上传文件名
-            String filename = file.getFile().getOriginalFilename();
-            File filepath = new File(path,filename);
-            //判断路径是否存在，如果不存在就创建一个
-            if (!filepath.getParentFile().exists()) {
-                filepath.getParentFile().mkdirs();
-            }
-            //将上传文件保存到一个目标文件当中
-            file.getFile().transferTo(new File(path + File.separator + filename));
-            JedisClient.setFile(file.getDescription(),path);
-            model.addAttribute("muFile",file);
-            return "userinfo";
-        } else {
-            return "error";
-        }
-
-    }
-
-    @RequestMapping(value="/download.do")
-    public ResponseEntity<byte[]> download(HttpServletRequest request,
-                                           @RequestParam("filename") String filename,
-                                           Model model)throws Exception {
-        //下载文件路径
-        String path = "F:/FileDownloads/"+filename;
-        File file = new File(path + File.separator + filename);
-
-        HttpHeaders headers = new HttpHeaders();
-        //下载显示的文件名，解决中文名称乱码问题
-        String downloadFielName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
-        //通知浏览器以attachment（下载方式）打开图片
-        headers.setContentDispositionFormData("attachment", downloadFielName);
-        //application/octet-stream ： 二进制流数据（最常见的文件下载）。
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),
-                headers, HttpStatus.CREATED);
-    }
 
     @RequestMapping(value = "exportBook.do")
     public void exportBook(HttpServletResponse response) throws Exception {

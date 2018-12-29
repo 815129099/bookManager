@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <meta charset="UTF-8">
     <title>借阅记录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv-"expires" content-"60">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -25,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <head/>
   <body>
     <div class="x-body">
-<div class="container" style="padding-top:30px;width:1300px;">
+<div class="container" style="padding-top:30px;width:100%;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -82,14 +83,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="form-group" style="margin-right:10px">
 								<label>申请时间:</label>
 								<div class="input-group">
-								<input type="text" class="form-control" name="apply" id="apply" style="width:120px" autocomplete="off" placeholder="申请时间">
+								<input type="text" class="form-control" name="apply" id="apply" style="width:180px" autocomplete="off" placeholder="申请时间">
 							    <span class="input-group-addon" id="applyTime"><i class="fa fa-times"></i></span>
 							    </div>
 							</div>
                             <div class="form-group" style="margin-right:10px">
 								<label>借阅时间:</label>
 								<div class="input-group">
-								<input type="text" class="form-control" name="lend" id="lend"  autocomplete="off"  style="width:120px" placeholder="借阅时间">
+								<input type="text" class="form-control" name="lend" id="lend"  autocomplete="off"  style="width:180px" placeholder="借阅时间">
 							    <span class="input-group-addon" id="lendTime"><i class="fa fa-times"></i></span>
 							    </div>
 							</div>
@@ -226,7 +227,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
      <!-- 表格 -->
          <script type="text/javascript" src="style/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="style/js/common2.js"></script>
+        <script type="text/javascript" src="style/js/common4.js"></script>
      <!-- 分页 -->
         <script src="style/js/jqPaginator/jqPaginator.min.js"></script>
   <!--时间插件-->
@@ -247,8 +248,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	//查询全部用户列表
     	listAllege();
  //时间控件初始化
-    	$('#apply').datetimepicker({format:"Y-m-d",timepicker:false});
-    	$('#lend').datetimepicker({format:"Y-m-d",timepicker:false});
+    	$('#apply').datetimepicker({format:"Y-m-d:h",timepicker:true});
+    	$('#lend').datetimepicker({format:"Y-m-d H",timepicker:true});
     	$('#begin').datetimepicker({format:"Y-m-d",timepicker:false});
         $('#end').datetimepicker({format:"Y-m-d",timepicker:false});
         $("#chkAll").click(function(){
@@ -288,6 +289,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     var userState = $("form#query1 #state").val();
     window.location.href='exportAllege.do?begin='+begin+'&end='+end+'&userState='+userState;
     }
+
     	function listAllege(){
     	//查询条件
     	var geNumber;
@@ -421,6 +423,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	}
 
 
+
             function passRecord(){
             	var row,id;
             	var num = 0;
@@ -444,9 +447,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                      			  num++;
                                      			 }
             			 }
-
-
-
                       }
                     });
 
@@ -470,6 +470,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	 }
             	 $("input:checkbox").removeAttr("checked");
             }
+
+
+
 
             function backRecord(){
             	var row,id;

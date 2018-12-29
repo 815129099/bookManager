@@ -147,6 +147,9 @@ public class BookServiceImpl implements BookService {
         map.put("bookId",record.getBookId());
         map.put("state",record.getState());
         map.put("geNumber",geNumber);
+        System.out.println(record.getLendTime()+","+record.getApplyTime());
+        map.put("lendTime",record.getLendTime());
+        map.put("applyTime",record.getApplyTime());
         List<Record> uList = bookDao.listRecordByNumber(map);
         page = new PageInfo<Record>(uList);
         return page;

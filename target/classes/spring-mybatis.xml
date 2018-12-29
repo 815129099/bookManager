@@ -61,10 +61,11 @@
     </bean>
     <bean id="JedisClient" class="com.smart.redis.JedisClientSingle"/>
 
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties"/>
     <!--Spring整合Mabatis-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://localhost:3306/bookmanager?characterEncoding=utf8"
+          p:url="jdbc:mysql://localhost:3306/bookmanager?characterEncoding=utf8&amp;useSSL=false&amp;useUnicode=true"
           p:username="root" p:password="960310" p:maxActive="10" p:maxIdle="10"
           p:validationQuery="SELECT 1"  p:testOnBorrow="true">
     </bean>
@@ -110,6 +111,9 @@
 
 
     <!--Spring整合shiro-->
+    <bean id="SystemLogoutFilter" class="com.smart.service.SystemLogoutFilter">
+    <property name="redirectUrl" value="/login.do" />
+    </bean>
     <!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- 调用我们配置的权限管理器 -->
@@ -121,9 +125,9 @@
         <!-- 如果您请求的资源不再您的权限范围，则跳转到/403请求地址 -->
         <property name="unauthorizedUrl" value="/error.do" />
         <property name="filters">
-            <util:map>
-                <entry key="logout" value-ref="logoutFilter" />
-            </util:map>
+            <map>
+                <entry key="logout" value-ref="SystemLogoutFilter" />
+            </map>
         </property>
         <!-- 权限配置 -->
         <property name="filterChainDefinitions">

@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <meta charset="UTF-8">
     <title>用户列表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -26,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
     <div class="x-body" >
-    <div class="container" style="padding-top:30px;width:1300px;">
+    <div class="container" style="padding-top:30px;width:100%;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -400,7 +401,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	       "updateTime":updateTime
             	       },
     	       function(response){
-    	       console.log(response.page);
     	    	 //生成结果列表
     			 initDataTable("userTable", 7, new Array("geNumber","geName","phone","userState","updateTime"), response.page,
     						"listUser.do",  {"geNumber":geNumber,

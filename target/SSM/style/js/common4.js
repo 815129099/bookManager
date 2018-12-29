@@ -71,21 +71,21 @@ function initDataTable(tableId,colNum,attrlist,page,pageUrl,param,hasChk,chkValu
             var temp1 = list[i].backTime;
             //如果书籍已被借并且没有还
             if((temp!=null && temp!=undefined && temp!="")&&(temp1==undefined || temp1==null || temp1=="")){
-                console.log(temp);
+                //console.log(temp);
                // var date = new Date(temp);
                 var d1 = new Date(temp.replace(/-/g, "/"));
-                console.log(d1);
+                //console.log(d1);
 
                 var date2 = new Date();
                 var d2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
-                console.log(d2);
+                //console.log(d2);
                 var d3 = new Date(d2.replace(/-/g, "/"));
-                console.log(d3);
+                //console.log(d3);
 
                 var days = d3.getTime() - d1.getTime();
-                console.log(days);
+                //console.log(days);
                 var time = parseInt(days / (1000 * 60 * 60 * 24));
-                console.log(time);
+               // console.log(time);
                 if(time<21){
                      trlist += "<tr>"+tdlist+"</tr>";
                 }else if(time>=21 && time<24){

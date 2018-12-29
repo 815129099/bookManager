@@ -10,10 +10,24 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-12-13 10:46:23
+Date: 2018-12-29 08:54:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for accessrecord
+-- ----------------------------
+DROP TABLE IF EXISTS `accessrecord`;
+CREATE TABLE `accessrecord` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ipNumber` varchar(40) DEFAULT NULL,
+  `geNumber` varchar(40) DEFAULT NULL,
+  `begintime` varchar(40) DEFAULT '',
+  `endtime` varchar(40) DEFAULT NULL,
+  `sessionId` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for book
@@ -45,7 +59,7 @@ CREATE TABLE `inform` (
   `updateTime` date DEFAULT NULL,
   `informState` int(11) DEFAULT NULL COMMENT '0正常 1删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for record
@@ -63,7 +77,7 @@ CREATE TABLE `record` (
   `description` varchar(255) DEFAULT NULL,
   `applyTime` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for user
@@ -83,3 +97,23 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for ztree
+-- ----------------------------
+DROP TABLE IF EXISTS `ztree`;
+CREATE TABLE `ztree` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `accessPath` varchar(100) DEFAULT '',
+  `checked` tinyint(1) DEFAULT 0,
+  `delFlag` int(11) DEFAULT NULL,
+  `parentID` int(11) DEFAULT NULL,
+  `resourceCode` varchar(40) DEFAULT NULL,
+  `resourceDesc` varchar(100) DEFAULT NULL,
+  `resourceGrade` int(11) DEFAULT NULL,
+  `resourceID` int(11) DEFAULT NULL,
+  `resourceName` varchar(40) DEFAULT NULL,
+  `resourceOrder` int(11) DEFAULT NULL,
+  `resourceType` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;

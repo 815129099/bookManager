@@ -1,15 +1,16 @@
 package com.smart.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.smart.bean.Book;
-import com.smart.bean.Inform;
-import com.smart.bean.Record;
-import com.smart.bean.User;
+import com.smart.bean.*;
 import com.smart.redis.ExcelParam;
 import com.smart.redis.ExcelUtil;
+import com.smart.redis.NetworkUtil;
+import com.smart.service.SystemLogoutFilter;
 import com.smart.service.UserService;
+import com.smart.service.UtilService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,6 +32,8 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UtilService utilService;
 
     @RequestMapping(value="/login.do")
     public ModelAndView test() {
@@ -42,10 +47,13 @@ public class UserController {
 
     @RequestMapping(value = "/UserType.do")
     @ResponseBody
-    public Map<String,Object> Login(String geNumber, String password){
+    public Map<String,Object> Login(String geNumber, String password, HttpServletRequest request){
         Map<String,Object> map = new HashMap<String,Object>();
         //主体,当前状态为没有认证的状态“未认证”
         Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession(true);
+        Serializable sessionId = session.getId();
+        System.out.println(sessionId.toString());
         // 登录后存放进shiro token
         UsernamePasswordToken token=new UsernamePasswordToken(geNumber,password);
         //token.setRememberMe(true);
@@ -62,6 +70,11 @@ public class UserController {
             map.put("tip","error");
             return map;
         }
+        AccessRecord accessRecord = new AccessRecord();
+        accessRecord.setIpNumber(NetworkUtil.getIpAddr(request));
+        accessRecord.setGeNumber(geNumber);
+        accessRecord.setSessionId(sessionId.toString());
+        utilService.addAccess(accessRecord);
         map.put("tip","success");
         return map;
     }

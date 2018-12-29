@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<meta charset="UTF-8">
 	<title>后台系统管理</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -28,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="maSystem">图书管理系统</a></div>
+        <div class="logo"><a href="maSystem.do">图书管理系统</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe661;</i>
         </div>
@@ -121,6 +122,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </ul>
                         </li>
                         </shiro:hasAnyRoles>
+
+            <shiro:hasAnyRoles name="admin">
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe7a7;</i>
+                        <cite>访问管理</cite>
+                        <i class="iconfont nav_right">&#xe685;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a _href="ipList.do">
+                                <i class="iconfont">&#xe673;</i>
+                                <cite>访问记录</cite>
+                            </a>
+                        </li >
+                    </ul>
+                </li>
+            </shiro:hasAnyRoles>
 
 
         </ul>

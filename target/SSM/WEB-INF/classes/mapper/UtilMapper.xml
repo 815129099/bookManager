@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace指定接口-->
+<mapper namespace="com.smart.dao.UtilDao">
+    <select id="listAccess" parameterType="AccessRecord" resultType="AccessRecord">
+        select a.ipNumber,a.geNumber,a.begintime,a.endtime
+        from accessrecord a
+        <where>
+            <if test="beginTime!=null and beginTime!=''">
+                a.begintime >= #{beginTime}
+            </if>
+            <if test="endTime!=null and endTime!=''">
+                and #{endTime} >= a.endtime
+            </if>
+            <if test="geNumber!=null and geNumber!=''">
+                and a.geNumber LIKE #{geNumber}
+            </if>
+            <if test="ipNumber!=null and ipNumber!=''">
+                and a.ipNumber LIKE #{ipNumber}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addAccess" parameterType="AccessRecord">
+        insert into accessrecord(ipNumber,geNumber,begintime,sessionId)
+        values (#{ipNumber},#{geNumber},#{beginTime},#{sessionId})
+    </insert>
+
+    <update id="logoutTime" parameterType="AccessRecord">
+        update AccessRecord
+        set endtime = #{endTime}
+        where sessionId = #{sessionId}
+    </update>
+
+    <select id="getAccessById" parameterType="String" resultType="AccessRecord">
+        select *
+        from accessrecord
+        where sessionId = #{sessionId}
+    </select>
+</mapper>

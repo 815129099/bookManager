@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>文件上传</h2>
-    <form action="upload" enctype="multipart/form-data" method="post">
+    <form action="upload.do" enctype="multipart/form-data" method="post">
         <table>
             <tr>
                 <td>文件描述:</td>
@@ -23,5 +23,7 @@
             </tr>
         </table>
     </form>
+
+    <img src="public/images/back.jpg" alt="some_text" width="240" height="228">
 </body>
 </html>

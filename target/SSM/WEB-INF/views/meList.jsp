@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <meta charset="UTF-8">
     <title>书籍列表</title>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
     <div class="x-body" >
-    <div class="container" style="padding-top:30px;width:1300px;">
+    <div class="container" style="padding-top:30px;width:100%;">
 	<div class="content">
 		<!-- Content wrapper -->
 		<div class="wrapper">
@@ -74,8 +74,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<shiro:hasPermission name="admin">
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="addBook"><i class="fa fa-user"></i><span>添加</span></a></li>
-					<li><a href="javascript:void(0)" id="lockUser" onclick='lockUser()'><i class="fa fa-toggle-on"></i><span>锁定</span></a></li>
-                    <li><a href="javascript:void(0)" id="clearUser" onclick='clearUser()'><i class="fa fa-toggle-off"></i><span>解锁</span></a></li>
+					<!--<li><a href="javascript:void(0)" id="lockUser" onclick='lockUser()'><i class="fa fa-toggle-on"></i><span>锁定</span></a></li>
+                    <li><a href="javascript:void(0)" id="clearUser" onclick='clearUser()'><i class="fa fa-toggle-off"></i><span>解锁</span></a></li>-->
 				</ul></shiro:hasPermission>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
@@ -448,7 +448,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	       "bookLocation":bookLocation
     	       },
     	       function(response){
-    	       console.log(response.page);
     	    	 //生成结果列表
     			 initDataTable("userTable", 6, new Array("bookId","bookName","bookLocation","bookNumber","lendNumber"), response.page,
     						"listBook.do",  {"bookId":bookId,
@@ -477,7 +476,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	//初始化模态窗口
             		var id = $(obj).parent("td").attr("bookId");
             		var bookId = $(obj).parent("td").siblings("td").eq(1).html();
-            		console.log(bookId);
             		//$("#resetform #id").val(id);
             		$("#resetform #bookId").val(bookId);
             		$("#resetform #geNumber").val("");
@@ -514,7 +512,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             				$("div#resetModal #failUpd").hide();
             			}
             			else{
-            			console.log(bookId);
             			if(bookId!=null && bookId!=""){
             			var geName = $("#resetform #geName").val();
 
@@ -550,7 +547,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              if(confirm("是否申请借阅该书")){
                          var id =  $(obj).parent("td").attr("id");
                          var bookId = $(obj).parent("td").siblings("td").eq(1).html();
-                         alert(bookId);
+                         //alert(bookId);
                          var data = {"bookId":bookId};
                          $.ajax({
                               url:"Record.do",
@@ -575,7 +572,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		if(confirm("是否删除该书籍")){
             			var id =  $(obj).parent("td").attr("id");
             			var bookId = $(obj).parent("td").siblings("td").eq(1).html();
-            			alert(bookId);
+            			//alert(bookId);
             			var data = {"bookId":bookId};
             			$.ajax({
             			        url:"Book.do",
