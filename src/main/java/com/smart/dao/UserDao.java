@@ -1,42 +1,49 @@
 package com.smart.dao;
 
-import com.smart.bean.Book;
 import com.smart.bean.Inform;
+import com.smart.bean.MoneyRecord;
 import com.smart.bean.Record;
 import com.smart.bean.User;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 import java.util.Set;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserDao {
-     Set<String> findRoles(String geNumber);
-     Set<String> findPermissions(String geNumber);
-     User findByGeNumber(String geNumber);
+     Set<String> findRoles(String var1);
 
-     //用户列表
-     public List<User> listUser(User user);
-     public List<User> getUserList();
-     public List<Record> getRecordByTime(@Param("begin")String begin,@Param("end")String end,@Param("userState")String userState);
-     //添加用户
-     public void addUser(User user);
-     //通过Id获取用户
-     public User getUserById(String geNumber);
-     //修改
-     public void updateUser(User user);
-     //删除
-     public void delUser(@Param("geNumber")String geNumber,@Param("updateTime") String updateTime);
-     //修改密码
-     public void updatePassword(@Param("password") String password,@Param("geNumber") String geNumber,@Param("updateTime") String updateTime);
-     //锁定用户
-     public void lockUser(@Param("id") int id,@Param("updateTime") String updateTime);
-     //解锁用户
-     public void clearUser(@Param("id") int id,@Param("updateTime") String updateTime);
-     //用户列表
-     public List<Inform> listInform(Inform inform);
-     //获取inform
-     public Inform getInformById(int id);
-     //插入inform
-     public boolean addInform(Inform inform);
-     public void deleteInform(@Param("id") int id,@Param("updateTime") String updateTime);
+     Set<String> findPermissions(String var1);
+
+     User findByGeNumber(String var1);
+
+     List<User> listUser(User var1);
+
+     List<User> getUserList();
+
+     List<Record> getRecordByTime(@Param("begin") String var1, @Param("end") String var2, @Param("userState") String var3);
+
+     void addUser(User var1);
+
+     User getUserById(String var1);
+
+     void updateUser(User var1);
+
+     void delUser(@Param("geNumber") String var1, @Param("updateTime") String var2);
+
+     void updatePassword(@Param("password") String var1, @Param("geNumber") String var2, @Param("updateTime") String var3);
+
+     void lockUser(@Param("id") int var1, @Param("updateTime") String var2);
+
+     void clearUser(@Param("id") int var1, @Param("updateTime") String var2);
+
+     List<Inform> listInform(Inform var1);
+
+     Inform getInformById(int var1);
+
+     boolean addInform(Inform var1);
+
+     void deleteInform(@Param("id") int var1, @Param("updateTime") String var2);
+
+     void deductMoneyRecord(MoneyRecord var1);
+
+     void deductMoney(User var1);
 }

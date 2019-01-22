@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        &times;
 	            </button>
 	            状态说明<br/>
-	                锁定：用户由于拖欠违约金等会被管理员锁定，锁定的用户无法登陆。
+	                锁定：用户由于拖欠违约金等会被管理员锁定，锁定的用户无法登陆。角色：user，押金高于50的正常用户，可借还书。guest,押金低于50的用户，不可借还书
             </div>
 				<!--/数据表格-->
 				<shiro:hasPermission name="admin">
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<th>工号</th>
 							<th>名称</th>
 							<th>手机号</th>
-							<th>状态</th>
+							<th>状态</th><th>角色</th>
 							<th>修改时间</th>
 							<th>操作</th>
 							</tr>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tbody>
 							<tfoot>
 								<tr>
-									<td colspan="7">
+									<td colspan="8">
 									<div id="total" class="pull-left" style="padding-top:20px;padding-left:10px">&nbsp;</div>
 									<div class="pull-right">
 			                           <ul class="pagination" id="pagination"></ul>
@@ -154,6 +154,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         	<label>邮箱:</label> <input type="text"
                                         		class="form-control" name="email" id="email" placeholder="邮箱">
                                         </div>
+										<div class="form-group" style="margin-right: 10px">
+										<label>押金（选填，数量不填或少于50，用户不可借书）:</label> <input type="text"
+																  class="form-control" name="userMoney" id="userMoney" placeholder="押金">
+										</div>
 										<div class="form-group" style="margin-right: 10px">
                                         	<label>密码:</label> <input type="password"
                                         		class="form-control" name="password" id="password" placeholder="密码">
@@ -358,7 +362,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                               "geName":$("#addform #geName").val(),
                                               "password":$("#addform #rePassword").val(),
                                               "phone":$("#addform #phone").val(),
-                                              "email":$("#addform #email").val()},
+                                              "email":$("#addform #email").val(),
+											"userMoney":$("#addform #userMoney").val()},
                                         success:function(response){
                                                 if(response.tip=="success"){
                                                       $("div#addModal #sucUpd").show();
@@ -402,7 +407,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	       },
     	       function(response){
     	    	 //生成结果列表
-    			 initDataTable("userTable", 7, new Array("geNumber","geName","phone","userState","updateTime"), response.page,
+    			 initDataTable("userTable", 8, new Array("geNumber","geName","phone","userState","role","updateTime"), response.page,
     						"listUser.do",  {"geNumber":geNumber,
     						    "geName":geName,
     						    "userState":userState
@@ -494,7 +499,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	if(state=="有效"){
             	    alert("有效状态的用户不可删除！！！");
             	}else{
-                    if(confirm("是否删除该用户")){
+                    if(confirm("请确保用户借还书都已结清，是否删除该用户？")){
             			var geNumber = $(obj).parent("td").siblings("td").eq(1).html();
                         var data = {"geNumber":geNumber};
             			$.ajax({

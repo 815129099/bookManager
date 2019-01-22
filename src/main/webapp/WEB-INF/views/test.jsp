@@ -22,7 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body onkeydown="onLogin();">
-
 <div class="login">
 <form id="form">
 	<div class="logo"></div>

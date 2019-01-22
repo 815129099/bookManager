@@ -4,7 +4,7 @@
 <!--namespace指定接口-->
 <mapper namespace="com.smart.dao.BookDao">
 
-<select id="getList" resultType="Book">
+    <select id="getList" resultType="Book">
     select *
     from book
 </select>
@@ -28,7 +28,7 @@
                 AND u.bookId=#{bookId}
             </if>
             <if test="bookLocation!=null and bookLocation!=''">
-               AND u.bookLocation LIKE #{bookLocation}
+                AND u.bookLocation LIKE #{bookLocation}
             </if>
             and u.bookState = 1
         </where>
@@ -39,6 +39,10 @@
         INSERT INTO book(bookId,bookName,bookNumber,lendNumber,bookLocation,bookState)
         VALUES(#{bookId},#{bookName},#{bookNumber},#{bookNumber},#{bookLocation},1)
     </insert>
+
+    <!--<insert id="addBook" parameterType="Book" statementType="CALLABLE">
+        CALL insert_book(#{bookId},#{bookName},#{bookNumber},#{bookNumber},#{bookLocation},1)
+    </insert>-->
 
     <!--通过ID获取书籍-->
     <select id="getBookById" parameterType="String" resultType="Book" useCache="false">
@@ -67,6 +71,7 @@
         values(#{bookId},#{geName},#{geNumber},#{applyTime},#{bookName},"申请")
     </insert>
 
+
     <!-- 所有借阅列表 -->
     <select id="listRecord" parameterType="Record" resultType="Record">
         SELECT *
@@ -89,6 +94,7 @@
             </if>
             and u.state != "删除"
         </where>
+        order by u.applyTime DESC
     </select>
 
     <!-- 部分借阅列表 -->
@@ -97,7 +103,7 @@
         FROM record u
         <where>
             <if test="bookId!=null and bookId!=''">
-                 u.bookId=#{bookId}
+                u.bookId=#{bookId}
             </if>
             <if test="state!=null and state!=''">
                 AND u.state = #{state}
@@ -111,6 +117,7 @@
             and u.state != "删除"
             and u.geNumber = #{geNumber}
         </where>
+        order by u.applyTime DESC
     </select>
 
 
@@ -151,9 +158,89 @@
         where id=#{id}
     </update>
 
+    <!--批量pass-->
+    <update id="updatePass" parameterType="java.util.List">
+        update record
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="state =case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    when id=#{item.id} then "借阅"
+                </foreach>
+            </trim>
+            <trim prefix="lendTime =case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.lendTime!=null and item.lendTime!=''">
+                        when id=#{item.id} then #{item.lendTime}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" index="index" item="item"
+                 separator="or">
+            id = #{item.id}
+        </foreach>
+    </update>
+
+    <!--批量insertCode-->
+    <update id="updateBookCode" parameterType="java.util.List">
+        update book
+        set bookCode=
+        <foreach collection="list" item="item" index="index"
+                 separator=" " open="case" close="end">
+            when bookId = #{item.bookId} then #{item.bookCode}
+        </foreach>
+        where bookId in
+        <foreach collection="list" index="index" item="item"
+                 separator="," open="(" close=")">
+            #{item.bookId}
+        </foreach>
+    </update>
+
     <update id="back" parameterType="int">
         update record
         set state="退回"
         where id=#{id}
     </update>
+
+
+    <update id="insertCode" parameterType="String" >
+        update book
+        set bookCode = #{bookCode}
+        where bookId = #{bookId}
+    </update>
+
+
+
+    <update id="backBookByCode" parameterType="String">
+        update book
+        set lendNumber = lendNumber+1
+        where bookCode = #{bookCode};
+        update record,book
+        set record.state = "归还",record.backTime = #{backTime}
+        where record.bookId = book.bookId and book.bookCode = #{bookCode} and record.state = "借阅"
+    </update>
+
+    <update id="passBookByCode" parameterType="String">
+        update record,book
+        set record.state = "借阅",record.lendTime = #{lendTime}
+        where record.bookId = book.bookId and book.bookCode = #{bookCode} and record.state = "申请"
+    </update>
+
+    <select id="getRecordByCode" parameterType="String" resultType="Record">
+        select record.*
+        from record,book
+        where record.bookId = book.bookId and book.bookCode = #{bookCode} and state = #{state}
+    </select>
+
+    <select id="getDataByDbName" parameterType="String" statementType="CALLABLE" resultType="Object" useCache="false" >
+        CALL getDataByDbName(#{dbName})
+     </select>
+
+    <select id="getCountBookNumber" parameterType="String" resultType="int">
+        select count(*)
+        from record
+        where geNumber=#{geNumber} and state in ("申请","借阅")
+    </select>
+
 </mapper>

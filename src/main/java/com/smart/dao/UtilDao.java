@@ -1,14 +1,19 @@
+
 package com.smart.dao;
 
 import com.smart.bean.AccessRecord;
+import com.smart.bean.MoneyRecord;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
-
 public interface UtilDao {
-     public List<AccessRecord> listAccess(AccessRecord accessRecord);
-     public void addAccess(AccessRecord accessRecord);
-     public void logoutTime(AccessRecord accessRecord);
-     public AccessRecord getAccessById(@Param("sessionId") String sessionId);
+     List<AccessRecord> listAccess(AccessRecord var1);
+
+     void addAccess(AccessRecord var1);
+
+     void logoutTime(AccessRecord var1);
+
+     AccessRecord getAccessById(@Param("sessionId") String var1);
+
+     List<MoneyRecord> listMoney(MoneyRecord var1);
 }

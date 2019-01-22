@@ -1,6 +1,5 @@
-package com.smart.shiro;
 
-import javax.annotation.Resource;
+package com.smart.shiro;
 
 import com.smart.bean.User;
 import com.smart.service.UserService;
@@ -16,53 +15,43 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserRealm extends AuthorizingRealm {
-
-
     @Autowired
     private UserService userService;
 
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    public UserRealm() {
+    }
 
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String username = (String)principals.getPrimaryPrincipal();
         System.out.println(username);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        if(userService==null){
-                userService = SpringBeanFactoryUtils.getBean("userService");
-        }else {
+        if (this.userService == null) {
+            this.userService = (UserService)SpringBeanFactoryUtils.getBean("userService");
+        } else {
             System.out.println("UserRealm is not NULL");
         }
-        authorizationInfo.setRoles(userService.findRoles(username));
-        authorizationInfo.setStringPermissions(userService.findPermissions(username));
 
+        authorizationInfo.setRoles(this.userService.findRoles(username));
+        authorizationInfo.setStringPermissions(this.userService.findPermissions(username));
         return authorizationInfo;
     }
 
-    @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
         String username = (String)token.getPrincipal();
         System.out.println(username);
-        if(userService==null){
-            userService = SpringBeanFactoryUtils.getBean("userService");
-        }else {
+        if (this.userService == null) {
+            this.userService = (UserService)SpringBeanFactoryUtils.getBean("userService");
+        } else {
             System.out.println("UserRealmsss is not NULL");
         }
+
         System.out.println(username);
-        User user = userService.findByGeNumber(username);
-
-        if(user == null) {
-            throw new UnknownAccountException();//没找到帐号
+        User user = this.userService.findByGeNumber(username);
+        if (user == null) {
+            throw new UnknownAccountException();
+        } else {
+            SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getGeNumber(), user.getPassword(), this.getName());
+            return authenticationInfo;
         }
-
-        //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getGeNumber(),//用户名
-                user.getPassword(),
-                getName()  //realm name
-        );
-
-        return authenticationInfo;
     }
-
 }

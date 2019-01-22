@@ -2,41 +2,58 @@ package com.smart.dao;
 
 import com.smart.bean.Book;
 import com.smart.bean.Record;
-import com.sun.javafx.collections.MappingChange;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.annotations.Param;
 
 public interface BookDao {
+    List<Book> getList();
 
-    public List<Book> getList();
-    //书籍列表
-    public List<Book> listBook(Book book);
-    //public List<Book> getListById(@Param("beginId")String beginId,@Param("endId")String endId);
-    //添加书籍
-    public void addBook(Book book);
-    //通过Id获取书籍
-    public Book getBookById(String bookId);
-    //通过书名获取书籍
-    public Book getBookByName(String bookName);
-    //控制书籍数量
-    public void checkBook(String bookId);
-    //记录借阅人信息
-    public void record(Record record);
-    //所有借阅列表
-    public List<Record> listRecord(Record record);
-    //所有借阅列表
-    public List<Record> listRecordByNumber(Map<String,Object> map);
-    //还书登记
-    public void addNumber(String bookId);
-    public void backTime(Record record);
-    public void delRecord(int id);
-    public void delBook(String bookId);
-    public Record getRecordById(int id);
-    //批准申请
-    public void pass(@Param("id") int id,@Param("lendTime") String lendTime);
-    public void back(int id);
-    //获取record到期的记录
-    public List<Map<String,Object>> getRecordList();
+    List<Book> listBook(Book var1);
+
+    void addBook(Book var1);
+
+    Book getBookById(String var1);
+
+    Book getBookByName(String var1);
+
+    void checkBook(String var1);
+
+    void record(Record var1);
+
+    List<Record> listRecord(Record var1);
+
+    List<Record> listRecordByNumber(Map<String, Object> var1);
+
+    void addNumber(String var1);
+
+    void backTime(Record var1);
+
+    void delRecord(int var1);
+
+    void delBook(String var1);
+
+    Record getRecordById(int var1);
+
+    void pass(@Param("id") int var1, @Param("lendTime") String var2);
+
+    void back(int var1);
+
+    List<Map<String, Object>> getRecordList();
+
+    void insertCode(@Param("bookId") String var1, @Param("bookCode") String var2);
+
+    void backBookByCode(@Param("backTime") String var1, @Param("bookCode") String var2);
+
+    void passBookByCode(@Param("lendTime") String var1, @Param("bookCode") String var2);
+
+    Record getRecordByCode(@Param("bookCode") String var1, @Param("state") String var2);
+
+    void updatePass(List<Record> var1);
+
+    void updateBookCode(List<Book> var1);
+
+    List<Object> getDataByDbName(@Param("dbName") String var1);
+
+    int getCountBookNumber(@Param("geNumber") String var1);
 }

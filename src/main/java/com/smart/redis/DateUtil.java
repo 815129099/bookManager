@@ -85,5 +85,6 @@ public class DateUtil {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        System.out.println(getDate());
     }
 }

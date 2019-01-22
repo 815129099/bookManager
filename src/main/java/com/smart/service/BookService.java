@@ -1,37 +1,41 @@
-package com.smart.service;
 
+package com.smart.service;
 
 import com.github.pagehelper.PageInfo;
 import com.smart.bean.Book;
 import com.smart.bean.Record;
-
 import java.util.List;
 
 public interface BookService {
-    public List<Book> getList();
-    //public List<Book> getList(String beginId,String endId);
-    //查询书籍列表
-    public PageInfo<Book> pageBook(Book book, Integer pageNum, Integer pageSize);
-    //添加书籍
-    public boolean addBook(Book book);
-    //判断书籍代码是否已存在
-    public boolean isIdExist(String bookId);
-    //判断书籍名称是否已存在
-    public boolean isNameExist(String bookName);
-    //登记
-    public boolean checkBook(Record record);
-    //查询借阅列表
-    public PageInfo<Record> pageRecord(Record record, Integer pageNum, Integer pageSize);
-    //查询借阅列表
-    public PageInfo<Record> pageRecord1(Record record, Integer pageNum, Integer pageSize,String geNumber);
-    //还书登记
-    public boolean backBook(Record record);
-    //删除借书记录
-    public boolean delRecord(int id);
-    public boolean delBook(String bookId);
-    //批准申请
-    public boolean pass(int[] arr);
-    //退回申请
-    public boolean back(int[] arr);
+    List<Book> getList();
 
+    PageInfo<Book> pageBook(Book var1, Integer var2, Integer var3);
+
+    boolean addBook(Book var1);
+
+    boolean isIdExist(String var1);
+
+    boolean isNameExist(String var1);
+
+    boolean checkBook(Record var1);
+
+    PageInfo<Record> pageRecord(Record var1, Integer var2, Integer var3);
+
+    PageInfo<Record> pageRecord1(Record var1, Integer var2, Integer var3, String var4);
+
+    boolean backBook(Record var1);
+
+    String backBookByCode(String var1);
+
+    String passBookByCode(String var1);
+
+    boolean delRecord(int var1);
+
+    boolean delBook(String var1);
+
+    boolean passByCode(int[] var1, String[] var2, String[] var3);
+
+    boolean pass(int[] var1);
+
+    boolean back(int[] var1);
 }

@@ -39,8 +39,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <shiro:authenticated>
             <a href="javascript:;"><shiro:principal/></a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
-              <dd><a href="logout">切换帐号</a></dd>
-              <dd><a href="logout">退出</a></dd>
+              <dd><a href="logout.do">切换帐号</a></dd>
+              <dd><a href="logout.do">退出</a></dd>
             </dl>
           </shiro:authenticated>
 
@@ -114,6 +114,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </a>
                                 </li >
                                 <li>
+                                    <a _href="accountList.do">
+                                        <i class="iconfont">&#xe673;</i>
+                                        <cite>缴费记录</cite>
+                                    </a>
+                                </li >
+                                <li>
                                      <a _href="detail.do">
                                           <i class="iconfont">&#xe908;</i>
                                           <cite>修改密码</cite>
@@ -155,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='meList.do' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='introduce.do' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
         </div>
@@ -165,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 中部结束 -->
     <!-- 底部开始 -->
     <div class="footer">
-        <div class="copyright">Copyright ©2017 All Rights Reserved</div>  
+        <div class="copyright" style="text-align: center">@厦门金鹭特种合金有限公司 2019</div>
     </div>
     <!-- 底部结束 -->
      <script type="text/javascript" src="style/js/jquery.1.10.1.min.js"></script>

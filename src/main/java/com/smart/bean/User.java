@@ -15,9 +15,21 @@ public class User implements Serializable {
     private String updateTime;
     private String phone;
     private String email;
+    private String userMoney;
+
+    public User() {
+    }
+
+    public String getUserMoney() {
+        return this.userMoney;
+    }
+
+    public void setUserMoney(String userMoney) {
+        this.userMoney = userMoney;
+    }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -25,7 +37,7 @@ public class User implements Serializable {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -33,7 +45,7 @@ public class User implements Serializable {
     }
 
     public String getGeName() {
-        return geName;
+        return this.geName;
     }
 
     public void setGeName(String geName) {
@@ -41,7 +53,7 @@ public class User implements Serializable {
     }
 
     public String getUpdateTime() {
-        return updateTime;
+        return this.updateTime;
     }
 
     public void setUpdateTime(String updateTime) {
@@ -49,8 +61,7 @@ public class User implements Serializable {
     }
 
     public String getCreateTime() {
-
-        return createTime;
+        return this.createTime;
     }
 
     public void setCreateTime(String createTime) {
@@ -58,8 +69,7 @@ public class User implements Serializable {
     }
 
     public String getUserState() {
-
-        return userState;
+        return this.userState;
     }
 
     public void setUserState(String userState) {
@@ -67,8 +77,7 @@ public class User implements Serializable {
     }
 
     public String getAuthority() {
-
-        return authority;
+        return this.authority;
     }
 
     public void setAuthority(String authority) {
@@ -76,8 +85,7 @@ public class User implements Serializable {
     }
 
     public String getRole() {
-
-        return role;
+        return this.role;
     }
 
     public void setRole(String role) {
@@ -85,8 +93,7 @@ public class User implements Serializable {
     }
 
     public String getPassword() {
-
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -94,8 +101,7 @@ public class User implements Serializable {
     }
 
     public String getGeNumber() {
-
-        return geNumber;
+        return this.geNumber;
     }
 
     public void setGeNumber(String geNumber) {
@@ -103,8 +109,7 @@ public class User implements Serializable {
     }
 
     public int getId() {
-
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {

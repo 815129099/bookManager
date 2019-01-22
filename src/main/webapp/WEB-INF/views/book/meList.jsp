@@ -37,16 +37,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="widget">
 					<!--查询条件-->
 					<div class="well">
-						<form class="form-inline" role="form" id="query">
+						<form class="form-inline col-mg-12" role="form" id="query">
 						<shiro:hasAnyRoles name="admin">
 						<input type="hidden" id="role" value="admin">
 						</shiro:hasAnyRoles>
-							<div class="form-group" style="margin-right:10px">
+							<div class="form-group col-mg-6" style="margin-right:10px">
 								<label>书籍代码:</label>
 								<input type="text" class="form-control" name="bookId" id="bookId" maxlength="128" placeholder="书籍代码">
 							</div>
 
-							<div class="form-group" style="margin-right:10px">
+							<div class="form-group col-mg-6" style="margin-right:10px">
 								<label>书籍名称:</label>
 							<input type="text" class="form-control" name="bookName" id="bookName" maxlength="128" placeholder="书籍名称">
 							</div>
@@ -57,11 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
 							<div class="form-group">
 							<button type="button" class="btn btn-warning" id="querybtn">查询</button>
+								<shiro:hasAnyRoles name="admin">
+							<button type="button" class="btn btn-info pull-right" id="querybtn1">导出</button>
+								</shiro:hasAnyRoles>
 							</div>
-                            <shiro:hasAnyRoles name="admin">
-                            <div class="form-group  pull-right">
-							<button type="button" class="btn btn-info" id="querybtn1">导出</button>
-							</div></shiro:hasAnyRoles>
+
 						</form>
 
 					</div>
@@ -125,13 +125,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									 <button type="button" class="close" id="close" aria-hidden="true">
                                      &times;
                                      </button>
-										<strong>登记成功！</strong>
+										<strong>申请成功！</strong>
 									</div>
 									<div id="failUpd" class="alert alert-warning">
 									 <button type="button" class="close" id="close"   aria-hidden="true">
                                       &times;
                                      </button>
-										<strong>登记失败！</strong>
+										<strong>申请失败!最多同时借4本书！！</strong>
 									</div>
 
 									<div class="alert alert-danger hide" id="tipError" style='color: white'>&nbsp;</div>
@@ -307,7 +307,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- /.modal -->
 				</div>
 				<!-- 修改用户-->
-				<div class="col-lg-1"></div>
+
 </div>
 </div>
 </div>
@@ -480,6 +480,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		$("#resetform #bookId").val(bookId);
             		$("#resetform #geNumber").val("");
             		$("#resetform #geName").val("");
+					$("#resetform #phone").val("");
             		$("label.error").remove();
 
             		$("div#resetModal #sucUpd").hide();
@@ -558,7 +559,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     alert("申请成功");
                                     listBook();
                               }else if(response.tip=="error"){
-                                     alert("申请失败!");
+                                     alert("申请失败!最多同时借4本书！");
                               }}
                          });
                      }

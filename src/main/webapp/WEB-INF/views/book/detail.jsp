@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h3 class="panel-title">我的信息</h3>
 	</div>
 	<div class="panel-body">
-		<shiro:principal/>   ,你好
+		<shiro:principal/>   ,你好！！！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剩余金额：<span id="money"></span>
 	</div>
 </div>
 
@@ -72,6 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <script type="text/javascript" src="style/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+    getMoney();
 	  $("#submit").click(function(){
 	   var a = $("#oldPassword").val();
        var b = $("#newPassword").val();
@@ -106,6 +107,18 @@ $(document).ready(function() {
 
 
 })
+    
+    function getMoney() {
+        var geNumber = "<shiro:principal/>";
+        $.post('getMoney.do',
+            {
+                "geNumber":geNumber
+            },function (response) {
+                if(response.money!=null && response.money!=""){
+                    $("#money").html(response.money);
+                }
+            });
+    }
 </script>
 </body>
 </html>

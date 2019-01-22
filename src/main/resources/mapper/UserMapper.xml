@@ -4,6 +4,7 @@
 <!--namespace指定接口-->
 <mapper namespace="com.smart.dao.UserDao">
 
+
     <!--通过geNumber获取角色-->
     <select id="findRoles" parameterType="String" resultType="String">
         select role
@@ -42,6 +43,7 @@
                 and r.state = #{userState}
             </if>
         </where>
+        order by  r.applyTime DESC
     </select>
     <!-- 员工列表 -->
     <select id="listUser" parameterType="User" resultType="User">
@@ -60,19 +62,20 @@
             <if test="updateTime!=null and updateTime!=''">
                 AND u.updateTime >= #{updateTime}
             </if>
-            and u.userState!="删除"
+            and u.userState!="删除" and u.role!="admin"
         </where>
+        ORDER BY u.updateTime desc
     </select>
 
     <!--添加用户-->
     <insert id="addUser" parameterType="User" >
-        INSERT INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState,email)
-        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},"user","user","有效",#{email})
+        INSERT ignore INTO user(geNumber,geName,password,createTime,updateTime,phone,role,authority,userState,email)
+        VALUES(#{geNumber},#{geName},#{password},#{createTime},#{updateTime},#{phone},#{role},#{authority},"有效",#{email})
     </insert>
 
     <!--通过ID获取用户-->
     <select id="getUserById" parameterType="String" resultType="User">
-        select *
+        select distinct *
         from user
         where geNumber = #{geNumber}
     </select>
@@ -107,9 +110,9 @@
         where id=#{id}
     </update>
 
-    <!-- 员工列表 -->
+    <!-- 通知列表 -->
     <select id="listInform" parameterType="Inform" resultType="Inform">
-        SELECT *
+        SELECT distinct *
         FROM inform i
         <where>
             <if test="title!=null and title!=''">
@@ -121,10 +124,11 @@
             and geNumber=#{geNumber}
             and i.informState = 0
         </where>
+        order by i.createTime desc
     </select>
 
     <select id="getInformById" parameterType="int" resultType="Inform">
-        select *
+        select distinct *
         from inform
         where id = #{id}
     </select>
@@ -139,4 +143,15 @@
         insert into inform(geNumber,detail,title,createTime,updateTime,informState)
         values(#{geNumber},#{detail},#{title},#{createTime},#{updateTime},0)
     </insert>
+
+    <insert id="deductMoneyRecord" parameterType="MoneyRecord">
+        insert into moneyrecord(geNumber,moneyBefore,moneyNow,moneyTime,account,reason)
+        values (#{geNumber},#{moneyBefore},#{moneyNow},#{moneyTime},#{account},#{reason})
+    </insert>
+
+    <update id="deductMoney" parameterType="User">
+        update user
+        set userMoney = #{userMoney}
+        where geNumber = #{geNumber}
+    </update>
 </mapper>

@@ -65,8 +65,8 @@
     <!--Spring整合Mabatis-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://localhost:3306/bookmanager?characterEncoding=utf8&amp;useSSL=false&amp;useUnicode=true"
-          p:username="root" p:password="960310" p:maxActive="10" p:maxIdle="10"
+          p:url="jdbc:mysql://localhost:3306/gesac?characterEncoding=utf8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true"
+          p:username="root" p:password="960521" p:maxActive="10" p:maxIdle="10"
           p:validationQuery="SELECT 1"  p:testOnBorrow="true">
     </bean>
 
@@ -112,7 +112,7 @@
 
     <!--Spring整合shiro-->
     <bean id="SystemLogoutFilter" class="com.smart.service.SystemLogoutFilter">
-    <property name="redirectUrl" value="/login.do" />
+        <property name="redirectUrl" value="/login.do" />
     </bean>
     <!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -137,6 +137,7 @@
                 /meList.do=anon
                 /maSystem.do=anon
                 /login.do=anon
+                /testLogin.do=anon
                 /test.do=anon
                 /send.do=anon
                 /downloadExecl=anon
@@ -144,7 +145,7 @@
                 /UserType.do=anon
                 /style/**=anon
                 /public/**=anon
-                /logout=logout
+                /logout.do=logout
                 <!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login -->
                 /** = authc
             </value>

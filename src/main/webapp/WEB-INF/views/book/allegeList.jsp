@@ -66,6 +66,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="form-group">
 							<button type="button" class="btn btn-info" id="querybtn1">导出</button>
 							</div>
+							<div class="form-group pull-right" style="margin-right:10px">
+								<label>还书请点击:</label>
+								<input type="text" class="form-control" name="backBookCode" id="backBookCode" autocomplete="off" maxlength="128" placeholder="条形码还书请点击这里">
+							</div>
+							<div class="form-group pull-right" style="margin-right:10px">
+								<label>借书请点击:</label>
+								<input type="text" class="form-control" name="passBookCode" id="passBookCode" autocomplete="off" maxlength="128" placeholder="条形码借书请点击这里">
+							</div>
+
 						</form>
 						</shiro:hasAnyRoles>
 					<br/>
@@ -120,9 +129,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请：用户提出借书的需求。借阅：管理员批准了用户的申请。退回：管理员没有批准用户的申请。归还：用户已归还借阅书籍。
 	                <br/>下列表格颜色说明：
 	                <br/>
-	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger">红色表示已逾期</button>
+	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="test">红色表示已逾期</button>
 	                <button type="button" class="btn btn-success">绿色表示距离书籍归还日还有0~3天</button>
 	                <button type="button" class="btn btn-warning">黄色表示距离书籍归还日还有4~7天</button>
+				<br/>
+				<div class="form-group " style="margin-right:10px">
+					<input type="text" class="form-control" name="bookCode" id="bookCode" maxlength="128" placeholder="请点击">
+				</div>
             </div>
 
 				<!--/数据表格-->
@@ -130,6 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="toolbar">
 					<li><a href="javascript:void(0)" id="passRecord" onclick='passRecord()'><i class="fa fa-toggle-on"></i><span>批准</span></a></li>
                     <li><a href="javascript:void(0)" id="backRecord" onclick='backRecord()'><i class="fa fa-toggle-off"></i><span>退回</span></a></li>
+					<li><a href="javascript:void(0)" id="passRecordByCode" onclick='passRecordByCode()'><i class="fa fa-toggle-on"></i><span>批准（添加条形码）</span></a></li>
 				</ul></shiro:hasPermission>
 					<table class="table table-striped table-bordered table-hover" id="userTable">
 						<thead>
@@ -236,6 +250,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <!--layer弹窗-->
 
     <script type="text/javascript">
+		var arrCode = new Array();
+		window.onload = function(e) {
+				this.onkeypress = function (e) {
+					if (e.which == 13) {
+						//借书
+						if($("#bookCode").val()=="" && $("#passBookCode").val()==""){
+							console.log($("#backBookCode").val());
+							$.ajax({
+								type : "post",
+								url : "backBookByCode.do",
+								data : {bookCode:$("#backBookCode").val()},
+								success : function(response){
+									if(response.tip=="0"){
+										$("#backBookCode").val("");
+										listAllege();
+									}else if(response.tip=="2"){
+										alert("还书失败");
+										$("#backBookCode").val("");
+									}else if(response.tip=="1"){
+										alert("条形码有误！");
+										$("#backBookCode").val("");
+									}
+								}
+							});
+						}else if($("#bookCode").val()=="" && $("#backBookCode").val()==""){
+							//还书
+							console.log($("#passBookCode").val());
+							$.ajax({
+								type : "post",
+								url : "passBookByCode.do",
+								data : {bookCode:$("#passBookCode").val()},
+								success : function(response){
+									if(response.tip=="0"){
+										$("#passBookCode").val("");
+										listAllege();
+									}else if(response.tip=="2"){
+										alert("借书失败");
+										$("#passBookCode").val("");
+									}else if(response.tip=="1"){
+										alert("条形码有误！");
+										$("#passBookCode").val("");
+									}
+								}
+							});
+						}else {
+							$("#bookCode").val($("#bookCode").val() + ";");
+						}
+
+					}
+				}
+		}
+
+
     var preGeNumber;
     var preBookId;
     //表单验证
@@ -244,11 +311,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });
 
     $(document).ready(function(){
-
+		$('#test').click(function () {
+			var str = $("#bookCode").val();
+			arrCode = str.split(";");
+			console.log(arrCode);
+		})
     	//查询全部用户列表
     	listAllege();
  //时间控件初始化
-    	$('#apply').datetimepicker({format:"Y-m-d:h",timepicker:true});
+    	$('#apply').datetimepicker({format:"Y-m-d H",timepicker:true});
     	$('#lend').datetimepicker({format:"Y-m-d H",timepicker:true});
     	$('#begin').datetimepicker({format:"Y-m-d",timepicker:false});
         $('#end').datetimepicker({format:"Y-m-d",timepicker:false});
@@ -423,11 +494,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	}
 
 
+		function passRecord(){
+			var row,id;
+			var num = 0;
+			var arr = new Array();
+			$("input[type='checkbox']").each(function(){
+				if($(this).is(":checked"))
+				{
+					row = $(this).parent("td").parent("tr");
+					var flag = row.find("td").eq(6).html();
+					var s = row.find("td").eq(4).html();
 
-            function passRecord(){
+					if(flag!=null && flag != "" && flag!=undefined){
+						alert(row.find("td").eq(3).html()+"已批准，请勿重复提交！")
+
+					}else if(s=="退回"){
+						alert("已退回，无法批准！");
+					}else{
+						id = row.find("td #update").parents("td").attr("id");
+						if(id!=undefined){
+							arr[num] = id;
+							num++;
+						}
+					}
+				}
+			});
+
+			if(num==0){
+				alert("请选择记录");
+			}else {
+				$.ajax({
+					url:"pass.do",
+					type:"post",
+					data:{arr:arr},
+					traditional: true,
+					success:function(result){
+						if(result.tip=="success"){
+							alert("修改成功");
+						}else{
+							alert("修改失败");
+						}
+						listAllege();
+					}
+				});
+			}
+			$("input:checkbox").removeAttr("checked");
+		}
+
+
+
+            function passRecordByCode(){
+				var str = $("#bookCode").val();
+				arrCode = str.split(";");
+				console.log(arrCode);
             	var row,id;
             	var num = 0;
             	var arr = new Array();
+            	var arrId = new Array();
             	 $("input[type='checkbox']").each(function(){
             		 if($(this).is(":checked"))
                       {
@@ -442,21 +565,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			  alert("已退回，无法批准！");
             			 }else{
                                 id = row.find("td #update").parents("td").attr("id");
-                                     			 if(id!=undefined){
-                                     			  arr[num] = id;
-                                     			  num++;
-                                     			 }
+                                if(id!=undefined){
+                                    arr[num] = id;
+                                    arrId[num] = row.find("td").eq(2).html();
+                                    num++;
+                                }
             			 }
                       }
                     });
 
             	 if(num==0){
             	 alert("请选择记录");
-            	 }else{
+            	 }else if(arrCode.length==0 || arrCode.length-1 != arr.length) {
+            	 	console.log(arr.length+","+arrCode.length);
+					 alert("条形码数量不符合");
+				 }else {
                     $.ajax({
-                            url:"pass.do",
+                            url:"passByCode.do",
                             type:"post",
-                            data:{arr:arr},
+                            data:{arr:arr,arrCode:arrCode,arrId:arrId},
                             traditional: true,
                             success:function(result){
                                 if(result.tip=="success"){

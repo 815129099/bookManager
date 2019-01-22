@@ -8,6 +8,7 @@
         <typeAlias alias="User" type="com.smart.bean.User"/>
         <typeAlias type="com.smart.bean.Inform" alias="Inform"/>
         <typeAlias type="com.smart.bean.AccessRecord" alias="AccessRecord"/>
+        <typeAlias type="com.smart.bean.MoneyRecord" alias="MoneyRecord"/>
     </typeAliases>
 
     <!-- 配置分页插件 -->

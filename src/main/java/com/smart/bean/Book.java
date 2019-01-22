@@ -3,10 +3,6 @@ package com.smart.bean;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-
-    /**
-     * 使用jedis 需要序列化接口
-     */
     private static final long serialVersionUID = 1L;
     private int id;
     private int bookNumber;
@@ -15,9 +11,21 @@ public class Book implements Serializable {
     private int lendNumber;
     private String bookLocation;
     private int bookState;
+    private String bookCode;
+
+    public Book() {
+    }
+
+    public String getBookCode() {
+        return this.bookCode;
+    }
+
+    public void setBookCode(String bookCode) {
+        this.bookCode = bookCode;
+    }
 
     public int getBookState() {
-        return bookState;
+        return this.bookState;
     }
 
     public void setBookState(int bookState) {
@@ -25,26 +33,24 @@ public class Book implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public int getBookNumber() {
-        return bookNumber;
+        return this.bookNumber;
     }
 
     public String getBookId() {
-        return bookId;
+        return this.bookId;
     }
 
     public String getBookLocation() {
-        return bookLocation;
+        return this.bookLocation;
     }
 
     public String getBookName() {
-        return bookName;
+        return this.bookName;
     }
-
-
 
     public void setBookId(String bookId) {
         this.bookId = bookId;
@@ -63,7 +69,7 @@ public class Book implements Serializable {
     }
 
     public int getLendNumber() {
-        return lendNumber;
+        return this.lendNumber;
     }
 
     public void setLendNumber(int lendNumber) {

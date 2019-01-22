@@ -1,171 +1,191 @@
+
 package com.smart.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.smart.bean.Book;
 import com.smart.bean.Inform;
 import com.smart.bean.Record;
 import com.smart.bean.User;
 import com.smart.dao.UserDao;
 import com.smart.redis.DateUtil;
+import com.smart.redis.JedisClient;
+import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
     @Autowired
     private UserDao userDao;
     @Autowired
-    com.smart.redis.JedisClient JedisClient;
+    JedisClient JedisClient;
 
-    @Override
+    public UserServiceImpl() {
+    }
+
     public Set<String> findPermissions(String geNumber) {
-        return userDao.findPermissions(geNumber);
+        return this.userDao.findPermissions(geNumber);
     }
 
-    @Override
     public Set<String> findRoles(String geNumber) {
-        return userDao.findRoles(geNumber);
+        return this.userDao.findRoles(geNumber);
     }
 
-    @Override
     public User findByGeNumber(String geNumber) {
-        return userDao.findByGeNumber(geNumber);
+        return this.userDao.findByGeNumber(geNumber);
     }
 
-    //查询员工列表
     public PageInfo<User> pageUser(User user, Integer pageNum, Integer pageSize) {
-        System.out.println(user.getGeNumber()+","+user.getGeName()+","+user.getUserState());
+        System.out.println(user.getGeNumber() + "," + user.getGeName() + "," + user.getUserState());
         PageInfo<User> page = null;
         PageHelper.startPage(pageNum, pageSize);
-        List<User> uList = userDao.listUser(user);
-        page = new PageInfo<User>(uList);
+        List<User> uList = this.userDao.listUser(user);
+        page = new PageInfo(uList);
         return page;
     }
 
-    //添加员工
-    @Transactional(rollbackFor={Exception.class})
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean addUser(User user) {
         boolean isSuccess = false;
         user.setCreateTime(DateUtil.getDate());
         user.setUpdateTime(DateUtil.getDate());
-        userDao.addUser(user);
+        if (Integer.parseInt(user.getUserMoney()) >= 50) {
+            user.setAuthority("user");
+            user.setRole("user");
+        } else {
+            user.setRole("guest");
+            user.setAuthority("guest");
+        }
+
+        this.userDao.addUser(user);
         isSuccess = true;
         return isSuccess;
     }
 
-    //判断工号是否已存在
-    public boolean isNumberExist(String geNumber){
+    public boolean isNumberExist(String geNumber) {
         boolean isSuccess = false;
         User user = null;
-        user = (User)JedisClient.getObject(geNumber);
-        if(user==null){
-            user = userDao.getUserById(geNumber);
-            if(user!=null){
-                JedisClient.setObject(geNumber,(Object) user);
+        user = (User)this.JedisClient.getObject(geNumber);
+        if (user == null) {
+            user = this.userDao.getUserById(geNumber);
+            if (user != null) {
+                this.JedisClient.setObject(geNumber, user);
             }
         }
 
-        if(StringUtils.isEmpty(user)){
+        if (StringUtils.isEmpty(user)) {
             isSuccess = true;
         }
+
         return isSuccess;
     }
 
-    //修改
-    @Transactional(rollbackFor={Exception.class})
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean updateUser(User user) {
         boolean isSuccess = false;
         user.setUpdateTime(DateUtil.getDate());
-        userDao.updateUser(user);
+        this.userDao.updateUser(user);
         isSuccess = true;
         return isSuccess;
     }
 
-    //删除
-    @Transactional(rollbackFor={Exception.class})
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean delUser(String geNumber) {
         boolean isSuccess = false;
-        userDao.delUser(geNumber,DateUtil.getDate());
+        this.userDao.delUser(geNumber, DateUtil.getDate());
         isSuccess = true;
         return isSuccess;
     }
 
-    //修改密码
-    @Transactional(rollbackFor={Exception.class})
-    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean updatePassword(String geNumber, String password, String newPassword) {
         boolean isSuccess = false;
-        String str = userDao.findByGeNumber(geNumber).getPassword();
-        if(str.equals(password)){
-            userDao.updatePassword(newPassword,geNumber,DateUtil.getDate());
+        String str = this.userDao.findByGeNumber(geNumber).getPassword();
+        if (str.equals(password)) {
+            this.userDao.updatePassword(newPassword, geNumber, DateUtil.getDate());
             isSuccess = true;
         }
+
         return isSuccess;
     }
-    //批准申请
-    @Transactional(rollbackFor={Exception.class})
-    @Override
+
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean lockUser(int[] arr) {
         boolean isSuccess = false;
-        for (int id:arr) {
-            userDao.lockUser(id,DateUtil.getDate());
+        int[] var3 = arr;
+        int var4 = arr.length;
+
+        for(int var5 = 0; var5 < var4; ++var5) {
+            int id = var3[var5];
+            this.userDao.lockUser(id, DateUtil.getDate());
         }
+
         isSuccess = true;
         return isSuccess;
     }
 
-    //退回申请
-    @Transactional(rollbackFor={Exception.class})
-    @Override
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean clearUser(int[] arr) {
         boolean isSuccess = false;
-        for (int id:arr) {
-            userDao.clearUser(id,DateUtil.getDate());
+        int[] var3 = arr;
+        int var4 = arr.length;
+
+        for(int var5 = 0; var5 < var4; ++var5) {
+            int id = var3[var5];
+            this.userDao.clearUser(id, DateUtil.getDate());
         }
+
         isSuccess = true;
         return isSuccess;
     }
 
-    //查询书籍列表
     public PageInfo<Inform> pageInform(Inform inform, Integer pageNum, Integer pageSize) {
         System.out.println(inform.getTitle());
         PageInfo<Inform> page = null;
         PageHelper.startPage(pageNum, pageSize);
-        List<Inform> iList = userDao.listInform(inform);
-        page = new PageInfo<Inform>(iList);
+        List<Inform> iList = this.userDao.listInform(inform);
+        page = new PageInfo(iList);
         return page;
     }
 
-    @Override
     public Inform getInformById(int id) {
-        return userDao.getInformById(id);
+        return this.userDao.getInformById(id);
     }
 
-    //删除
-    @Transactional(rollbackFor={Exception.class})
+    @Transactional(
+            rollbackFor = {Exception.class}
+    )
     public boolean delInform(int id) {
         boolean isSuccess = false;
-        userDao.deleteInform(id,DateUtil.getDate());
+        this.userDao.deleteInform(id, DateUtil.getDate());
         isSuccess = true;
         return isSuccess;
     }
 
-    @Override
-    public List<User> getUserList() {
-        return userDao.getUserList();
+    public User getUserByGrNumber(String geNumber) {
+        return this.userDao.getUserById(geNumber);
     }
 
-    @Override
+    public List<User> getUserList() {
+        return this.userDao.getUserList();
+    }
+
     public List<Record> getRecordByTime(String begin, String end, String userState) {
-        return userDao.getRecordByTime(begin,end,userState);
+        return this.userDao.getRecordByTime(begin, end, userState);
     }
 }

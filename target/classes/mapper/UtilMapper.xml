@@ -20,6 +20,7 @@
                 and a.ipNumber LIKE #{ipNumber}
             </if>
         </where>
+        order by a.begintime DESC
     </select>
 
     <insert id="addAccess" parameterType="AccessRecord">
@@ -37,5 +38,19 @@
         select *
         from accessrecord
         where sessionId = #{sessionId}
+    </select>
+
+    <select id="listMoney" parameterType="MoneyRecord" resultType="MoneyRecord">
+        select *
+        from moneyrecord m
+        <where>
+            <if test="moneyTime!=null and moneyTime!=''">
+                m.moneyTime >= #{moneyTime}
+            </if>
+            <if test="geNumber!=null and geNumber!=''">
+                and m.geNumber LIKE #{geNumber}
+            </if>
+        </where>
+        order by m.moneyTime desc
     </select>
 </mapper>
