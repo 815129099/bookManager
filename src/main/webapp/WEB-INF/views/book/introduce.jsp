@@ -45,11 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</tr>
 							<tr>
 								<td>系统制作</td>
-								<td>厦门金鹭特种合金有限公司</td>
+								<td>XXX</td>
 							</tr>
 							<tr>
 								<td>负责人</td>
-								<td>刘文祥</td>
+								<td>XXX</td>
 							</tr>
 							</tbody>
 						</table>
