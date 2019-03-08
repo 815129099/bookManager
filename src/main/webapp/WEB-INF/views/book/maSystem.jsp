@@ -171,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 中部结束 -->
     <!-- 底部开始 -->
     <div class="footer">
-        <div class="copyright" style="text-align: center">@厦门金鹭特种合金有限公司 2019</div>
+        <div class="copyright" style="text-align: center"></div>
     </div>
     <!-- 底部结束 -->
      <script type="text/javascript" src="style/js/jquery.1.10.1.min.js"></script>
